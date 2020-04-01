@@ -1,0 +1,2319 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 30px;
+  font-family: sans-serif;
+  }
+
+
+.tree {font-size: 20px;margin-bottom: 70px}
+
+.tree input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  }
+
+.tree input ~ ul { display: none; }
+
+
+
+/* ————————————————————–
+  Tree rows
+*/
+.tree li {
+  line-height: 1.2;
+  position: relative;
+  padding: 0 0 1em 1em;
+  list-style-type: none;
+  }
+
+.tree ul li { padding: 1em 0 0 1em; }
+
+.tree > li:last-child { padding-bottom: 0; }
+
+/* ————————————————————–
+  Tree labels
+*/
+.tree_label {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  }
+
+label.tree_label { cursor: pointer; }
+
+label.tree_label:hover { color: #666; }
+
+/* ————————————————————–
+  Tree expanded icon
+*/
+label.tree_label:before {
+  background: #000;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin: 0 1em 0 -2em;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  content: '+';
+  text-align: center;
+  line-height: .9em;
+  }
+#expa:before, #coll:before{
+  width:17px;
+  height:17px;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  position: relative;
+  border-radius: 1em;
+  content: '+';
+  text-align: center;
+  line-height: .9em;
+}
+#coll:before{content:'-';}
+:checked ~ label.tree_label:before { content: '–'; }
+
+/* ————————————————————–
+  Tree branches
+*/
+.tree li:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -.5em;
+  display: block;
+  width: 0;
+  border-left: 1px solid #777;
+  content: "";
+  }
+
+.tree_label:after {
+  position: absolute;
+  top: 0;
+  left: -1.5em;
+  display: block;
+  height: 0.5em;
+  width: 1em;
+  border-bottom: 1px solid #777;
+  border-left: 1px solid #777;
+  content: '';
+  }
+
+label.tree_label:after { border-bottom: 0; }
+
+:checked ~ label.tree_label:after {
+  border-radius: 0 .3em 0 0;
+  border-top: 1px solid #777;
+  border-right: 1px solid #777;
+  border-bottom: 0;
+  border-left: 0;
+  bottom: 0;
+  top: 0.5em;
+  height: auto;
+  }
+
+.tree li:last-child:before {
+  height: 1em;
+  bottom: auto;
+  }
+
+.tree > li:last-child:before { display: none; }
+
+.tree_custom {
+  display: block;
+  background: #eee;
+  padding: 1em;
+}
+
+.tree input:checked ~ ul { display: block; }
+.wrap{width:100%;position: relative;}
+.wrap iframe{ margin: 50px auto;display: block;}
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+  width:100%;
+}
+.alert{width:450px;border:2px solid black;background:yellow;text-align: center;margin:30px auto;padding:15px;}
+</style>
+<div class="wrap">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2dy8zyENniw?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="alert" style="text-align: left;"><li style="margin: 10px 0;">Bạn click <span id="expa"></span> để mở rộng, <span id="coll"></span> để thu gọn nội dung nhé.<li>Di chuyển con trỏ chuột vào từ mới để nghe.</li></div>
+</div>
+<!-- ===================== Tuần 1 ======================== -->
+<div class="grid-container">
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 1</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(n) belongings</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n) luggage</label>
+        <ul>
+          <li><span class="tree_label">(n - US) baggage</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) merchandise</span></li>   
+      </li>
+      <li>
+        <li><span class="tree_label">(n) mayor</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(adj, n) major</label>
+        <ul>
+          <li><span class="tree_label">(n) majority</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) manner</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(adj) satisfied</label>
+        <ul>
+          <li><span class="tree_label">(n) satisfaction</span></li>
+          <li><span class="tree_label">(adj) satisfactory</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) examine</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(n) exam</label>
+            <ul>
+              <li><span class="tree_label">(n) examination</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 2</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) participate</label>
+        <ul>
+          <li><span class="tree_label">(phrase) participate in</span></li>
+          <li><span class="tree_label">(phrase) take part in</span></li>
+          <li><span class="tree_label">(n) participant</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) in advance</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) patron</label>
+        <ul>
+          <li><span class="tree_label">(v) patronize</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) consumer</label>
+        <ul>
+          <li><span class="tree_label">(n) customer</span></li>
+          <li><span class="tree_label">(v) consume</span></li>
+          <li><span class="tree_label">(n) consumption</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) priority</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) mutually</label>
+        <ul>
+          <li><span class="tree_label">(adj) mutual</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) mentally</label>
+        <ul>
+          <li><span class="tree_label">(adj) mental</span></li>
+          <li><span class="tree_label">(n) mentalism</span></li>
+          <li><span class="tree_label">(n) mentality</span></li>
+          <li><span class="tree_label">(n) mentalist</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(adv) abruptly</span></li>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 3</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) estimate</label>
+        <ul>
+          <li><span class="tree_label">(n, v) overestimate</span></li>
+          <li><span class="tree_label">(n, v) underestimate</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) approximate</label>
+        <ul>
+          <li><span class="tree_label">(adj) proximate</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) ample</label>
+        <ul>
+          <li><span class="tree_label">(n) amplitude</span></li>
+          <li><span class="tree_label">(n) amplifier</span></li>
+          <li><span class="tree_label">(v) amplify</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) classification</label>
+        <ul>
+          <li><span class="tree_label">(v) classify</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) exclusive</label>
+        <ul>
+          <li><span class="tree_label">(n) exclusion</span></li>
+          <li><span class="tree_label">(v) exclude</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) concentration</label>
+        <ul>
+          <li><span class="tree_label">(v) concentrate</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) compliance</label>
+        <ul>
+          <li><span class="tree_label">(v) comply</span></li>
+          <li><span class="tree_label">(adj) compliant</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 4</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) hastily</label>
+        <ul>
+          <li><span class="tree_label">(n) haste</span></li>
+          <li><span class="tree_label">(adj) hasty</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(conjunction) provided that</label>
+        <ul>
+          <li><span class="tree_label">(conjunction) as long as</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(phrase) go into effect</label>
+        <ul>
+          <li><span class="tree_label">(phrase) come into effect</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(phrase) On the contrary</label>
+        <ul>
+          <li><span class="tree_label">(adj, n) contrary</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) On the whole</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) convey</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(n) conveyor</label>
+            <ul>
+              <li><span class="tree_label">(n-phrase) conveyor belt</span></li>
+            </ul>
+          </li>
+          <li><span class="tree_label">(n) conveyance</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) sincere</label>
+        <ul>
+          <li><span class="tree_label">(n) sincerity</span></li>
+          <li><span class="tree_label">(adv) sincerely</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) accommodate</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 5</label>
+    <ul>
+      <li><span class="tree_label">(n) automobile</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) gratitude</label>
+        <ul>
+          <li><span class="tree_label">(adj) grateful</span></li>
+          <li><span class="tree_label">(adj) ungrateful</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) commemorative</label>
+        <ul>
+          <li><span class="tree_label">(v) commemorate</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adj) domestic</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) correspond</label>
+        <ul>
+          <li><span class="tree_label">(n) correspondent</span></li>
+          <li><span class="tree_label">(n) correspondence</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) predict</label>
+        <ul>
+          <li><span class="tree_label">(n) prediction</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) adverse</label>
+        <ul>
+          <li><span class="tree_label">(n) adversity</span></li>
+          <li><span class="tree_label">(n) adversary</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 6</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) ancient</label>
+        <ul>       
+          <li><span class="tree_label">(synonym, adj, n) antique</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) accent</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) altitude</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) attitude</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) attach</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) attack</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) comment</label>
+        <ul>
+          <li><span class="tree_label">(idiom) No comment</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) commend</label>
+        <ul>
+          <li><span class="tree_label">(n) commendation</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) commence</label>
+        <ul>
+          <li><span class="tree_label">(n) commencement</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 7</label>
+    <ul>          
+      <li><span class="tree_label">(adj) eligible</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) caution</label>
+        <ul>
+          <li><span class="tree_label">(adj) cautious</span></li>
+          <li><span class="tree_label">(adj) precaution</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) as well as</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) influence</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) fluent</label>
+        <ul>
+          <li><span class="tree_label">(n) fluency</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) affordable</label>
+        <ul>
+          <li><span class="tree_label">(v) afford</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) expense</label>
+        <ul>
+          <li><span class="tree_label">(adj) expensive</span></li>
+          <li><span class="tree_label">(v) expend</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) extend</label>
+        <ul>
+          <li><span class="tree_label">(n) extension</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 2 ====================== -->
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 8</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(n) religion</span></li>   
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) region</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(idiom) somewhere in the region of</label>
+            <ul>
+              <li><span class="tree_label">(adv) approximately</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n) accommodation</label>
+        <ul>
+          <li><span class="tree_label">(v) accommodate</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) accompany</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(v) accumulate</label>
+        <ul>
+          <li><span class="tree_label">(n) accumulator</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(adj) accurate</label>
+        <ul>
+          <li><span class="tree_label">(n) accuracy</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 9</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(adj) momentary</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) temporary</label>
+        <ul>
+          <li><span class="tree_label">(adj, antonym) permanent</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) temperature</label>
+        <ul>
+          <li><span class="tree_label">(be) running a temperature</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) promotion</label>
+        <ul>         
+          <li><span class="tree_label">(v) promote</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) procedure</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 10</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(phrase) instead of</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(phrase) in spite of</label>
+        <ul>
+          <li><span class="tree_label">(preposition) despite</span></li>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(conjunction, adv) though</label>
+            <ul>
+              <li><span class="tree_label">(conjunction) although</span></li>
+              <li><span class="tree_label">(conjunction) even though</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) in addition to</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) because of</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(phrase) due to</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(phrase) be used to</label>
+        <ul>
+          <li><span class="tree_label">(phrase) get used to</span></li>
+          <li><span class="tree_label">(phrase) used to</span></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 11</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) excellent</label>
+        <ul>
+          <li><span class="tree_label">(n) excellence</span></li>
+          <li><span class="tree_label">(v) excel + in/at</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) complement</label>
+        <ul>
+          <li><span class="tree_label">(adj) complementary</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) compliment</label>
+        <ul>
+          <li><span class="tree_label">(adj) complimentary</span></li>
+          <li><span class="tree_label">(syn, v) commend</span></li>
+          <li><span class="tree_label">(syn, n, v) praise</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) quantity</label>
+        <ul>
+          <li><span class="tree_label">(v) quantify</span></li>
+          <li><span class="tree_label">(n, grammar) quantifiers</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) quality</label>
+        <ul>
+          <li><span class="tree_label">(v) qualify</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 12</label>
+    <ul>
+      <li><span class="tree_label">(n, v) appeal</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) appear</label>
+        <ul>
+          <li><span class="tree_label">(antonym, v) disappear</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) amaze</label>
+        <ul>
+          <li><span class="tree_label">(adj) amazing</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) amuse</label>
+        <ul>
+          <li><span class="tree_label">(adj) amusing</span></li>
+          <li><span class="tree_label">(n) amusement</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) pollution</label>
+        <ul>
+          <li><span class="tree_label">(v) pollute</span></li>
+          <li><span class="tree_label">(adj) polluted</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) population</label>
+        <ul>
+          <li><span class="tree_label">(v) populate</span></li>
+          <li><span class="tree_label">(adj) popular</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 13</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(n, v) attempt</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) attend</label>
+        <ul>       
+          <li><span class="tree_label">(synonym) accompany</span></li>
+          <li><span class="tree_label">(synonym) be present at</span></li>
+          <li><span class="tree_label">(n) attendee</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) intend</label>
+        <ul>
+          <li><span class="tree_label">(n) intention</span></li>
+          <li><span class="tree_label">(adj) intentional</span></li>
+          <li><span class="tree_label">(phrase) intend to do something</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) absent</label>
+        <ul>
+          <li><span class="tree_label">(n) absence</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) inform</label>
+        <ul>
+          <li><span class="tree_label">(n) information</span></li>
+          <li><span class="tree_label">(n) informer</span></li>
+          <li><span class="tree_label">(n) informant</span></li>
+          <li><span class="tree_label">(adj) informative</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) announce</label>
+        <ul>
+          <li><span class="tree_label">(n) announcement</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 14</label>
+    <ul>          
+      <li><span class="tree_label">(adv) Therefore</span></li>
+      <li><span class="tree_label">(adv) However</span></li>
+      <li><span class="tree_label">(adv) Nevertheless</span></li>
+      <li><span class="tree_label">(adv) Nonetheless</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) Moreover</label>
+        <ul>
+          <li><span class="tree_label">(phrase) In addition to</span></li>
+          <li><span class="tree_label">(adv) Furthermore</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) Meanwhile</label>
+        <ul>
+          <li><span class="tree_label">(conjunction) while</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 3 ====================== -->
+
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 15</label>
+    <ul>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n) sequence</label>
+        <ul>
+          <li><span class="tree_label">(adj) sequent</span></li>
+          <li><span class="tree_label">(adj) sequential</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) consequence</label>
+        <ul>
+          <li><span class="tree_label">(idiom) in consequence (of something)</span></li>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(adv) consequently</label>
+            <ul>
+              <li><span class="tree_label">(adv) therefore</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n) accommodation</label>
+        <ul>
+          <li><span class="tree_label">(v) accommodate</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(adj, n) regular</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n, adj) regulation</label>
+        <ul>
+          <li><span class="tree_label">(v) regulate</span></li>
+          <li><span class="tree_label">(v) regularize</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(n) message</label>
+        <ul>
+          <li><span class="tree_label">(idiom) get the message</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n, v) massage</span></li>   
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 16</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(v) deserve</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) desert</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) dessert</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(adj) several</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) severe</label>
+        <ul>
+          <li><span class="tree_label">(n) severity</span></li>
+          <li><span class="tree_label">(adj) very serius</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) serene</label>
+        <ul>
+          <li><span class="tree_label">(n) serenity</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 17</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n-phrase) real estate agent</label>
+        <ul>
+          <li><span class="tree_label">(n) estate</span></li>
+          <li><span class="tree_label">(n) agent</span></li>
+          <li><span class="tree_label">(n) agency</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n) human resources</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) social</label>
+        <ul>
+          
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(adj) sociable</label>
+            <ul>
+              <li><span class="tree_label">(n) sociability</span></li>
+              <li><span class="tree_label">(adj) unsociable</span></li>
+            </ul>
+          </li>
+          <li><span class="tree_label">(n) society</span></li>
+          <li><span class="tree_label">(v) socialize</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) specific</label>
+        <ul>
+          <li><span class="tree_label">(n) specification</span></li>
+          <li><span class="tree_label">(v) specify</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 18</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) special</label>
+        <ul>
+          <li><span class="tree_label">(n) specialist</span></li>
+          <li><span class="tree_label">(v) specialize</span></li>
+          <li><span class="tree_label">(adv) specially</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adv) especially</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) particular</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(idiom) in particular</label>
+            <ul>
+              <li><span class="tree_label">(adv) especially</span></li>
+              <li><span class="tree_label">(adj) special</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adj) peculiar</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 19</label>
+    <ul>
+      <li><span class="tree_label">(v) take place</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) compete</label>
+        <ul>
+          <li><span class="tree_label">(n) competition</span></li>
+          <li><span class="tree_label">(adj) competitive</span></li>
+          <li><span class="tree_label">(n) competitor</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) competent</label>
+        <ul>
+          <li><span class="tree_label">(adj) incompetent</span></li>
+          <li><span class="tree_label">(n) competence</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) experience</span></li>
+      <li><span class="tree_label">(n, v) experiment</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 20</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) occur</label>
+        <ul>       
+          <li><span class="tree_label">(n) occurrence</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) produce</label>
+        <ul>
+          <li><span class="tree_label">(meaning) obtained through farming</span></li>
+          <li><span class="tree_label">(n) producer</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) product</label>
+        <ul>
+          <li><span class="tree_label">(meaning) produced by an industrial process</span></li>
+          <li><span class="tree_label">(n) production</span></li>
+          <li><span class="tree_label">(n) productivity</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) provide</span></li>
+      <li><span class="tree_label">(n, v) supply</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 21</label>
+    <ul>  
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) warranty</label>
+        <ul>
+          <li><span class="tree_label">(n) warrant</span></li>
+        </ul>
+      </li>        
+      <li><span class="tree_label">(n, v) guarantee</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) assurance</label>
+        <ul>
+          <li><span class="tree_label">(v) assure</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) insurance</label>
+        <ul>
+          <li><span class="tree_label">(v) insure</span></li>
+          <li><span class="tree_label">(phrasal verb) insure against sth</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) ensure</span></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 4 ====================== -->
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 22</label>
+    <ul>
+      <li><span class="tree_label">(preposition) According to</span></li>
+      <li><span class="tree_label">(conjunction) in order to</span></li>
+      <li><span class="tree_label">(phrase) in place of</span></li>
+      <li><span class="tree_label">(phrase) by means of</span></li>
+      <li><span class="tree_label">(idiom) In accordance with</span></li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 23</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) consult</label>
+        <ul>
+          <li><span class="tree_label">(n) consultant</span></li>
+          <li><span class="tree_label">(n) consultancy</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) compensation</label>
+        <ul>
+          <li><span class="tree_label">(v) compensate</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) maintenance</label>
+        <ul>
+          <li><span class="tree_label">(v) maintain</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) preservation</label>
+        <ul>
+          <li><span class="tree_label">(v) preserve</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) conservation</label>
+        <ul>
+          <li><span class="tree_label">(v) conserve</span></li>
+          <li><span class="tree_label">(n) conservatory</span></li>
+          <li><span class="tree_label">(adj) conservative</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 24</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) recruit</label>
+        <ul>
+          <li><span class="tree_label">(n) recruitment</span></li>
+          <li><span class="tree_label">(n) recruiter</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) employ</label>
+        <ul>
+          <li><span class="tree_label">(n) employee</span></li>
+          <li><span class="tree_label">(n) employer</span></li>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(n) employment</label>
+            <ul>
+              <li><span class="tree_label">(phrase) be in employment</span></li>
+              <li><span class="tree_label">(n) unemployment</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) applicant</label>
+        <ul>
+          <li><span class="tree_label">(v) apply</span></li>
+          <li><span class="tree_label">(n) application</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) appliance</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) candidate</label>
+        <ul>
+          <li><span class="tree_label">(n) candidacy</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) interviewee</label>
+        <ul>
+          <li><span class="tree_label">(n, v) interview</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 25</label>
+    <ul>
+      <li><span class="tree_label">(v) hire</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) rent</label>
+        <ul>
+          <li><span class="tree_label">(idiom) for rent</span></li>
+          <li><span class="tree_label">(n) rental</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) lease</label>
+        <ul>
+          <li><span class="tree_label">(n, v) sublease</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) leave</label>
+        <ul>
+          <li><span class="tree_label">(n) permission</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) abandon</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 26</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) governor</label>
+        <ul>
+          <li><span class="tree_label">(n) government</span></li>
+          <li><span class="tree_label">(n) governance</span></li>
+          <li><span class="tree_label">(v) govern</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, adj) resident</label>
+        <ul>
+          <li><span class="tree_label">(adj) residential</span></li>
+          <li><span class="tree_label">(v) reside</span></li>
+          <li><span class="tree_label">(n) residence</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) citizen</label>
+        <ul>
+          <li><span class="tree_label">(n) citizenship</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) inspector</label>
+        <ul>
+          <li><span class="tree_label">(v) inspect</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) proctor</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) supervisor</label>
+        <ul>
+          <li><span class="tree_label">(adj) supervisory</span></li>
+          <li><span class="tree_label">(v) supervise</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 27</label>
+    <ul>
+      <li><span class="tree_label">(v) oversee</span></li>
+      <li><span class="tree_label">(n) colleague</span></li>
+      <li><span class="tree_label">(n) college</span></li>
+      <li><span class="tree_label">(phrase) in charge</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) headmaster</label>
+        <ul>       
+          <li><span class="tree_label">(syn) principal</span></li>
+          <li><span class="tree_label">(n) headmistress</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) term</label>
+        <ul>
+          <li><span class="tree_label">(n-s) terms</span></li>
+          <li><span class="tree_label">(idiom) in terms of</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) semester</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 28</label>
+    <ul>  
+      <li><span class="tree_label">(n) brochure</span></li>
+      <li><span class="tree_label">(n) agenda</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) curriculum</label>
+        <ul>
+          <li><span class="tree_label">(n) curriculum vitae</span></li>
+        </ul>
+      </li>        
+      <li><span class="tree_label">(n) itinerary</span></li>
+      <li><span class="tree_label">(n) journey</span></li>
+      <li><span class="tree_label">(n, v) voyage</span></li>
+    </ul>
+  </li>
+</ul>
+</div>
+<!-- ==================  Tuần 5 ====================== -->
+<div class="grid-container">
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 29</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) dispense</label>
+        <ul>
+          <li><span class="tree_label">(ph.v) dispense with formalities</span></li>
+          <li><span class="tree_label">(n) dispensary</span></li>
+          <li><span class="tree_label">(n) dispenser</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) deliver</label>
+        <ul>
+          <li><span class="tree_label">(n) delivery</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) allocate</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) distribute</label>
+        <ul>
+          <li><span class="tree_label">(n) distribution</span></li>
+          <li><span class="tree_label">(n) distributor</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) attribute</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) contribute</label>
+        <ul>
+          <li><span class="tree_label">(n) contributor</span></li>
+          <li><span class="tree_label">(n) contribution</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 30</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) revision</label>
+        <ul>
+          <li><span class="tree_label">(v) revise</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) division</label>
+        <ul>
+          <li><span class="tree_label">(v) divide</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) decision</label>
+        <ul>
+          <li><span class="tree_label">(v) decide</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) distinguish</label>
+        <ul>
+          <li><span class="tree_label">(adj) distinguished</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) extinguish</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 31</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj, v) complete</label>
+        <ul>
+          <li><span class="tree_label">(adv) completely</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) finish</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) achieve</label>
+        <ul>
+          <li><span class="tree_label">(n) achievement</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) archive</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) accomplish</label>
+        <ul>
+          <li><span class="tree_label">(n) accomplishment</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 32</label>
+    <ul>
+      <li><span class="tree_label">(v) attain</span></li>
+      <li><span class="tree_label">(v) obtain</span></li>
+      <li><span class="tree_label">(v, n) gain</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) acquire</label>
+        <ul>
+          <li><span class="tree_label">(n) acquisition</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) inquire</label>
+        <ul>
+          <li><span class="tree_label">(v) enquire</span></li>
+          <li><span class="tree_label">(ph.v) inquire after sb</span></li>
+          <li><span class="tree_label">(ph.v) inquire into sth</span></li>
+          <li><span class="tree_label">(n) inquiry</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 33</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) earnings</label>
+        <ul>
+          <li><span class="tree_label">(v) earn</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) salary</span></li>
+      <li><span class="tree_label">(n) wage</span></li>
+      <li><span class="tree_label">(n) income</span></li>
+      <li><span class="tree_label">(n) revenue</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 34</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) allowance</label>
+        <ul>       
+          <li><span class="tree_label">(v) allow</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) pension</span></li>
+      <li><span class="tree_label">(n, v) commission</span></li>
+      <li><span class="tree_label">(n) currency</span></li>
+      <li><span class="tree_label">(v) withdraw</span></li>
+      <li><span class="tree_label">(v, n) deposit</span></li>
+      <li><span class="tree_label">(n, v) exchange</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 35</label>
+    <ul>  
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) excite</label>
+        <ul>
+          <li><span class="tree_label">(adj) exited / exiting</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) irritate</label>
+        <ul>
+          <li><span class="tree_label">(adj) irritated</span></li>
+          <li><span class="tree_label">(adj) irritating</span></li>
+        </ul>
+      </li> 
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) stimulate</label>
+        <ul>
+          <li><span class="tree_label">(n) stimulant</span></li>
+        </ul>
+      </li>        
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) provoke</label>
+        <ul>
+          <li><span class="tree_label">(adj) provocative</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 6 ====================== -->
+
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 36</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) brave</label>
+        <ul>
+          <li><span class="tree_label">(n) bravery</span></li>
+          <li><span class="tree_label">(n) bravado</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) courage</label>
+        <ul>
+          <li><span class="tree_label">(adj) courageous</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) encourage</label>
+        <ul>
+          <li><span class="tree_label">(n) encouragement</span></li>
+          <li><span class="tree_label">(antonym) discourage </span></li>
+        </ul>
+      </li>
+
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) inspire</label>
+        <ul>
+          <li><span class="tree_label">(n) inspiration</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) motivate</label>
+        <ul>
+          <li><span class="tree_label">(n) motive</span></li>
+          <li><span class="tree_label">(n) motivation</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) incentive</label>
+        <ul>
+          <li><span class="tree_label">(syn) motivation</span></li>
+          <li><span class="tree_label">(v) incentivize</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 37</label>
+    <ul>
+      <li><span class="tree_label">(v) imply</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) involve</label>
+        <ul>
+          <li><span class="tree_label">(n) involvement</span></li>
+          <li><span class="tree_label">(adj) involved</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) implicate</label>
+        <ul>
+          <li><span class="tree_label">(n) implication</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) indicate</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) dedicate</label>
+        <ul>
+          <li><span class="tree_label">(adj) dedicated</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 38</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(ph.v) refer to</label>
+        <ul>
+          <li><span class="tree_label">(n) reference</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) mention</label>
+        <ul>
+          <li><span class="tree_label">(idiom) don't mention it</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) hint</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) suggest</label>
+        <ul>
+          <li><span class="tree_label">(syn) recommend</span></li>
+          <li><span class="tree_label">(syn) propose</span></li>
+          <li><span class="tree_label">(n) suggestion</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 39</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) organization</label>
+        <ul>
+          <li><span class="tree_label">(UK) organisation</span></li>
+          <li><span class="tree_label">(v) organize</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) institute</label>
+        <ul>
+          <li><span class="tree_label">(n) institution</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) constitute</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) collaborate</label>
+        <ul>
+          <li><span class="tree_label">(n) collaboration</span></li>
+          <li><span class="tree_label">(adj) collaborative</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) cooperate</label>
+        <ul>
+          <li><span class="tree_label">(syn) collaborate</span></li>
+          <li><span class="tree_label">(n) cooperation</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) corporate</label>
+        <ul>
+          <li><span class="tree_label">(n) corporation</span></li>
+          <li><span class="tree_label">(adj) incorporated</span></li>
+          <li><span class="tree_label">(v) incorporate</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 40</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v, adj) associate</label>
+        <ul>
+          <li><span class="tree_label">(n) association</span></li>
+          <li><span class="tree_label">(phrase) in association with</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, v) affiliate</label>
+        <ul>
+          <li><span class="tree_label">(n) affiliation</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) branch</label>
+        <ul>
+          <li><span class="tree_label">(idiom) branch out</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, adj) subsidiary</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 41</label>
+    <ul>
+      <li><span class="tree_label">(adj, v) clear</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) obvious</label>
+        <ul>       
+          <li><span class="tree_label">(adv) obviously</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adj) distinct</span></li>
+      <li><span class="tree_label">(adj) apparent</span></li>
+      <li><span class="tree_label">(adj) evident</span></li>
+      <li><span class="tree_label">(n) evidence</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 42</label>
+    <ul>  
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) refuse</label>
+        <ul>
+          <li><span class="tree_label">(n) refusal</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) reject</span></li>
+      <li><span class="tree_label">(v) decline</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) deny</label>
+        <ul>
+          <li><span class="tree_label">(n) denial</span></li>
+        </ul>
+      </li> 
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 7 ====================== -->
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 43</label>
+    <ul>
+      <li><span class="tree_label">(n, v) delay</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(ph.v) put off</label>
+        <ul>
+          <li><span class="tree_label">(ph.v) put someone off</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) postpone</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) defer</label>
+        <ul>
+          <li><span class="tree_label">(ph.v) defer to</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) adjourn</label>
+        <ul>
+          <li><span class="tree_label">(ph.v) adjourn to</span></li>
+          <li><span class="tree_label">(n) adjournment</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 44</label>
+    <ul>
+      <li><span class="tree_label">(v) dissolve</span></li>
+      <li><span class="tree_label">(v) melt</span></li>
+      <li><span class="tree_label">(ph.v) take in</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) absorb</label>
+        <ul>
+          <li><span class="tree_label">(syn) take in</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) sweaty</label>
+        <ul>
+          <li><span class="tree_label">(n, v) sweat</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adj, n) wet</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 45</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) soak</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(ph.v) soak up</label>
+            <ul>
+              <li><span class="tree_label">(syn) take in</span></li>
+              <li><span class="tree_label">(syn) absorb</span></li>
+            </ul>
+          </li>
+          <li><span class="tree_label">(adj) soaked/soaking</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) immerse</span></li>
+      <li><span class="tree_label">(adj) damp</span></li>
+      <li><span class="tree_label">(n) water vapour</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) humid</label>
+        <ul>
+          <li><span class="tree_label">(n) humidity</span></li>
+          <li><span class="tree_label">(n) relative humidity</span></li>
+          <li><span class="tree_label">(n) humidifier</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) moisture</label>
+        <ul>
+          <li><span class="tree_label">(adj) moist</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 46</label>
+    <ul>
+      <li><span class="tree_label">(n, v) consent</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) agreement</label>
+        <ul>
+          <li><span class="tree_label">(n, antonym) disagreement</span></li>
+          <li><span class="tree_label">(v) agree</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) argument</label>
+        <ul>
+          <li><span class="tree_label">(v) argue</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) contract</span></li>
+      <li><span class="tree_label">(n, v) compromise</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 47</label>
+    <ul>
+      <li><span class="tree_label">(n, v) access</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n, adj) excess</label>
+        <ul>
+          <li><span class="tree_label">(v) exceed</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) assess</label>
+        <ul>
+          <li><span class="tree_label">(n) assessment</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n) asset</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 48</label>
+    <ul>
+      
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) reinforce</label>
+        <ul>       
+          <li><span class="tree_label">(n) reinforcement</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) strengthen</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) intensify</label>
+        <ul>       
+          <li><span class="tree_label">(adj) intense</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(v) heighten</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) enhance</label>
+        <ul>       
+          <li><span class="tree_label">(n) enhancement</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(n, v) boost</span></li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 49</label>
+    <ul> 
+      <li><span class="tree_label">(v) raise</span></li> 
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) rise</label>
+        <ul>
+          <li><span class="tree_label">(v-ed) rose</span></li>
+          <li><span class="tree_label">(pp) risen</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) arise</label>
+        <ul>
+          <li><span class="tree_label">(v-ed) arose</span></li>
+          <li><span class="tree_label">(pp) arisen</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) growth</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(v) grow</label>
+            <ul>
+              <li><span class="tree_label">(v-ed) grew</span></li>
+              <li><span class="tree_label">(pp) grown</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v, n) increase</label>
+        <ul>
+          <li><span class="tree_label">(v, n) decrease</span></li>
+        </ul>
+      </li> 
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) proliferate</label>
+        <ul>
+          <li><span class="tree_label">(syn) multiply</span></li>
+          <li><span class="tree_label">(n) proliferation</span></li>
+        </ul>
+      </li> 
+    </ul>
+  </li>
+</ul>
+
+<!-- ==================  Tuần 8 ====================== -->
+<ul class="tree grid-item">
+  <li>
+    <input type="checkbox"/>
+    <label class="tree_label day">Ngày 50</label>
+    <ul>
+      <li>
+        <li><span class="tree_label">(adj) prominent</span></li>   
+      </li>
+      <li>
+        <li><span class="tree_label">(adj) outstanding</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(adj) remarkable</label>
+        <ul>
+          <li><span class="tree_label">(n, v) remark</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n, v) highlight</span></li>   
+      </li>
+      <li>
+        <input type="checkbox"/>
+        <label class="tree_label">(adj) significant</label>
+        <ul>
+          <li><span class="tree_label">(n) significance</span></li>
+        </ul>  
+      </li>
+    </ul>
+  </li>
+  
+  
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 51</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) dusty</label>
+        <ul>
+          <li><span class="tree_label">(n, v) dust</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adj) dirty</span></li>
+      <li><span class="tree_label">(adj, n) chief</span></li>
+      <li><span class="tree_label">(n) chef</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v, n) praise</label>
+        <ul>
+          <li><span class="tree_label">(syn) commend</span></li>
+          <li><span class="tree_label">(syn) commendation</span></li>
+          <li><span class="tree_label">(syn) compliment</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n, v) acclaim</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) applause</label>
+        <ul>
+          <li><span class="tree_label">(phrase) a round of applause</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 52</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) criticize</label>
+        <ul>
+          <li><span class="tree_label">(n) criticism</span></li>
+          <li><span class="tree_label">(n, v) critique</span></li>
+          <li><span class="tree_label">(adj) critical</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) offend</label>
+        <ul>
+          <li><span class="tree_label">(adj) offended</span></li>
+          <li><span class="tree_label">(adj, n) offensive</span></li>
+          <li><span class="tree_label">(n) offence/offense</span></li>
+          <li><span class="tree_label">(idiom) no offence</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(n, v) insult</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) humiliate</span></li>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 53</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) immediately</label>
+        <ul>
+          <li>
+            <input type="checkbox" />
+            <label class="tree_label">(synonym) at once</label>
+            <ul>
+              <li><span class="tree_label">(meaning) at the same time</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) instant</label>
+        <ul>
+          <li><span class="tree_label">(adv) instantly</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(adj) urgent</span></li>
+      </li>
+      <li>
+        <li><span class="tree_label">(n, adj) emergency</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adv) promptly</label>
+        <ul>
+          <li><span class="tree_label">(adj, v, n) prompt</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 54</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) suitable</label>
+        <ul>       
+          <li><span class="tree_label">(n) suitability</span></li>
+          <li><span class="tree_label">(n) suit</span></li>
+        </ul>
+      </li>
+      <li><span class="tree_label">(adv) accordingly</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) fit</label>
+        <ul>
+          <li><span class="tree_label">(phrase) fit like a glove</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(adj) adaptable</label>
+        <ul>
+          <li><span class="tree_label">(v) adapt</span></li>
+          <li><span class="tree_label">(n) adapter</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 55</label>
+    <ul>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) recognize</label>
+        <ul>       
+          <li><span class="tree_label">(n) recognition</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) acknowledge</label>
+        <ul>
+          <li><span class="tree_label">(n-s) acknowledgments</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) affect</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) effect</label>
+        <ul>
+          <li><span class="tree_label">(phrase) go into effect</span></li>
+          <li><span class="tree_label">(phrase) come into effect</span></li>
+          <li><span class="tree_label">(adj) effective</span></li>
+          <li><span class="tree_label">(n) effectiveness</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(n) effort</label>
+        <ul>
+          <li><span class="tree_label">(adj) effortless</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <input type="checkbox" />
+    <label class="tree_label day">Ngày 56</label>
+    <ul>          
+      <li><span class="tree_label">(v) clarify</span></li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) demonstrate</label>
+        <ul>
+          <li><span class="tree_label">(n) demonstration</span></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) interpret</label>
+        <ul>
+          <li><span class="tree_label">(n) interpreter</span></li>
+        </ul>
+      </li>
+      <li>
+        <li><span class="tree_label">(v) elaborate</span></li>
+      </li>
+      <li>
+        <input type="checkbox" />
+        <label class="tree_label">(v) evaluate</label>
+        <ul>
+          <li><span class="tree_label">(synonym) assess</span></li>
+          <li><span class="tree_label">(n) evaluation</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+<script>
+var i = 0;
+$('input').each(function(){  
+    $(this).attr('id','c'+i);
+    $(this).parent().find('label').attr('for','c'+i);
+    i++;
+});
+$(".tree > li input").change(function() {
+    if(this.checked) {
+      $(this).parent().css('color','red');
+    }else{
+      $(this).parent().css('color','black');
+    }
+});
+$('.tree_label:not(.day)').each(function(){
+  var str = $(this).html();
+  var split = str.split(")")[0];
+  var res = str.split(") ")[1];
+  var after = res.replace(res,") <mark>"+res+"<mark>");
+  var text = split.concat(after);
+  //console.log(text);
+  $(this).html(text);
+});
+   
+$(document).ready(function(){
+  var flag = true;
+  $('mark').mouseover(function(){
+    var a = $(this).text();
+    timer = setTimeout(function(){
+      if(flag){
+        var msg = new SpeechSynthesisUtterance(a);
+      
+        msg.voice = speechSynthesis.getVoices().filter(function(voice) {
+          return voice.name == "Google UK English Male"
+        })[0];
+   
+        window.speechSynthesis.speak(msg); 
+      }    
+      flag = false;     
+    },1000);  
+  }).mouseleave(function() {
+    clearTimeout(timer);
+    flag = true;
+  });
+});
+
+</script>

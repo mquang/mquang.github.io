@@ -1,0 +1,205 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 166</h1>
+    <article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>  
+      <tr>     
+        <td>precisely</td>
+        <td>/prəˈsaɪs.li/</td>
+        <td>(adv) <b>exactly; used to emphasize the accuracy of what you are saying</b></td>
+        <td><li>We arrived at the hotel at precisely 10:30.<li>That's precisely what I meant.<li>The fireworks begin at eight o'clock precisely.<li>She’s <b>precisely</b> the kind of person we’re looking for.</li><div class="note"><li><b>(idiom) <dfn class="ol">more precisely</dfn>: used to show that you are giving more detailed and accurate information about something you have just mentioned</b></li></div><li>The problem is due to discipline, or, <b>more</b> precisely, the lack of discipline, in schools.</li></td>
+      </tr>
+      <tr>     
+        <td>railyard</td>
+        <td></td>
+        <td>(n) <b>an area having a network of railway tracks and sidings for storage and maintenance of cars and engines</b><br><a href="../images2\396.jpg"><img src="../images2\396.jpg" /></a></td>
+        <td></td>
+      </tr>
+      <tr>     
+        <td>donation</td>
+        <td>/doʊˈneɪ.ʃən/</td>
+        <td>(n) <b><select><option>lượng tiền</option><option>goods</option></select> từ việc ủng hộ, quyên góp; việc quyên góp, ủng hộ tiền</b><br>(money or goods that are given to a person or an organization in order to help them, or the act of giving them)<br><a href="../images2\395.jpg"><img src="../images2\395.jpg" /></a></td>
+        <td><li>Would you like to make a donation (=give money) to our charity <u title="a request to the public for money, information, or help (ngày 12)">appeal</u>?</li></td>
+      </tr>
+      <tr>     
+        <td>reflection</td>
+        <td>/rɪˈflek.ʃən/</td>
+        <td>(n) <b>ảnh phản chiếu</b> (an image that you can see in a mirror, glass, water or on any reflective surface)<br><a href="../images2\393.jpg"><img src="../images2\393.jpg" /></a></td>
+        <td><li>She was looking at her reflection in the mirror.</li></td>
+      </tr>
+      <tr>     
+        <td>slightly</td>
+        <td>/ˈslaɪt.li/</td>
+        <td>(adj) <b>1 chút</b> (a little)<br><a href="../images2\394.gif"><img src="../images2\394.gif" /></a></td>
+        <td><li>She's slightly taller than her sister.<li>January’s sales were slightly better than average.<li>He was someone I already knew slightly.</li><div class="note"><li><b>(adj) <dfn class="ol">slight</dfn>: small in amount or degree</b></li></div><li>a <b>slight</b> improvement<li>a <b>slight</b> change of plan<li>He's got a headache and a <b>slight</b> <dfn data-inf="(n) sốt">fever</dfn>.</li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  </div>
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    <div class="btn-contain">
+      <div class="btn-gradient-contain">
+      <a href="../Tuan24/1.REVIEW23.html" class="btn-gradient">
+        <span>Review 23</span>
+      </a>
+      </div>
+    </div>
+    <div class="dropdown-btn" id="w1">
+    <h3>Tuần 23
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan23/day155.html">Ngày 155</a></li>
+      </li><li><a href="../Tuan23/day156.html">Ngày 156</a></li>
+      </li><li><a href="../Tuan23/day157.html">Ngày 157</a></li>
+      </li><li><a href="../Tuan23/day158.html">Ngày 158</a></li>
+      </li><li><a href="../Tuan23/day159.html">Ngày 159</a></li>
+      </li><li><a href="../Tuan23/day160.html">Ngày 160</a></li>
+      </li><li><a href="../Tuan23/day161.html">Ngày 161</a></li>     
+    </div>
+  </div>
+  <div class="current">
+    <h3 class="text-center">Tuần 24</h3>
+    <div class="display">
+      <li><a href="day162.html">Ngày 162</a></li> 
+      <li><a href="day163.html">Ngày 163</a></li>         
+      <li><a href="day164.html">Ngày 164</a></li>
+      <li><a href="day165.html">Ngày 165</a></li>     
+      <li><a href="day167.html">Ngày 167</a></li>
+      <li><a href="day168.html">Ngày 168</a></li>      
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../libraries\mainextra.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "drop by (ngày 90)"
+      }, {
+        index: 1,
+        text: "carry on (ngày 107)"
+      }, {
+        index: 2,
+        text: "consequence (ngày 15)"
+      }, {
+        index: 3,
+        text: "voyage (ngày 28)"
+      }, {
+        index: 4,
+        text: "considerate (ngày 129)"
+      }, {
+        index: 5,
+        text: "intrude (ngày 151)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "to make a short visit somewhere, usually without a specific invitation"
+      }, {
+        index: 1,
+        text: "to continue doing something"
+      }, {
+        index: 2,
+        text: "a result of a particular action or situation, often one that is bad or not convenient"
+      }, {
+        index: 3,
+        text: "a long journey, especially by ship"
+      }, {
+        index: 4,
+        text: "always thinking of what other people need or want and being careful not to upset them"
+      }, {
+        index: 5,
+        text: "to interrupt someone or become involved in their private affairs, in an annoying and unwanted way"
+      },
+
+    ],
+    //this creates matches for indexes. This is a sort of an Answer Sheet
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>

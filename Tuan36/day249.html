@@ -1,0 +1,212 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../libraries\highlight.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 249</h1>
+    <article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>
+      <tr>     
+        <td>cellular</td>
+        <td>/ˈseljə.lɚ/</td>
+        <td>(adj) <b>di động</b> (connected with a phone system that works by radio instead of wires)<br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td><li>a cellular <select><option>device</option><option>phone</option><option>service</option><option>network</option><option>connection</option></select></li><div class="note"><li><b>(n) <dfn class="ol">cell tower</dfn>: tháp di động, trạm di động</b> (a structure with devices for sending and receiving mobile phone signals)<br><a href="../images4\414.jpg"><img src="../images4\414.jpg" /></a></li></div></td>
+      </tr>
+      <tr>     
+        <td>latency</td>
+        <td>/ˈleɪ.tən.si/</td>
+        <td>(n) <b>độ trễ</b><br>(computing) the delay before data begins to move after it has been sent an instruction to do so<br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td></td>
+      </tr>
+      <tr>     
+        <td>autonomous</td>
+        <td></td>
+        <td><br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>seamlessly</td>
+        <td>/ˈsiːm.ləs.li/</td>
+        <td>(adv) <b>liền mạch, mượt mà, trơn tru, không bị gián đoạn</b> (without any sudden changes, interruptions, or problems)<br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td><li>It's a children's film that seamlessly combines live action with computer-generated <dfn data-inf="(n-s) các sinh vật">creatures</dfn>.</li></td>
+      </tr>
+      <tr>     
+        <td>synchronization</td>
+        <td></td>
+        <td><br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>translate</td>
+        <td></td>
+        <td><br><a href="../images4\"><img src="../images4\" /></a></td>
+        <td><li></li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  </div>
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    <div class="btn-contain">
+      <div class="btn-gradient-contain">
+      <a href="../Tuan36/1.REVIEW35.html" class="btn-gradient">
+        <span>Review 35</span>
+      </a>
+      </div>
+    </div>
+  <div class="dropdown-btn" id="w1">
+    <h3>Tuần 35
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan35/day239.html">Ngày 239</a></li>
+      </li><li><a href="../Tuan35/day240.html">Ngày 240</a></li>
+      </li><li><a href="../Tuan35/day241.html">Ngày 241</a></li>
+      </li><li><a href="../Tuan35/day242.html">Ngày 242</a></li>
+      </li><li><a href="../Tuan35/day243.html">Ngày 243</a></li>
+      </li><li><a href="../Tuan35/day244.html">Ngày 244</a></li>
+      </li><li><a href="../Tuan35/day245.html">Ngày 245</a></li>     
+    </div>
+  </div>
+  <div class="current">
+    <h3 class="text-center">Tuần 36</h3>
+    <div class="display">
+      <li><a href="day246.html">Ngày 246</a></li>
+      <li><a href="day247.html">Ngày 247</a></li>
+      <li><a href="day248.html">Ngày 248</a></li>      
+           
+      <li><a href="day250.html">Ngày 250</a></li>               
+      <li><a href="day251.html">Ngày 251</a></li>                                   
+      <li><a href="day252.html">Ngày 252</a></li>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../libraries\mainextra.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "verdict (ngày 183)"
+      }, {
+        index: 1,
+        text: "rapidly (ngày 187)"
+      }, {
+        index: 2,
+        text: "superb (ngày 187)"
+      }, {
+        index: 3,
+        text: "conglomerate (ngày 148)"
+      }, {
+        index: 4,
+        text: "unveil (ngày 114)"
+      }, {
+        index: 5,
+        text: "premiere (ngày 159)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "someone’s opinion about something<br>VD: <i>What’s your ... on the movie?</i>"
+      }, {
+        index: 1,
+        text: "in a fast or sudden way<br>VD: <i>Boston has grown ... in the last ten years.</i>"
+      }, {
+        index: 2,
+        text: "of excellent quality; very great<br>VD: <i>The facilities at the hotel are quite ... .</i>"
+      }, {
+        index: 3,
+        text: "a very large company consisting of several smaller companies or divisions that supply varied products or services"
+      }, {
+        index: 4,
+        text: "to remove a cover or curtain from a painting, statue, etc. so that it can be seen in public for the first time"
+      }, {
+        index: 5,
+        text: "the first public performance of a film/movie or play"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>

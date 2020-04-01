@@ -1,0 +1,262 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 178</h1>
+    <article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>  
+      <tr>     
+        <td>annoy</td>
+        <td></td>
+        <td><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>lettuce</td>
+        <td>/ˈlet̬ɪs/</td>
+        <td>(n) <b>rau xà lách</b><br><a href="../images1\379.jpg"><img src="../images1\379.jpg" /></a></td>
+        <td><li>I'd like a ham sandwich on <dfn data-inf="(n) lúa mạch">rye</dfn>, <u title="ngày 68">hold</u> the lettuce.<li><u title="ngày 171">Tear</u> the lettuce leaves into small pieces.</li></td>
+      </tr>
+      <tr>     
+        <td>foot-long</td>
+        <td></td>
+        <td><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>toasted</td>
+        <td></td>
+        <td><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>Swiss</td>
+        <td>/swɪs/</td>
+        <td>(adj, n) <b>(thuộc) Thụy Sỹ, người Thụy Sỹ</b><br><li>belonging to or relating to Switzerland<li>a person from Switzerland</li><br><a href="../images1\377.jpg"><img src="../images1\377.jpg" /></a></td>
+        <td></td>
+      </tr>
+      <tr>     
+        <td>insightful</td>
+        <td>/ˈɪn.saɪt.fəl/</td>
+        <td><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>awkward</td>
+        <td></td>
+        <td><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>stingy</td>
+        <td>/ˈstɪn.dʒi/</td>
+        <td>(adj) <b>keo kiệt, bủn xỉn</b><br><a href="../images1\378.png"><img src="../images1\378.png" /></a></td>
+        <td><li>He's really stingy and never buys anyone a drink when we go out.<li>Don't be stingy.<li>He is the <b>stingiest</b> person I know.<li>They are rich, but they are terribly stingy.</li></td>
+      </tr>
+      <tr>     
+        <td>formula</td>
+        <td>/ˈfɔːr.mjə.lə/</td>
+        <td>(n) <b>công thức</b><br><a href="../images1\380.jpg"><img src="../images1\380.jpg" /></a></td>
+        <td><li>What's the formula for <dfn data-inf="(v) convert: chuyển đổi">converting</dfn> pounds into kilos?<li>We had to learn chemical formulas at school, but I can only remember H2O for water.<li>This formula is used to <dfn data-inf="(v) tính">calculate</dfn> the area of a circle.<li>What is their formula for success?</li></td>
+      </tr>
+      <tr>     
+        <td>nuts</td>
+        <td>/nʌts/</td>
+        <td>(adj) <b>crazy</b><br><a href="../images1\"><img src="../images1\" /></a></td>
+        <td><li>You're nuts!<li>Are you nuts?<li>Turn that radio off. It’s <u title="ngày 147">driving me nuts</u> (=annoying me very much).<li>You must be nuts to go climbing mountains in winter.</li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  </div>
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    <div class="btn-contain">
+      <div class="btn-gradient-contain">
+      <a href="../Tuan26/1.REVIEW25.html" class="btn-gradient">
+        <span>Review 25</span>
+      </a>
+      </div>
+    </div>
+    <div class="dropdown-btn" id="w1">
+    <h3>Tuần 23
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan23/day155.html">Ngày 155</a></li>
+      </li><li><a href="../Tuan23/day156.html">Ngày 156</a></li>
+      </li><li><a href="../Tuan23/day157.html">Ngày 157</a></li>
+      </li><li><a href="../Tuan23/day158.html">Ngày 158</a></li>
+      </li><li><a href="../Tuan23/day159.html">Ngày 159</a></li>
+      </li><li><a href="../Tuan23/day160.html">Ngày 160</a></li>
+      </li><li><a href="../Tuan23/day161.html">Ngày 161</a></li>     
+    </div>
+  </div>
+  <div class="dropdown-btn" id="w2">
+    <h3>Tuần 24
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan24/day162.html">Ngày 162</a></li>
+      </li><li><a href="../Tuan24/day163.html">Ngày 163</a></li>
+      </li><li><a href="../Tuan24/day164.html">Ngày 164</a></li>
+      </li><li><a href="../Tuan24/day165.html">Ngày 165</a></li>
+      </li><li><a href="../Tuan24/day166.html">Ngày 166</a></li>
+      </li><li><a href="../Tuan24/day167.html">Ngày 167</a></li>
+      </li><li><a href="../Tuan24/day168.html">Ngày 168</a></li>     
+    </div>
+  </div>
+  <div class="dropdown-btn" id="w3">
+    <h3>Tuần 25
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan25/day169.html">Ngày 169</a></li>
+      </li><li><a href="../Tuan25/day170.html">Ngày 170</a></li>
+      </li><li><a href="../Tuan25/day171.html">Ngày 171</a></li>
+      </li><li><a href="../Tuan25/day172.html">Ngày 172</a></li>
+      </li><li><a href="../Tuan25/day173.html">Ngày 173</a></li>
+      </li><li><a href="../Tuan25/day174.html">Ngày 174</a></li>
+      </li><li><a href="../Tuan25/day175.html">Ngày 175</a></li>     
+    </div>
+  </div>
+  <div class="current">
+    <h3 class="text-center">Tuần 26</h3>
+    <div class="display">
+      <li><a href="day176.html">Ngày 176</a></li> 
+      <li><a href="day177.html">Ngày 177</a></li>
+      <li><a href="day179.html">Ngày 179</a></li>         
+      <li><a href="day180.html">Ngày 180</a></li>          
+      <li><a href="day181.html">Ngày 181</a></li>
+      <li><a href="day182.html">Ngày 182</a></li>      
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../libraries\mainextra.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "mystery (ngày 124)"
+      }, {
+        index: 1,
+        text: "majestic (ngày 155)"
+      }, {
+        index: 2,
+        text: "consider (ngày 129)"
+      }, {
+        index: 3,
+        text: "voyage (ngày 28)"
+      }, {
+        index: 4,
+        text: "apart from (ngày 108)"
+      }, {
+        index: 5,
+        text: "residential (ngày 26)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "something that is difficult to understand or to explain"
+      }, {
+        index: 1,
+        text: "very big, impressive, or beautiful, causing great admiration and respect"
+      }, {
+        index: 2,
+        text: "to think of someone or something in a particular way or to have a particular opinion"
+      }, {
+        index: 3,
+        text: "a long journey, especially by ship"
+      }, {
+        index: 4,
+        text: "except for"
+      }, {
+        index: 5,
+        text: "of or relating to houses where people live rather than to places where they work"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>

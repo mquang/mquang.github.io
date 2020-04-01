@@ -1,0 +1,212 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "inventive (ngày 73)"
+      }, {
+        index: 1,
+        text: "incentive (ngày 36)"
+      }, {
+        index: 2,
+        text: "dedicate (ngày 37)"
+      }, {
+        index: 3,
+        text: "hectic (ngày 90)"
+      }, {
+        index: 4,
+        text: "defer (ngày 43)"
+      }, {
+        index: 5,
+        text: "predict (ngày 5)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "sáng tạo<br>VD: <i>Tom is ... .</i>"
+      }, {
+        index: 1,
+        text: "sự khích lệ, thúc đẩy<br>VD: <i>Awards provide an ... for young people to improve their skills.</i>"
+      }, {
+        index: 2,
+        text: "cống hiến, dâng hiến<br>VD: <i>He has ...ed his life to scientific research.</i>"
+      }, {
+        index: 3,
+        text: "bận rộn, tất bật<br>VD: <i>It was really ... at work today.</i>"
+      }, {
+        index: 4,
+        text: "hoãn lại<br>VD: <i>Because of my mother’s death, we will ... our vacation for a while.</i>"
+      }, {
+        index: 5,
+        text: "dự đoán<br>VD: <i>Earthquakes are extremely difficult to ... .</i>"
+      },
+
+    ],
+    //this creates matches for indexes. This is a sort of an Answer Sheet
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>
+
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 100</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>concern</td>
+        <td>/kənˈsɜːn/</td>
+        <td>(v)<br><b>1. ảnh hưởng, liên quan, dính líu đến</b> (to affect somebody/something; to involve somebody/something)<br><br><b>2. về việc, về vấn đề</b> (=is about)<br><br><b>3. làm lo lắng</b> (to cause worry to someone)<hr>(n) <b>mối băn khoăn, lo lắng, lo ngại</b></td>
+        <td>1.<br><li>I didn't go to the meeting because nothing on the <u title="ngày 28">agenda</u> seemed to concern me.<li>I'll answer any questions that specifically concern this week's homework.<li>Don't <dfn data-inf="(v) xen vào&#13;&#10;Interfering in other people's relationships&#13;&#10;is always a mistake.">interfere</dfn> in what doesn't concern you.<li>Please pay attention because this information concerns all of you.</li><br>2.<br><div class="alert alert-info"><b>= is about</b><br>(if a story, book, report etc concerns someone or something, it <b>is about</b> them)</div><li>The story concerns the <dfn data-inf="(n) hoàng tử">prince</dfn>'s efforts to <dfn data-inf="(v) giải cứu">rescue</dfn> Pamina.<li>The documentary concerns the eating habits of Britain's teenagers.<li>The report concerns the <dfn data-inf="(n) việc buôn lậu ma túy">drug traffic</dfn> on the Mexican–US <dfn data-inf="(n) biên giới">border</dfn>.</li><br>3.<br><li>What concerns me is our lack of preparation for the change.<li>His attitude concerns me.<li>Her illness concerned my parents.</li><br>(n)<br><li>The report raises serious concerns over safety at the <dfn data-inf="(n) nhà máy">plant</dfn>.<li>Don't <u title="ngần ngại (ngày 93)">hesitate</u> to ask if you have any questions or concerns.<li>The continuing <dfn data-inf="(n) hạn hán">drought</dfn> is causing concern among farmers.</li></td>
+      </tr>
+      <tr>
+        <td>transition</td>
+        <td>/trænˈzɪʃən/</td>
+        <td>(n, v) <b>(sự) chuyển đổi, chuyển tiếp</b><br>- the process or a period of changing from one state or condition to another<br>- to change or to make something change from one state or condition to another<br><img src="../images2\280.png" /><br><br><a href="../images2\281.gif"><img src="../images2\281.gif" /></a></td>
+        <td><li>the transition from school to full-time work<li>You need a better transition between the second and third <dfn data-inf="(n-s) đoạn văn">paragraphs</dfn>.<li>In order to transition from a meat-eater to a vegetarian, the woman gradually ate less chicken and beef but more vegetables.<li>The company was slow to make the transition from paper to computer.<li>The 51-year-old is currently <b>transitioning</b> from male to female.</li><div class="alert alert-info"><b>in transition: trong quá trình chuyển đổi</b> (in the process of changing)</div><li>This course is useful for students who are <b>in transition</b> (= in the process of changing) from one training programme to another.<li>The country is <b>in</b> transition from an <dfn data-inf="(adj) nông nghiệp">agricultural</dfn> to an <dfn data-inf="(adj) công nghiệp">industrial</dfn> <u title="ngày 17">society</u>.</li><a href="../images2\279.gif"><img src="../images2\279.gif" /></a></td>
+      </tr>
+      <tr>
+        <td>inventory</td>
+        <td>/ˈɪn.vən.tɔːr.i/</td>
+        <td>(n)<br><b>1. danh sách, bản kiểm kê hàng hóa</b><br><b>2. (US) kho</b></td>
+        <td>1.<br><li>Some of the things in the shop were not listed in the inventory.</li><div class="alert alert-info"><b>do/make/take an inventory</b></div><li>She <b>made</b> an inventory of everything in the apartment.<li>The store is closed while we’re <b>taking</b> inventory (= counting and listing all the goods).<li>We need to <b>take</b> a hardware inventory to <u title="ngày 3">estimate</u> the hardware upgrade costs.</li><br>2.<br><div class="alert alert-info">syn: <b>stock</b></div><li>The dealer keeps a large inventory of <dfn data-inf="(n) xe cũ, đã qua sử dụng">used cars and trucks</dfn>.<li>Our inventory of used cars is the best in town.</li></td>
+      </tr>
+      <tr>
+        <td>warehouse</td>
+        <td>/ˈweə.haʊs/ </td>
+        <td>(n) <b>kho chứa hàng</b> (a large building for storing things before they are sold, used, or sent out to shops)<br><a href="../images2\274.jpg"><img src="../images2\274.jpg" /></a></td>
+        <td><li>Textbooks are sent right from the warehouse to the schools.<li>The warehouse was completely destroyed by fire.<li>The building is currently being used as a warehouse.</li></td>
+      </tr> 
+      <tr>
+        <td>track</td>
+        <td>/træk/</td>
+        <td>(v) <b>theo dõi, truy vết</b><br>- to search for a person or animal by following the marks they leave behind them on the ground, their smell etc<br>- to record or study the behaviour or development of someone or something over time<br>- to follow the movements of an aircraft or ship by using radar<br><a href="../images2\277.gif"><img src="../images2\277.gif" /></a><hr>(n)<br><b>1. đường ray</b> (the pair of long metal bars fixed on the ground at an equal distance from each other, along which trains travel)<br><a href="../images2\278.jpg"><img src="../images2\278.jpg" /></a><br><br><b>2. dấu vết, dấu chân</b> (a mark or line of marks left on the ground or on another surface by an animal, person, or vehicle that has moved over it, showing the direction they moved in)</td>
+        <td><li>The military use radar <dfn data-inf="(n-s) các vệ tinh">satellites</dfn> to track targets through clouds.<li><dfn data-inf="(n-s) thợ săn">hunters</dfn> tracking and shooting bears<li>The progress of each student is tracked by computer.<li>The research project involves tracking the careers of 400 <u title="ngày 90">graduates</u>.<li>We continued tracking the plane on our radar.<li>When you <dfn data-inf="(v) lướt">surf</dfn> the web, you may be tracked by websites.</li><br>(n1)<br><li>The train ran off the tracks.</li><br>(n2)<br><li><dfn data-inf="(n) họ hươu nai">deer</dfn> tracks in the snow<li>The <u title="ngày 98">burglars</u> were careful not to leave any tracks behind them.<li>The hunters followed the tracks of the deer for hours.</li></td>
+      </tr>
+      <tr>
+        <td>substantially</td>
+        <td>/səbˈstæn.ʃəli/</td>
+        <td>(adv) <b>đáng kể, nhiều</b> (very much; a lot)</td>
+        <td><div class="alert alert-info"><b>significantly</b></div><li>The quality of their products has improved substantially over the last five years.<li>House prices have risen substantially over the last six months.<li>Their new house is substantially bigger than their previous one.</li><a href="../images2\276.gif"><img src="../images2\276.gif" /></a></td>
+      </tr>
+      <tr>
+        <td>regardless of</td>
+        <td></td>
+        <td>(phrase) <b>bất kể</b></td>
+        <td><li>We will continue the race, regardless of the weather.<li><b>Regardless of</b> what you think, I believe she's the best person for the job.<li><b>Regardless of</b> <i><b>whether</b></i> he is right <i><b>or</b></i> wrong, we have to <dfn data-inf="(ph.v) tuân theo, nghe theo">abide by</dfn> his decisions.<li><b>Regardless of</b> what you say, I'm still going to the club tonight.</li></td>
+      </tr> 
+      <tr>
+        <td>on-site</td>
+        <td>/ˌɑːnˈsaɪt/</td>
+        <td>(adj, adv) <b>at the place or on the area of land that you are talking about</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+
+  </table>
+</article>
+<div class="audio panel panel-primary">
+  <div class="panel-heading">Luyện nghe</div>
+  <div class="panel-body">
+    <audio controls>
+      <source src="../audio\d100.mp3" type="audio/mpeg">
+    </audio>
+      <button type="button" class="btn btn-primary">Hiển thị nội dung</button>
+<p>The first agenda item for this <u title="ngày 99">managers</u> meeting <mark>concerns</mark> the <mark>transition</mark> to our new <mark>inventory</mark> <mark>tracking</mark> software. The new version of the program is <mark>substantially</mark> different than the one we've been using. This software will <u title="ngày 34">allow</u> us to <mark>track</mark> every single item in our inventory, <mark>regardless of</mark> which <mark>warehouse</mark> it's <u title="ngày 62">located</u> in. This will <u title="(v) ngày 84">benefit</u> our <u title="ngày 2">customers</u> by reducing <u title="delivery time">the time it takes to ship their orders</u> to them. We will start training employees on using the software next week. Ms. Jee-Min Han, a trainer from the software company, will be <mark>on-site</mark> all week to do the training.</p>
+  </div>
+</div>
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  </div>
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+  <div class="current">
+    <h3 class="text-center">Tuần 15</h3>
+    <div class="display">
+      <li><a href="day99.html">Ngày 99</a></li>
+      <li><a href="day101.html">Ngày 101</a></li>
+      <li><a href="day102.html">Ngày 102</a></li>
+      <li><a href="day103.html">Ngày 103</a></li>
+      <li><a href="day104.html">Ngày 104</a></li>
+      <li><a href="day105.html">Ngày 105</a></li>  
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../libraries\main.js"></script>
