@@ -5,17 +5,22 @@ $('.container_q').append('<div class="qbo" id="limit"><input type="checkbox" id=
 
 $(document).ready(function(){
   $("video").each(function(){
-  	var vidSrc = $(this).find("source").attr("src");
-  	if(vidSrc.includes("listeningvideo")){
-  		console.log("hehe");
-  		$(this).find("source").attr('src', vidSrc.replace("../listeningvideo", "../static/listeningvideos"));
-  	} else if(vidSrc.includes("videos2")){
-  		$(this).find("source").attr('src', vidSrc.replace("../videos2", "../static/videos2"));
-  	} else if(vidSrc.includes("videos")) {	
-  		$(this).find("source").attr('src', vidSrc.replace("../videos", "../static/videos"));
-  	}
-  	
-  	$(this).load();
+    var vidSrc = $(this).find("source").attr("src");
+    var newSrc = "";
+    if(vidSrc.includes("listeningvideo")){
+      newSrc = vidSrc.replace("../listeningvideo", "https://github.com/mquang/static-content/blob/master/listeningvideos");     
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    } else if(vidSrc.includes("videos2")){
+      newSrc = vidSrc.replace("../videos2", "https://github.com/mquang/static-content/blob/master/videos2");
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    } else if(vidSrc.includes("videos")) {  
+      newSrc = vidSrc.replace("../videos", "https://github.com/mquang/static-content/blob/master/videos");
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    }
+    $(this).load();
   });
 
   function getNextWeek(){
@@ -447,11 +452,11 @@ function roundHalf(num) {
     var grand2 = grand + '.jpg';
    
     if(grand == 2 || grand == 3 || grand == 4 || grand == 5 || grand == 8 || grand == 9 || grand == 16 || grand == 17 || grand == 33 || grand == 40 || grand == 41 || grand == 42 || grand == 43 || grand == 44 || grand == 45 || grand == 46 || grand == 48 || grand == 53 || grand == 56 || grand == 57 || grand == 59 || grand == 60 || grand == 63 || grand == 64 || grand == 66 || grand == 67 || grand == 68 || grand == 71 || grand == 72 ||  grand == 73 || grand == 79 || grand == 80 || grand == 84|| grand == 85 || grand == 88 || grand == 90 || grand == 91 || grand == 92 || grand == 97 || grand == 100 || grand == 101 || grand == 104 || grand == 105 || grand == 111 || grand == 113 || grand == 116 || grand == 118 || grand == 119 || grand == 120 || grand == 122 || grand == 123 || grand == 125 || grand == 126 || grand == 127 || grand == 132 || grand == 135 || grand == 144 || grand == 145 || grand == 152 || grand == 153 || grand == 154 || grand == 155 || grand == 158 || grand == 159 || grand == 162 || (grand >= 164 && grand <= 168) || (grand >= 170 && grand <= 174) || (grand >= 177 && grand <= 193)){
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../static/gift2/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
+      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../gift2/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
     } else if (grand == 124){
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../static/gift2/3.mp4" type="video/mp4"></video></figure></div>');
+      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../gift2/3.mp4" type="video/mp4"></video></figure></div>');
     } else{
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../static/gift2/'+grand2+'"/></figure></div>');
+      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../gift2/'+grand2+'"/></figure></div>');
     }
     
     $('.toggle').text('Xem những từ bro chưa gõ được');
@@ -688,9 +693,9 @@ var myAudio = document.getElementById('audio-player');
 var praise = "I'm impressed"; 
 console.log(grand)
 if(grand == 2 || grand == 3 || grand == 4 || grand == 5 || grand == 8 || grand == 9 || grand == 16 || grand == 17 || grand == 33 || (grand >= 40 && grand <= 46) || grand == 48 || grand == 53 || grand == 56 || grand == 57 || grand == 59 || grand == 60 || grand == 63 || grand == 64 || grand == 66 || grand == 67 || grand == 68 || grand == 71 || grand == 72 ||  grand == 73 || grand == 79 || grand == 80 || grand == 84|| grand == 85 || grand == 88 || grand == 90 || grand == 91 || grand == 92 || grand == 97 || grand == 100 || grand == 101 || grand == 104 || grand == 105 || grand == 111 || grand == 113 || grand == 116 || grand == 118 || grand == 119 || grand == 120 || (grand >= 122 && grand <= 127) || grand == 132 || grand == 135 || grand == 144 || grand == 145 || grand == 152 || grand == 153 || grand == 154 || grand == 155 || grand == 158 || grand == 159 || grand == 162 || (grand >= 164 && grand <= 168) || (grand >= 170 && grand <= 174) || (grand >= 177 && grand <= 193)){
-  $('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../static/gift2/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
+  $('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift2" controls loop><source src="../gift2/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
 } else{
-  $('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../static/gift2/'+grand2+'"/></figure></div>');
+  $('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../gift2/'+grand2+'"/></figure></div>');
 }
 
     $(document).on('click', '.popup img', function(){

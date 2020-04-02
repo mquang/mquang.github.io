@@ -4,18 +4,23 @@ $('.layer2').prepend('<a href="../index.html" class="btn btn-default btn-md home
 $('.container_q').append('<div class="qbo" id="limit"><input type="checkbox" id="lm"><label for="lm">Thêm tính năng "vui chơi có thưởng" dành riêng cho các bạn nam (Cảnh báo 16+)</label></div>');
 
 $("video").each(function(){
-  var vidSrc = $(this).find("source").attr("src");
-  if(vidSrc.includes("listeningvideo")){
-    console.log("hehe");
-    $(this).find("source").attr('src', vidSrc.replace("../listeningvideo", "../static/listeningvideos"));
-  } else if(vidSrc.includes("videos2")){
-    $(this).find("source").attr('src', vidSrc.replace("../videos2", "../static/videos2"));
-  } else if(vidSrc.includes("videos")) {  
-    $(this).find("source").attr('src', vidSrc.replace("../videos", "../static/videos"));
-  }
-  
-  $(this).load();
-});
+    var vidSrc = $(this).find("source").attr("src");
+    var newSrc = "";
+    if(vidSrc.includes("listeningvideo")){
+      newSrc = vidSrc.replace("../listeningvideo", "https://github.com/mquang/static-content/blob/master/listeningvideos");     
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    } else if(vidSrc.includes("videos2")){
+      newSrc = vidSrc.replace("../videos2", "https://github.com/mquang/static-content/blob/master/videos2");
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    } else if(vidSrc.includes("videos")) {  
+      newSrc = vidSrc.replace("../videos", "https://github.com/mquang/static-content/blob/master/videos");
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
+    }
+    $(this).load();
+  });
 
 function getNextWeek(){
 	return parseInt($('h3.text-center').text().match(/\d+/)[0]) + 1;
