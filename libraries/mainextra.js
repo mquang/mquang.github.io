@@ -780,7 +780,9 @@ $(".panel-body p, .panel-body hr").wrapAll("<div id='test-text2'></div>");
   if($(".panel-body video").length > 0){
     $('.box').append(editBlock);
   }else{
-    $('.panel-body').prepend(editBlock);
+  	if(!$('.panel-body').hasClass("noEdit")){
+		$('.panel-body').prepend(editBlock);
+  	}    
   }
   
 
