@@ -5,7 +5,7 @@ $(document).ready(function(){
   var reviewLink = '<div class="btn-contain"><div class="btn-gradient-contain"><a href="../Tuan'+currWeek+'/1.REVIEW'+(currWeek-1)+'.html" class="btn-gradient"><span>Review '+(currWeek-1)+'</span></a></div></div>';    
   $('.wrap_menu.layer4').append(reviewLink); 
   var wIndex = 1;
-  for(var i = currWeek - 3; i < currWeek; i++){
+  for(var i = currWeek - 2; i < currWeek; i++){
     var prevWeekContent = '<div class="dropdown-btn" id="w'+wIndex+'"><h3>Tuần '+i+' <i class="fa fa-caret-right"></i></h3><div class="display dropdown-container">';
     for(var j = (i-1)*7 + 1; j <= i*7; j++){
       prevWeekContent = prevWeekContent.concat('</li><li><a href="../Tuan'+i+'/day'+j+'.html">Ngày '+j+'</a></li>')
