@@ -178,6 +178,7 @@ $('td:nth-child(3)', '#m').each(function(i) {
   var answers;
   var timeRemaining;
   var score;
+  var numOfLongVocab = 0;
 var rows = QUIZ_ANSWERS.length;   
 
 var QUIZ_TIME_LIMIT;
@@ -187,21 +188,27 @@ function roundHalf(num) {
     return Math.round(num*2)/2;
 }
 
+$('#m tr td:nth-child(1)').each(function(){
+  var a = $(this).text();
+  if(a.length > 12){
+      numOfLongVocab++;
+  }
+}); 
 // the time limit, in minutes
  QUIZ_TIME_LIMIT = roundHalf(rows*10/60) + 20/60;  
+
   function startQuiz() {
     // init some variables
     initAnswers();
     timeRemaining = Math.round(QUIZ_TIME_LIMIT * 60);
-    $('#m tr td:nth-child(1)').each(function(){
-      var a = $(this).text();
-      if(rows == 4 && a.length > 13){
-          timeRemaining = 45;
-        }
-    });       
-      if($('#qbo').is(':checked') == true){
-        timeRemaining = Math.round(roundHalf(QUIZ_ANSWERS.length*10/60) * 60 + 20);
-      }
+    
+    if(numOfLongVocab > 0){
+    	timeRemaining += numOfLongVocab*15; //bonus 15 sec each long vocab
+    }
+
+  	if($('#qbo').is(':checked') == true){
+    	timeRemaining = Math.round(roundHalf(QUIZ_ANSWERS.length*10/60) * 60 + 20);
+  	}
 
     score = 0;
     
@@ -431,6 +438,7 @@ function roundHalf(num) {
       return '0:00';
     } else {
       var minutes = Math.floor(timeRemaining / 60);
+
       var seconds = timeRemaining % 60;
       if (seconds < 10) {
         seconds = '0' + seconds;

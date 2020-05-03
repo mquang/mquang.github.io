@@ -651,19 +651,29 @@ svg.rocket .fil0 {
 .gallery#third .folder .file,
 .gallery#third .folder .file:after,
 .gallery#third .folder .file:before,
-.gallery#third .thumbnail:hover .folder .file:before{
+.gallery#third .thumbnail:hover .folder .file:before,
+.gallery#fifth .folder .file,
+.gallery#fifth .folder .file:after,
+.gallery#fifth .folder .file:before,
+.gallery#fifth .thumbnail:hover .folder .file:before{
   background: black;
   box-shadow: none;
 }
 .gallery#third .folder,
 .gallery#third .folder:before,
 .gallery#third .thumbnail:hover .folder,
-.gallery#third .thumbnail:hover .folder:before{
+.gallery#third .thumbnail:hover .folder:before,
+.gallery#fifth .folder,
+.gallery#fifth .folder:before,
+.gallery#fifth .thumbnail:hover .folder,
+.gallery#fifth .thumbnail:hover .folder:before{
   background: #afa0a0;
 }
 
 .gallery#third .folder:after,
-.gallery#third .thumbnail:hover .folder:after{
+.gallery#third .thumbnail:hover .folder:after,
+.gallery#fifth .folder:after,
+.gallery#fifth .thumbnail:hover .folder:after{
   background: white;
 }
 ::-webkit-scrollbar {

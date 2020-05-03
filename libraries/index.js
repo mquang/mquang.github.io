@@ -1,4 +1,4 @@
-var tuan = 45;
+var tuan = 50;
 
 !function(t){function e(e,n,i,r){var a=e.text(),c=a.split(n),s="";c.length&&(t(c).each(function(t,e){s+='<span class="'+i+(t+1)+'" aria-hidden="true">'+e+"</span>"+r}),e.attr("aria-label",a).empty().append(s))}var n={init:function(){return this.each(function(){e(t(this),"","char","")})},words:function(){return this.each(function(){e(t(this)," ","word"," ")})},lines:function(){return this.each(function(){var n="eefec303079ad17405c889e092e105b0";e(t(this).children("br").replaceWith(n).end(),n,"line","")})}};t.fn.lettering=function(e){return e&&n[e]?n[e].apply(this,[].slice.call(arguments,1)):"letters"!==e&&e?(t.error("Method "+e+" does not exist on jQuery.lettering"),this):n.init.apply(this,[].slice.call(arguments,0))}}(jQuery);  
   $(document).ready(function() {
@@ -40,9 +40,13 @@ for(var i=16; i<=30;i++){
     $('.gallery#third').append('<div class="thumbnail" id="w'+temp+'"><span class="folder"><span class="file"></span></span><div class="title">Tuần '+i+'</div></div>');
   }
 }
-for(var i=31; i<=tuan;i++){
+for(var i=31; i<=45;i++){
   var temp = i - 1;  
   $('.gallery#fourth').append('<div class="thumbnail" id="w'+temp+'"><span class="folder"><span class="file"></span></span><div class="title">Tuần '+i+'</div></div>');
+}
+for(var i=46; i<=tuan;i++){
+  var temp = i - 1;  
+  $('.gallery#fifth').append('<div class="thumbnail" id="w'+temp+'"><span class="folder"><span class="file"></span></span><div class="title">Tuần '+i+'</div></div>');
 }
   $('.thumbnail').click(function(){
      var id = $(this).attr('id');
@@ -73,6 +77,7 @@ new ScrollHandler("first");
 new ScrollHandler("second");
 new ScrollHandler("third");
 new ScrollHandler("fourth");
+new ScrollHandler("fifth");
 function ScrollHandler(pageId) {
   var page = document.getElementById(pageId);
   var pageStart = page.offsetTop;
