@@ -22,18 +22,22 @@
 .wrapTest ul {
   list-style: none;
   width: 50%;
-  max-width: 660px;
+  max-width: 620px;
   font-size: 0.75em;
   position: absolute;
-  padding: 10px;
+  padding: 0px;
 }
 
 .wrapTest ul#terms {
   left: 50%;
 }
-.wrapTest .alert{width:970px;margin: auto}
+.wrapTest .alert{
+  width:970px;
+  margin: auto auto 10px;
+  padding-left: 15px;
+}
 .wrapTest ul#defs {
-  left: calc(50% - 660px);
+  left: calc(50% - 625px);
 }
 
 .wrapTest ul#terms li {
@@ -50,7 +54,7 @@
 
 .wrapTest li {
   float: left;
-  width: 300px;
+  width: 290px;
   margin: 10px;
   background: white;
   
@@ -75,13 +79,13 @@
 }
 
 .wrapTest ul li span {
-  width: 300px;
+  width: 290px;
   height: 135px;
   display: table-cell;
   vertical-align: middle;
   padding: 10px;
   padding-top: 0;
-  font-size: 17px;
+  font-size: 16px;
   transform: none;
   transition: opacity 0.2s ease-out;
 }
@@ -106,12 +110,12 @@
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
 }
 .wrapTest button#resetRV{
-  left: 70%;
-  bottom: 0px;
+  bottom: 30px;
+  right: calc(50% + 15px);
 }
 .wrapTest button#exitRV{
-  left: calc(70% + 120px);
-  bottom: 0px;
+  bottom: 30px;
+  left: calc(50% + 10px);
   display:none;
 }
 

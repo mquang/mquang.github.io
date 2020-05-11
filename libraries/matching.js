@@ -1,6 +1,7 @@
 //Execute a JavaScript immediately after a page has been loaded
 $(document).ready(function(){
-
+$(".wrapTest .alert").html($(".wrapTest .alert").html().replace("từ ở nửa trái", "nghĩa ở nửa trái"));
+$(".wrapTest .alert").html($(".wrapTest .alert").html().replace("nghĩa ở nửa phải", "từ ở nửa phải"));
 document.onkeydown = function(e){
   if(e.keyCode == 123){
     return false;
