@@ -30,9 +30,10 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-
+if(getNextWeek() <= 50){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <i class="fa fa-arrow-circle-o-right"></i></a>');
-
+}
+  
   $(".dropdown-btn").on('click',function(){
   var a = this.id;
   (this.firstClk = !this.firstClk) ? a1(): a2();
