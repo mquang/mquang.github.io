@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="../libraries\main.css">
 <link rel="stylesheet" href="../libraries\matching.css">
 <script type="text/javascript" src="../libraries\highlight.js"></script>
-<!-- <div class="wrapTest">
+<div class="wrapTest">
 <section id="test">
 <div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
  <ul id="terms">
@@ -15,7 +15,7 @@
  <button id="resetRV">RESET</button>
  <button id="exitRV">Đóng</button>
 </section>
-</div> -->
+</div>
 <div class="all">
   <div class="layer2">
   <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
@@ -46,12 +46,6 @@
         <td>/ˈjuː.nɪ.vɜːs/</td>
         <td>(n) <b>vũ trụ</b> (everything that exists, especially all physical matter, including all the stars, planets, <dfn data-inf="(n-s) ngân hà, thiên hà">galaxies</dfn>, etc. in space)<br><a href="../images3\"><img src="../images3\" /></a></td>
         <td><li>As far as I know, the entire universe was created in the big bang.<li>How many <select><option>stars</option><option>galaxies</option></select> are there in the universe?<li>How was the universe formed?</li></td>
-      </tr>
-      <tr>     
-        <td>non-judgmental</td>
-        <td>/ˌnɑːn.dʒʌdʒˈmen.t̬əl/</td>
-        <td>(adj) <b></b> (not judging or criticizing)<br><a href="../images3\"><img src="../images3\" /></a></td>
-        <td><li>Dad. I hope you will maintain a non-judgmental attitude when you meet my boyfriend.</li></td>
       </tr>
       <tr>     
         <td>pick up after someone</td>
@@ -88,12 +82,60 @@
       <tr>     
         <td>run by</td>
         <td></td>
-        <td>(phrasal verb) <b></b> (to briefly visit or stop at some location, especially so one can collect something)<br><a href="../images3\"><img src="../images3\" /></a></td>
+        <td>(phrasal verb) <b>ghé qua</b> (to briefly visit or stop at some location, especially so one can collect something)<br><a href="../images3\"><img src="../images3\" /></a></td>
         <td><li>I <b>ran by</b> the store after work to pick up some milk.<li>Do you mind if we run by the grocery store to pick up some milk on the way home?</li></td>
       </tr>
     </tbody>
   </table>
 </article>
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
 <div class="audio panel panel-primary">
   <div class="panel-heading">Luyện nghe<span style="float: right;">The Ideal Woman/Taxi Ride</span></div>
   <div class="panel-body">
@@ -126,7 +168,7 @@
 
       <p>Rocky: Well, that's the way I am, but what's YOUR idea of the perfect woman?</p>
 
-      <p>Ed: Well, I like a woman who's <mark>outgoing</mark>, caring, and <mark>non-judgmental</mark> about people's differences, and it bothers me when people think they're the center of <mark>the universe</mark>... like someone I know.</p>
+      <p>Ed: Well, I like a woman who's <mark>outgoing</mark>, caring, and <u title="">non-judgmental</u> about people's differences, and it bothers me when people think they're the center of <mark>the universe</mark>... like someone I know.</p>
 
       <p>Rocky: Well, that's nice for you, but that doesn't change my <u title="">point of view</u>. I guess I'll have to go home to a TV dinner and my dog, Rusty.</p>
 
@@ -178,55 +220,8 @@
     </div>
   </div>
 </div>
-<div class="container_q">
-    <div class="option">
-    <label for="voice">Lựa chọn giọng đọc: </label>
-    <select name="voice" id="voice"></select>
-   </div>
-   
-    <div class="container2">
-    <h1>Danh sách gợi ý</h1>
-    <div class="items">
-      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
-      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
-    </div>
-  </div>
-    <div class="entry-main">
-      
-     <div class="startgame">
-      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
-      </div>
-      <div class="started">
-        <div class="input-wrapper" data-text="">          
-            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
-        </div>
-        <div class="status">
-          <div class="status-timer">
-            Thời gian còn lại: <span class="time-remaining"></span>
-          </div>
-          <div class="status-current-score">
-            Đã hoàn thành: <span class="score"></span>
-            trên <span class="total"></span>
-          </div>
-          <div class="status-final-results">
-            <span class="end-greeting"></span>
-            Bro gõ được <span class="score"></span>
-            trên <span class="total"></span>.
-            Tương ứng <span class="percent"></span>%!
-          </div>
-          <div class="status-toggle-answers">
-            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
-          </div>
-        </div>
-        <ul class="answers scored-answers"></ul>
-        <ul class="answers missed-answers"></ul>
-        <div class="footnote">
-          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
-        </div>
-      </div>
-    </div>
-  </div>  
-  </div>
+</div>
+
   <div class="overlay layer3"></div>
   <div class="wrap_menu layer4 moveleft">
     
@@ -238,43 +233,43 @@
   var data = {
     terms: [{
         index: 0,
-        text: "yearn (ngày 182)"
+        text: "affectionate (ngày 182)"
       }, {
         index: 1,
-        text: "tremble (ngày 223)"
+        text: "fulfill (ngày 200)"
       }, {
         index: 2,
-        text: "diagnosis (ngày 132)"
+        text: "pull over (ngày 131)"
       }, {
         index: 3,
-        text: "enterprise (ngày 116)"
+        text: "hop (ngày 163)"
       }, {
         index: 4,
-        text: "precedence (ngày 122)"
+        text: "tell (ngày 158)"
       }, {
         index: 5,
-        text: "treatment (ngày 102)"
+        text: "authentic (ngày 73)"
       },
 
     ],
     definitions: [{
         index: 0,
-        text: "mong mỏi, khao khát<br>VD: <i>Hannah ...ed for a child.</i>"
+        text: "trìu mến, tình cảm<br>VD: <i>My mother wasn't very ... with us when I was young, so I'm not used to hugging and stuff.</i>"
       }, {
         index: 1,
-        text: "run, rùng mình<br>VD: <i>When he came out of the water, he was ...(ing) with cold.</i>"
+        text: "thực hiện, hoàn thành<br>VD: <i>He stayed an extra semester to ... his graduation requirements.</i>"
       }, {
         index: 2,
-        text: "chẩn đoán<br>VD: <i>The doctor has made an initial ... .</i>"
+        text: "dừng xe, ghé/tấp vào lề<br>VD: <i>The policeman signalled to him to ... .</i>"
       }, {
         index: 3,
-        text: "doanh nghiệp<br>VD: <i>private/public ...</i>"
+        text: "lên bus, tàu, xe...<br>VD: <i>... in, I’ll drive you home.</i>"
       }, {
         index: 4,
-        text: "sự ưu tiên<br>VD: <i>You should give your schoolwork ... .</i>"
+        text: "biết được, nhận biết được, cảm nhận được - VD: <i>I could ... from his tone of voice that Ken was disappointed.</i>"
       }, {
         index: 5,
-        text: "việc điều trị<br>VD: <i><dfn data-inf='hóa trị liệu'>Chemotherapy</dfn> is often used in the ... of cancer.</i>"
+        text: "thật, chính hãng, nguyên gốc, nguyên bản<br>VD: <i>... Italian food</i>"
       },
 
     ],
@@ -288,4 +283,4 @@
     }
   };
 </script>
-<!-- <script type="text/javascript" src="../libraries\matching.js"></script> -->
+<script type="text/javascript" src="../libraries\matching.js"></script>

@@ -120,6 +120,7 @@ dfn {
   .layer2{
     width:100%;
     background: #545454;
+    display: inline-block;
     transition:.5s;
     transform-origin: 100% 0%;    
   }
@@ -1193,7 +1194,7 @@ tr{vertical-align: top;}
 
  .panel-primary{
     max-width: 922px;
-    margin:100px auto;
+    margin:auto auto 200px auto;
   }
   .panel-primary audio{
     display: table;

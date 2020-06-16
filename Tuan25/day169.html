@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../libraries\main.css">
 <link rel="stylesheet" href="../libraries\matching.css">
-<!-- <div class="wrapTest">
+<div class="wrapTest">
 <section id="test">
 <div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
  <ul id="terms">
@@ -13,7 +13,7 @@
  <button id="resetRV">RESET</button>
  <button id="exitRV">Đóng</button>
 </section>
-</div> -->
+</div>
 <div class="all">
   <div class="layer2">
   <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
@@ -98,6 +98,56 @@
     </tbody>
   </table>
 </article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
 <div class="audio panel panel-primary">
   <div class="panel-heading">Luyện nghe<span style="float: right;">Angelina checks out Chicago's hip Wicker Park area</span></div>
   <div class="panel-body">
@@ -151,55 +201,8 @@
     </div>
   </div>
 </div>
-<div class="container_q">
-    <div class="option">
-    <label for="voice">Lựa chọn giọng đọc: </label>
-    <select name="voice" id="voice"></select>
-   </div>
-   
-    <div class="container2">
-    <h1>Danh sách gợi ý</h1>
-    <div class="items">
-      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
-      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
-    </div>
-  </div>
-    <div class="entry-main">
-      
-     <div class="startgame">
-      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
-      </div>
-      <div class="started">
-        <div class="input-wrapper" data-text="">          
-            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
-        </div>
-        <div class="status">
-          <div class="status-timer">
-            Thời gian còn lại: <span class="time-remaining"></span>
-          </div>
-          <div class="status-current-score">
-            Đã hoàn thành: <span class="score"></span>
-            trên <span class="total"></span>
-          </div>
-          <div class="status-final-results">
-            <span class="end-greeting"></span>
-            Bro gõ được <span class="score"></span>
-            trên <span class="total"></span>.
-            Tương ứng <span class="percent"></span>%!
-          </div>
-          <div class="status-toggle-answers">
-            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
-          </div>
-        </div>
-        <ul class="answers scored-answers"></ul>
-        <ul class="answers missed-answers"></ul>
-        <div class="footnote">
-          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
-        </div>
-      </div>
-    </div>
-  </div>  
-  </div>
+</div>
+
   <div class="overlay layer3"></div>
   <div class="wrap_menu layer4 moveleft">
     <div class="btn-contain">
@@ -255,43 +258,43 @@
   var data = {
     terms: [{
         index: 0,
-        text: "mystery (ngày 124)"
+        text: "zen (ngày 160)"
       }, {
         index: 1,
-        text: "majestic (ngày 155)"
+        text: "glittering (ngày 162)"
       }, {
         index: 2,
-        text: "consider (ngày 129)"
+        text: "hip (ngày 164)"
       }, {
         index: 3,
-        text: "voyage (ngày 28)"
+        text: "must have (ngày 123)"
       }, {
         index: 4,
-        text: "apart from (ngày 108)"
+        text: "embed (ngày 127)"
       }, {
         index: 5,
-        text: "residential (ngày 26)"
+        text: "stray (ngày 144)"
       },
 
     ],
     definitions: [{
         index: 0,
-        text: "something that is difficult to understand or to explain"
+        text: "peaceful and relaxed<br>VD: <i>People do yoga to help them become more ... .</i>"
       }, {
         index: 1,
-        text: "very big, impressive, or beautiful, causing great admiration and respect"
+        text: "óng ánh, lấp lánh"
       }, {
         index: 2,
-        text: "to think of someone or something in a particular way or to have a particular opinion"
+        text: "mốt, thời trang, hiện đại<br>VD: <i>It's really funny when Dad tries to be ... .</i>"
       }, {
         index: 3,
-        text: "a long journey, especially by ship"
+        text: "chắc hẳn, khả năng là<br>VD: <i>They ... caught an earlier train.</i>"
       }, {
         index: 4,
-        text: "except for"
+        text: "gắn vào, nhúng vào - VD: <i>Microprocessors are ...(ed) into products such as cars, fridges, traffic lights, and industrial equipment.</i>"
       }, {
         index: 5,
-        text: "of or relating to houses where people live rather than to places where they work"
+        text: "tóc con, đạn lạc... - VD: <i>Several journalists have been killed or injured by ... bullets while reporting on the civil war.</i>"
       },
 
     ],
