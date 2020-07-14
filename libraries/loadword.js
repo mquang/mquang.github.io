@@ -7,6 +7,10 @@ $("#search").on("keyup", function() {
     });
 });
 
+function getPosition(string, subString, index) {
+  return string.split(subString, index).join(subString).length;
+}
+
 var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6;
 $(".head b").append(" (Ôn lại những từ thuộc tuần " + week + " đến tuần " + fromWeek + ")");
 $("#loadWords").on("click", function(e){		
@@ -19,15 +23,35 @@ $("#loadWords").on("click", function(e){
 		method: "GET",
 		success: function(data){
 			var response = $('<html />').html(data),
-	            trows, i, j, end;
+	            trows, i, j, k, end;
 
 	        trows = response.find('#m tbody tr');
-
 	        end = trows.length;
-	        var tr = "<tr><th scope='row'>"+day+"</th>"
+	        var tr = "<tr><th scope='row'>"+day+"</th>";
+	        var preT, endT;
 	        for (j = 0; j < 12; j++) {
 	        	if(trows[ j ] != undefined){
-	        		tr = tr.concat("<td>"+trows[ j ].children[0].innerText + "</td>");
+	        		preT = "<td>";
+	        		endT = "</td>";
+	        		var hasRelatedWord = false, relatedWords = [];
+	        		//so luong children trong phan nghia (moi the li, div, image, video la 1 children)
+	        		//console.log(trows[ j ].children[3].children.length);
+	        		//lap qua cac the cua phan noi dung
+	        		for(k = 0; k < trows[ j ].children[3].children.length; k++ ) {
+	        			//neu the do dc gan class la "note"
+		        		if( trows[ j ].children[3].children[k].className == "note"){
+		        			hasRelatedWord = true;
+		        			var relatedWord = trows[ j ].children[3].children[k].innerText;
+			        		relatedWord = relatedWord.substring(getPosition(relatedWord, ")", 1) + 2, relatedWord.indexOf(":"));
+		        			relatedWords.push(relatedWord);
+		        		}
+	        		}
+	        		if(hasRelatedWord){
+	        			preT = '<td><u style="text-decoration: none; border-bottom: 3px solid #d61010;" title="'+relatedWords+'">';
+	        			endT = '</u></td>';
+	        		}
+	        		//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 children
+	        		tr = tr.concat(preT +trows[ j ].children[0].innerText + endT);
 	        	} else{
 	        		tr = tr.concat("<td></td>");
 	        	}
