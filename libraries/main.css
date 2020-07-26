@@ -1266,7 +1266,7 @@ tr{vertical-align: top;}
   .box{
     margin-top: 15px;
   }
-  #myVideo .close{
+  #myVideo .close, #myVideo2 .close{
     font-size: 30px;
     position: absolute;
     right: -25px;
@@ -1284,14 +1284,14 @@ tr{vertical-align: top;}
 .wrapPen{
   float:right;
 }
-#editpen{
+#editpen, #editpen2{
   position:relative;
   float:right;
 }
 .audio .panel-body{
   overflow: visible;
 }
-#editpen .tooltiptext {
+#editpen .tooltiptext, #editpen2 .tooltiptext {
     visibility: hidden;
     width: 300px;
     background-color: orange;
@@ -1305,7 +1305,7 @@ tr{vertical-align: top;}
     right: 110%;
 }
 
-#editpen .tooltiptext::after {
+#editpen .tooltiptext::after, #editpen2 .tooltiptext::after {
     content: "";
     position: absolute;
     top: 10%;
@@ -1315,11 +1315,11 @@ tr{vertical-align: top;}
     border-style: solid;
     border-color: transparent transparent transparent orange;
 }
-#editpen:hover .tooltiptext {
+#editpen:hover .tooltiptext, #editpen2:hover .tooltiptext {
     visibility: visible;
 }
-#editpen img{width:50px;height:50px;}
-#editpen:hover img {
+#editpen img, #editpen2 img{width:50px;height:50px;}
+#editpen:hover img, #editpen2:hover img {
   -webkit-animation-name: pencilMove;
           animation-name: pencilMove;
   -webkit-animation-duration: 2s;
@@ -1333,7 +1333,7 @@ tr{vertical-align: top;}
 }
 
 
-#editpen:hover::after {
+#editpen:hover::after, #editpen2:hover::after {
   content: "";
   position: absolute;
   left:82px;
