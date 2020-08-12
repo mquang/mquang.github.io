@@ -105,7 +105,16 @@ var ar = [
   });
   ////console.log(QUIZ_ANSWERS);
  var sulist = [];
-
+ function removeA(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+}
  //Bonus:
 
   $("dfn.ol").closest('div').each(function(){
@@ -127,6 +136,9 @@ var ar = [
     if($(this).is(':checked') == true){
       QUIZ_ANSWERS.push(mySubString);
       sulist.push(str6);
+    } else {
+      removeA(QUIZ_ANSWERS, mySubString);
+      removeA(sulist, str6);
     }
     
     $('.items').find('*').not('h2').remove();
@@ -136,7 +148,6 @@ for(var id1 = 0; id1 < sulist.length; id1 ++){
 }
     clearInterval(timeInterval);
     reset();
-    $(this).prop("disabled", true);
   });
     
 });
@@ -683,7 +694,7 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var end = 47;
+var end = 49;
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
     numbers.push(i);
