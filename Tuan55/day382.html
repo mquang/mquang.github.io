@@ -1,0 +1,456 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 382</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>  
+      <tr>     
+        <td>encircle</td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>  
+      <tr>     
+        <td>furnace</td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>    
+      <tr>     
+        <td>ravenous</td>
+        <td>/ˈrævənəs/</td>
+        <td>(adj) <b>đói cồn cào</b> (extremely hungry)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><div class="alert alert-info">(syn) <b><u title="">starving</u></b></div><li>What's for lunch? I'm absolutely ravenous.<li>We were ravenous after hiking all day.</li></td>
+      </tr>
+      <tr>     
+        <td>fugitive</td>
+        <td>/ˈfjuː.dʒə.t̬ɪv/</td>
+        <td>(n) <b>kẻ trốn tránh, chạy trốn, bỏ trốn (khỏi bị bắt, săn lùng), kẻ đào tẩu</b> (a person who has escaped or is running away from somewhere and is trying to avoid being caught)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>Police <dfn data-inf="(ph.v) phong tỏa">cordoned off</dfn> the area and <u title="">carried out</u> a <u title="">thorough search</u> for the fugitive.<li>The fugitive <u title="">is armed</u> and dangerous.<li>The fugitive crossed the river.</li></td>
+      </tr>
+      <tr>     
+        <td>illustration</td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>      
+      <tr>     
+        <td>jump-start</td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td>terrorize</td>
+        <td>/ˈterə.raɪz/</td>
+        <td>(v) <b>đe dọa, hăm dọa, khủng bố</b> (to make someone feel very frightened by threatening to kill or hurt them)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>Street gangs have been <b>terrorizing</b> the neighbourhood.</li><div class="note"><li><b>(n) <dfn class="ol">terrorist</dfn>: khủng bố</b> (someone who uses violence such as bombing, shooting etc to obtain political demands)<br><a href="../images5\123.jpg"><img src="../images5\123.jpg" /></a></li></div><li>The <b>terrorist attack</b> on <dfn data-inf="the United Nations:&#10;liên hiệp quốc,&#10;liên hợp quốc">the UN</dfn> building has shocked the civilized world.<li>More than 50 people were injured in the <b>terrorist attack</b>.</li></td>
+      </tr>    
+      <tr>     
+        <td>(right) on cue</td>
+        <td>/kjuː/</td>
+        <td>(idom) <b>ngay lúc đó</b> (as if planned to happen exactly at that moment)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>The bell sounded for the beginning of the lesson, and, <b>right on cue</b>, the teacher walked in.</li></td>
+      </tr>
+      <tr>     
+        <td>descend</td>
+        <td>/dɪˈsend/</td>
+        <td>(v) <b></b><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+<div class="audio panel panel-primary">
+  <div class="panel-heading">Luyện nghe<span style="float: right;">The Resistance | Think Like A Coder, Ep 2</span></div>
+  <div class="panel-body">
+    <div id="myVideo">
+      <video controls>
+        <source src="../listening\382.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="box">   
+      <button type="button" class="btn btn-danger">Xem phụ đề / Thu nhỏ video</button>
+    </div>
+    <div id="test-text">
+      <p>After breaking Ethic out of prison,
+
+Hedge flies them both towards 
+a <u title="">frontier</u> <u title="">settlement</u>
+
+in the shadow of the Bradbarrier, 
+the great wall that <mark>encircles</mark> the nation.
+
+All the <u title="">settlers</u> there will soon <u title="">gather</u> 
+for the monthly <u title="">feeding</u>.
+
+The people of the wall spend their days 
+gathering up works of art and literature,
+
+from all across the land.
+
+On feeding day, the <mark>furnace-bots</mark> arrive, 
+<mark>ravenous</mark>.
+
+If they eat, the lights stay on, 
+and the food gets delivered.
+
+If they <u title="">starve</u>, the people do too.
+
+Hedge’s <u title="">fuel supply</u> runs out just as he 
+and Ethic reach the <u title="">outskirts</u> of town,
+
+and they come in for a crash landing.
+
+Luckily, everyone is too busy preparing 
+for the feeding to notice.
+
+Today’s feeding is where Ethic 
+can find the leader
+
+of an underground <u title="phong trào kháng chiến">resistance movement</u>.
+
+This person knows the location of the 
+first of three powerful <u title="">artifacts</u>.
+
+The problem is, Hedge and 
+Ethic don’t know
+
+the resistance leader’s name 
+or appearance.
+
+But Hedge has gathered the 
+following information:
+
+The leader has green eyes.
+
+If the leader has red hair, their name has
+at least one <u title="">consecutive</u> double letter.
+
+If the leader wear glasses, 
+their name has exactly 2 vowels.
+
+Otherwise, their name has 
+exactly 3 vowels.
+
+There is exactly one person for whom 
+these are all true.
+
+As a <mark>fugitive</mark>,
+
+Ethic can’t <u title="">sneak into</u> the crowd without 
+<u title="">drawing attention</u> to herself.
+
+But she can give instructions to Hedge.
+
+And one tool she has is what 
+programmers call a conditional.
+
+That’s a statement of the form 
+“If A, then B.”
+
+Flowcharts are great <mark>illustrations</mark> 
+of how those work.
+
+This conditional <u title="">translates</u> to: 
+if A is true, <u title="">carry out</u> instruction B.
+
+There are also conditionals that <u title="">account 
+for</u> different possibilities.
+
+This says, “If A is true, perform 
+instruction B.
+
+Otherwise, carry out instruction C.”
+
+So what instructions does she give Hedge 
+so he can find the <u title="">resistance leader</u>?
+
+Pause now to figure it out for yourself.
+
+With a problem like this, 
+it can help to simplify first.
+
+What if Hedge just has to examine 
+this one person?
+
+What information does he need 
+to collect about her?
+
+He might ask, “Does she have green eyes?”
+
+What other questions should Hedge 
+ask to find the resistance leader,
+
+and how can he track those answers?
+
+Pause now to figure it out for yourself.
+
+It may seem <u title="">intuitive</u> how you’d approach 
+this problem as a human.
+
+But Hedge isn’t a human,
+
+and so the challenge comes from needing 
+to give him systematic instructions
+
+that will work in any <u title="">scenario</u>.
+
+Hedge needs to examine the settlers, 
+one at a time,
+
+until he discovers the right person.
+
+In other words, like with the 
+lock on the prison cell,
+
+this is a loop that repeats the 
+same instructions.
+
+Only this time the loop will involve 
+a series of questions
+
+in the form of conditionals,
+
+and will end as soon as Hedge 
+finds his target.
+
+But first, you’ll want to organize 
+your information.
+
+Each person has a set of characteristics: 
+Eye color, hair color, glasses, and name.
+
+Does this person have green eyes?
+
+If so, mark a check next to “eye color." 
+If not, mark an X there.
+
+If they have red hair, does their 
+name contain a double letter?
+
+If so, mark a check next to “hair color.”
+
+If they don’t have a double letter, 
+mark an X next to “hair color.”
+
+Anyone with red hair and no double 
+letter can’t be the resistance leader.
+
+But notice that if they have blue hair,
+
+Hedge will skip this question and 
+go on to the next one.
+
+For the last question, we can say,
+
+“If they wear glasses, does their name 
+have exactly 2 vowels?
+
+If they don’t have glasses, does their 
+name have exactly 3 vowels?”
+
+There will be people in the crowd with 
+glasses and 1 vowel,
+
+or no glasses and 2 vowels.
+
+But they’re not who we’re looking for, 
+so they’ll get X’s.
+
+The resistance leader must be someone 
+with either check marks
+
+or blanks next to every question.
+
+Blanks are ok, because if someone 
+has blue hair,
+
+the rule about red hair doesn’t 
+apply to them.
+
+You could have Hedge ask every question 
+about every person,
+
+and then choose the person with 
+only checks and blanks.
+
+But there’s a way to save yourself lots 
+of time: as soon as Hedge marks an X,
+
+have him move on to the next person.
+
+You don’t need to know the answer 
+to every question;
+
+just one X means they’re not the target 
+of your search.
+
+Hedge buzzes through the crowd,
+
+and within minutes finds Adila, 
+the resistance leader,
+
+and brings her back to Ethic.
+
+Adila agrees to help them steal the first 
+artifact— the node of power—
+
+but under one condition:
+
+that Ethic and Hedge <mark>jump-start</mark> 
+the revolution
+
+by reprogramming the furnace-bots 
+that <mark>terrorize</mark> the town.
+
+And <mark>right on cue</mark>, the robots <mark>descend</mark>.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "agility (ngày 250)"
+      }, {
+        index: 1,
+        text: "rack (ngày 175)"
+      }, {
+        index: 2,
+        text: "track (ngày 100)"
+      }, {
+        index: 3,
+        text: "maternity (ngày 331)"
+      }, {
+        index: 4,
+        text: "undergo (ngày 336)"
+      }, {
+        index: 5,
+        text: "pursuit (ngày 287)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "sự nhanh nhẹn<br>VD: <i>Learning a second language can boost thinking skills, improve mental ... and delay the ageing of the brain.</i>"
+      }, {
+        index: 1,
+        text: "giá treo quần áo, giá để sách/đĩa/giày- VD: <i>She flicked through the clothes on the ..., looking for something suitable.</i>"
+      }, {
+        index: 2,
+        text: "theo dõi<br>VD: <i>The progress of each student is ...ed by computer.</i>"
+      }, {
+        index: 3,
+        text: "liên quan đến bà bầu<br>VD: <i>She asked about the company’s ... benefits.</i>"
+      }, {
+        index: 4,
+        text: "trải qua<br>VD: <i>Her mother is going to ... a major operation next week.</i>"
+      }, {
+        index: 5,
+        text: "hoạt động<br>VD: <i>I enjoy outdoor ...s, like hiking and riding.</i>"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>
+
+
+
+
+
