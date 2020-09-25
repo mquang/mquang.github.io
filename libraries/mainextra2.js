@@ -30,7 +30,7 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-if(getNextWeek() <= 55){
+if(getNextWeek() <= 60){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <i class="fa fa-arrow-circle-o-right"></i></a>');
 }
   
