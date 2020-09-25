@@ -59,6 +59,7 @@ for(var i=46; i<=tuan;i++){
       var week = parseInt(thenum) + 1;
       $('.bao').append('<a href="Tuan'+week+'/day'+mul+'.html"><div class="outer"><div class="document"></div><span>Ngày '+mul+'</span></div></a>');
      }    
+     $('.bao').append('<a href="Tuan'+(week+1)+'/1.REVIEW'+week+'.html"><div class="outer"><div class="document"></div><span id="review">Review tuần '+ week +'</span></div></a>');
   });
 
 $('.pop-up .close').click(function(){
