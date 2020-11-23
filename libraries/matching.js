@@ -201,7 +201,7 @@ var count = 0;
     });
     $('.wrapTest ul li span:has(img)').css('padding','0');
     $('.wrapTest ul li span img, .wrapTest ul li span i').css('pointer-events','none');
-    $('.wrapTest ul li span i dfn').css('pointer-events','auto');
+    $('.wrapTest ul li span i dfn, .wrapTest ul li span i u').css('pointer-events','auto');
         termsContainer.removeAttribute("class", "fadeOut");
         defsContainer.removeAttribute("class", "fadeOut");
       }, 450)
@@ -220,5 +220,5 @@ $('#terms li span').each(function(){
 });
 $('.wrapTest ul li span:has(img)').css('padding','0');
 $('.wrapTest ul li span img, .wrapTest ul li span i').css('pointer-events','none');
-$('.wrapTest ul li span i dfn').css('pointer-events','auto');
+$('.wrapTest ul li span i dfn, .wrapTest ul li span i u').css('pointer-events','auto');
 });
