@@ -1,0 +1,190 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<link rel="stylesheet" href="../libraries\flipcards.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<script type="text/javascript" src="../libraries\highlight.js"></script>
+
+<!-- <div class="wrapTest">
+<section id="test">
+  <div class="alert alert-info" style="text-align: center"><i class="fa fa-edit" style="font-size: 20px"></i> Review trước khi vào bài mới</div>
+  <div class="row">
+  
+  </div>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 415</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody> 
+      <tr>     
+        <td>hoe</td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>         
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>  
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>      
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+</tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script>
+  var vocab_list = {
+  "apron": {
+    imgSrc:"../images1/53.jpg", 
+    empl: "Bring me a bucket of water.",
+    day: "259"
+  },
+  "water purifier": {
+    imgSrc:"../images2/321.jpg", 
+    empl: "This scarf is Jacqueline's.",
+    day: "404"
+  },
+  "crib": {
+    imgSrc:"../images1/158.jpg",
+    empl: "", 
+    day: "209"
+  },
+  "diaper": {
+    imgSrc:"../images5/261.jpg", 
+    empl: "I put the mop behind the door.",
+    day: "208"
+  },
+  "crate": {
+    imgSrc:"../images5/70.gif", 
+    empl: "Swipe your card to open the door.",
+    day: "202"
+  },
+  "cosmetic": {
+    imgSrc:"../images2/209.gif",
+    empl: "When I arrived he was sweeping the leaves from the driveway.", 
+    day: "280"
+  },
+  "shovel": {
+    imgSrc:"../images3/265.jpg", 
+    empl: "Remember to check your tyre pressure regularly.",
+    day: "259"
+  },
+  "rucksack": {
+    imgSrc:"../images4/29.jpg",
+    empl: "All his camping gear was packed in the rucksack.", 
+    day: "188"
+  }
+}
+</script>
+<script type="text/javascript" src="../libraries\flipcards.js"></script>
+
+
+
+
