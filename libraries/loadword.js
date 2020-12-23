@@ -13,10 +13,15 @@ function getPosition(string, subString, index) {
 
 var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6;
 $(".head b").append(" (Ôn lại những từ thuộc tuần " + week + " đến tuần " + fromWeek + ")");
+var replacementFlag = true;
 $("#loadWords").on("click", function(e){		
     var button = this;	
     var buttObj = $(this);
     buttObj.attr("disabled", true);
+    if(replacementFlag){
+    	buttObj.text(buttObj.text().replace('Load', 'Loading...'));
+    	replacementFlag = false;
+    }    
 	var url = "https://raw.githubusercontent.com/mquang/mquang.github.io/master/Tuan"+week+"/day"+day+".html";
 	$.ajax(url, {
 		dataType: "html",

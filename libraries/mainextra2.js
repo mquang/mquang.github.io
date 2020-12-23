@@ -30,7 +30,7 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-if(getNextWeek() <= 60){
+if(getNextWeek() <= 65){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <i class="fa fa-arrow-circle-o-right"></i></a>');
 }
   
@@ -694,7 +694,7 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var end = 79;
+var end = 83;
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
     numbers.push(i);
