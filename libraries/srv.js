@@ -22,9 +22,15 @@ const getRandomColor = () => {
 }
   $('.box').each(function(){
   var color = getRandomColor();
-  var posx = (Math.random() * ($(window).width() - $('.box').width())).toFixed();
+  var posx = (Math.random() * ($(window).width() - $('.box').width() - 30)).toFixed();
   var posy = (Math.random() * ($(window).height() - $('.box').height())).toFixed();
   $(this).css({'background-color':color,'left':posx + 'px','top':posy + 'px'});
+
+  var r = /\d+/;
+  var getString = $(this).text();
+  var getNumber = $(this).text().match(r);
+  var result = getString.replace(getNumber, '<a href="../Tuan'+Math.ceil(getNumber/7)+'/day'+getNumber+'.html" target="_blank">'+getNumber+'</a>');
+  $(this).html(result);
 })
 
   $(".element").throwable({
