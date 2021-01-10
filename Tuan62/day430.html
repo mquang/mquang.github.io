@@ -1,0 +1,196 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../libraries\main.css">
+<link rel="stylesheet" href="../libraries\matching.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<script type="text/javascript" src="../libraries\highlight.js"></script>
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 430</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody> 
+      <tr>     
+        <td>delicate</td>
+        <td>/ˈdel.ə.kət/</td>
+        <td>(adj)<br><b>1. nhạy cảm</b> (needing to be dealt with carefully or sensitively in order to avoid problems or failure)<br><br><b>2. mỏng manh, dễ vỡ</b> (easily damaged or broken)<br><br><b>3. thanh, nhạt, dịu nhẹ</b><br>(of colours, flavours and smells) light and pleasant; not strong<br><br><b>4. thanh mảnh, thanh nhã, thanh tú</b> (having a thin, attractive shape)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td>1.<br><li>This is a somewhat delicate subject.</li><video controls>
+        <source src="../vids\vid430.mp4" type="video/mp4">
+      </video><br><br>2.<br><div class="alert alert-info">(syn) <b><u title="ngày 216">fragile</u></b></div><li>delicate china teacups</li><br>3.<br><li>a rose with a delicate <select><option>scent</option><option>fragrance</option></select></li><br>4.<br><li>Her wrists and ankles were slim and delicate.</li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+      <tr>     
+        <td></td>
+        <td></td>
+        <td><br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li></li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+  <div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: " (ngày )"
+      }, {
+        index: 1,
+        text: " (ngày )"
+      }, {
+        index: 2,
+        text: " (ngày )"
+      }, {
+        index: 3,
+        text: " (ngày )"
+      }, {
+        index: 4,
+        text: " (ngày )"
+      }, {
+        index: 5,
+        text: " (ngày )"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "tình cờ nghe được<br>VD: <i>I ...(ed) a rumor about you.</i>"
+      }, {
+        index: 1,
+        text: "bệnh tiểu đường<br>VD: <i>I have ... .</i>"
+      }, {
+        index: 2,
+        text: "bệnh ỉa chảy, tiêu chảy<br>VD: <i>The symptoms of the disease include fever, <u title=\"(n) cảm giác buồn nôn (ngày 206)\">nausea</u>, and ... .</i>"
+      }, {
+        index: 3,
+        text: "mất trí nhớ<br>VD: <i>A man suffering from ... was identified by his sister, who saw his picture on television.</i>"
+      }, {
+        index: 4,
+        text: "(chứng) mất ngủ<br>VD: <i>... may occur due to an overactive mind that won't shut down for sleep.</i>"
+      }, {
+        index: 5,
+        text: "sự bảo vệ từ chính phủ cấp cho dân tị nạn - VD: <i>She was granted ... after it was made clear that she would be killed if she returned to her native country.</i>"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>
+
+
+
+
+

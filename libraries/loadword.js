@@ -11,10 +11,24 @@ function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;
 }
 
-var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6;
+var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6, totalDay = (fromWeek-week) * 7;
 $(".head b").append(" (Ôn lại những từ thuộc tuần " + week + " đến tuần " + fromWeek + ")");
 var replacementFlag = true;
-$("#loadWords").on("click", function(e){		
+$("#loadWords").on("click", function(e){	
+	topbar.config({
+    autoRun      : false, 
+    barThickness : 5,
+    barColors    : {
+      '0'        : 'rgba(26,  188, 156, .7)',
+      '.3'       : 'rgba(41,  128, 185, .7)',
+      '1.0'      : 'rgba(231, 76,  60,  .7)'
+    },
+    shadowBlur   : 5,
+    shadowColor  : 'rgba(0, 0, 0, .5)',
+    className    : 'topbar',
+  })
+  topbar.show();
+  	
     var button = this;	
     var buttObj = $(this);
     buttObj.attr("disabled", true);
@@ -22,6 +36,26 @@ $("#loadWords").on("click", function(e){
     	buttObj.text(buttObj.text().replace('Load', 'Loading...'));
     	replacementFlag = false;
     }    
+
+    while(localStorage.getItem(day) !== null) {
+    		var prog = 1/totalDay;
+    	
+    		$("#table tbody").append(localStorage.getItem(day));
+			
+		    topbar.progress('+'+prog);
+
+			day++;
+			if((day - 1) % 7 == 0){
+				week++;
+			}   
+			if(week == endWeek){
+				$("#loadWords").hide();
+				topbar.hide();
+				return;
+			}
+    		
+	}
+
 	var url = "https://raw.githubusercontent.com/mquang/mquang.github.io/master/Tuan"+week+"/day"+day+".html";
 	$.ajax(url, {
 		dataType: "html",
@@ -32,7 +66,7 @@ $("#loadWords").on("click", function(e){
 
 	        trows = response.find('#m tbody tr');
 	        end = trows.length;
-	        var tr = "<tr><th scope='row'>"+day+"</th>";
+	        var tr = "<tr><th scope='row'><a href=\"../Tuan" + Math.ceil(day/7) + "/day" + day + ".html\" target=\"_blank\">" + day + "</a></th>";
 	        var preT, endT;
 	        for (j = 0; j < 12; j++) {
 	        	if(trows[ j ] != undefined){
@@ -62,25 +96,25 @@ $("#loadWords").on("click", function(e){
 	        	}
 	        }
 	        tr = tr.concat("</tr>");
+	        localStorage.setItem(day, tr);
 	        $("#table tbody").append(tr);
+	        var prog = 1/totalDay;
+	        topbar.progress('+'+prog);
 	        day++;
 			if((day - 1) % 7 == 0){
 				week++;
 			}   			
 			if(week == endWeek){
 				$("#loadWords").hide();
+				topbar.hide();
 			} else{
 				buttObj.attr("disabled", false);
 				button.click(); 
-			}
-			$('th').each(function(){
-              if($(this).attr('scope') == 'row'){
-                    $(this).html('<a href="../Tuan' + Math.ceil($(this).text()/7) + '/day' + $(this).text() + '.html" target="_blank">' + $(this).text() + '</a>');
-                    } 
-          	});		          	
+			}		          	
 		},
 		error: function(request, errorType, errorMsg){
 			$("#loadWords").hide();
+			topbar.hide();
 		}			
 	})		
 })

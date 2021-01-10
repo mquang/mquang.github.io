@@ -58,12 +58,17 @@ for(var i=61; i<=tuan;i++){
      $('.pop-up').addClass('open');
      $('#phone_screen').addClass('ani');
      $('#phone').addClass('ani2');
-     for(var j=1; j<=7;j++){
-      var mul = 7*thenum+j;
-      var week = parseInt(thenum) + 1;
-      $('.bao').append('<a href="Tuan'+week+'/day'+mul+'.html"><div class="outer"><div class="document"></div><span>Ngày '+mul+'</span></div></a>');
-     }    
-     $('.bao').append('<a href="Tuan'+(week+1)+'/1.REVIEW'+week+'.html"><div class="outer"><div class="document"></div><span id="review">Review tuần '+ week +'</span></div></a>');
+
+     if(thenum == (tuan - 1)){
+        $('.bao').append('<a href="all-words.html"><div class="outer"><div class="document"></div><span id="review">Tổng kết</span></div></a>');
+     } else {
+       for(var j=1; j<=7;j++){
+        var mul = 7*thenum+j;
+        var week = parseInt(thenum) + 1;
+        $('.bao').append('<a href="Tuan'+week+'/day'+mul+'.html"><div class="outer"><div class="document"></div><span>Ngày '+mul+'</span></div></a>');
+       }    
+       $('.bao').append('<a href="Tuan'+(week+1)+'/1.REVIEW'+week+'.html"><div class="outer"><div class="document"></div><span id="review">Review tuần '+ week +'</span></div></a>');
+      }
   });
 
 $('.pop-up .close').click(function(){
