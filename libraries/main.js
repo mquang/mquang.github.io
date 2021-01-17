@@ -90,16 +90,16 @@ var ar = [
   var oristr = $(this).html();
   //console.log(oristr);
   var mySubString = oristr.substring(
-    oristr.lastIndexOf('ol">') + 4, 
+    oristr.indexOf('ol">') + 4, 
     oristr.indexOf("/dfn>") - 1
   );
   //console.log(mySubString);
   
   var str2 = oristr.replace(mySubString,"");
   var str3 = str2.replace('<dfn class="ol"></dfn>',"");
-  var str4 = str3.replace('<li><b>',"");
-  var str5 = str4.replace('</b>',"");
-  var str6 = str5.replace('</li>',"");
+  var str4 = str3.replace(/<li><b>/g,"");
+  var str5 = str4.replace(/<\/b>/g,"");
+  var str6 = str5.replace(/<\/li>/g,"");
   //console.log(str5);
   $('#qbo').bind('change', function(){        
     if($(this).is(':checked') == true){
@@ -291,7 +291,7 @@ $('#m tr td:nth-child(1)').each(function(){
     $("dfn.ol").parent().each(function(){
       var oristr = $(this).html();
       var mySubString = oristr.substring(
-        oristr.lastIndexOf('ol">') + 4,
+        oristr.indexOf('ol">') + 4,
         oristr.indexOf("/dfn>") - 1
       );
       //console.log(mySubString);
@@ -300,14 +300,14 @@ $('#m tr td:nth-child(1)').each(function(){
       var temp = $(this).parent().html();
       //console.log(temp);
       var temp1 = temp.replace('<b>',"");
-      var temp2 = temp1.replace('</b>',"");
+      var temp2 = temp1.replaceAll('</b>',"");
       var temp3 = temp2.replace(mySubString,"");
       var temp4 = temp3.replace('<dfn class="ol"></dfn>',"");
       //console.log(temp4);
           $('label','.items').each(function(i) {
             var b = $(this).html();
             
-            if(temp4 == b){
+            if(temp4 == b.replaceAll('</b>',"")){
              var alm = $(this).attr('for');
              var fini = $(this).parent().find($("input[id='"+alm+"']"));
              fini.prop('checked', true);

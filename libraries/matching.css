@@ -148,6 +148,10 @@
   border-radius: 15px;
 }
 
+.wrapTest .score span i select{
+  color: black;
+}
+
 .wrapTest .score:hover {
   cursor: default;
   transform: none;

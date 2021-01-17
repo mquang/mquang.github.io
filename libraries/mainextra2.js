@@ -121,17 +121,17 @@ var ar = [
   var oristr = $(this).html();
   //console.log(oristr);
   var mySubString = oristr.substring(
-    oristr.lastIndexOf('ol">') + 4, 
+    oristr.indexOf('ol">') + 4, 
     oristr.indexOf("/dfn>") - 1
   );
-  //console.log(mySubString);
+  //console.log("content of/inside dfn tag: " + mySubString);
   
   var str2 = oristr.replace(mySubString,"");
   var str3 = str2.replace('<dfn class="ol"></dfn>',"");
-  var str4 = str3.replace('<li><b>',"");
-  var str5 = str4.replace('</b>',"");
-  var str6 = str5.replace('</li>',"");
-  //console.log(str5);
+  var str4 = str3.replace(/<li><b>/g,"");
+  var str5 = str4.replace(/<\/b>/g,"");
+  var str6 = str5.replace(/<\/li>/g,"");
+  //console.log("remaining after trimming (meaning): " + str6);
   $('#qbo').bind('change', function(){        
     if($(this).is(':checked') == true){
       QUIZ_ANSWERS.push(mySubString);
@@ -179,11 +179,7 @@ $('td:nth-child(3)', '#m').each(function(i) {
   for(var id1 = 0; id1 < sulist.length; id1 ++){
    $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
   }
-  var HAPPY_TIME = 1000; // how long to stay happy, in ms
-  var NEUTRAL_TIME = 20000; // how long to stay neutral, in ms
 
-  // timers
-  var toastMoodTimeout;
   var timeInterval;
 
   // other global variables
@@ -235,7 +231,7 @@ $('#m tr td:nth-child(1)').each(function(){
     // start the clock
           
     timeInterval = setInterval(reduceTime, 1000);
-    setToastMood('neutral');
+    
   }
 
 
@@ -247,23 +243,6 @@ $('#m tr td:nth-child(1)').each(function(){
       var answer = item.trim().toLowerCase()
       answers[answer] = false;
     });
-  }
-
-  function setToastMood(mood, isPermanent) {
-    $('.toast')
-      .removeClass('neutral-toast happy-toast sad-toast')
-      .addClass(mood + '-toast');
-
-    clearTimeout(toastMoodTimeout);
-    if (!isPermanent) {
-      if (mood === 'happy') {
-        // happy toast becomes neutral toast
-        toastMoodTimeout = setTimeout(setToastMood.bind(undefined, 'neutral'), HAPPY_TIME);
-      } else if (mood === 'neutral') {
-        // neutral toast becomes sad toast
-        toastMoodTimeout = setTimeout(setToastMood.bind(undefined, 'sad'), NEUTRAL_TIME);
-      }
-    }
   }
 
   function reduceTime() {
@@ -322,7 +301,7 @@ $('#m tr td:nth-child(1)').each(function(){
     $("dfn.ol").parent().each(function(){
       var oristr = $(this).html();
       var mySubString = oristr.substring(
-        oristr.lastIndexOf('ol">') + 4,
+        oristr.indexOf('ol">') + 4,
         oristr.indexOf("/dfn>") - 1
       );
       //console.log(mySubString);
@@ -331,14 +310,13 @@ $('#m tr td:nth-child(1)').each(function(){
       var temp = $(this).parent().html();
       //console.log(temp);
       var temp1 = temp.replace('<b>',"");
-      var temp2 = temp1.replace('</b>',"");
+      var temp2 = temp1.replaceAll('</b>',"");
       var temp3 = temp2.replace(mySubString,"");
       var temp4 = temp3.replace('<dfn class="ol"></dfn>',"");
       //console.log(temp4);
           $('label','.items').each(function(i) {
             var b = $(this).html();
-            
-            if(temp4 == b){
+            if(temp4 == b.replaceAll('</b>',"")){
              var alm = $(this).attr('for');
              var fini = $(this).parent().find($("input[id='"+alm+"']"));
              fini.prop('checked', true);
@@ -390,7 +368,7 @@ $('#m tr td:nth-child(1)').each(function(){
       $('.fa-chevron-circle-up').animate({bottom:'90px'});
 
       $('.end-greeting').text('Kinh đấy, còn hẳn ' + getTimeString() + ' thời gian!');
-      setToastMood('happy', true);
+      
       if($('#limit').find('input').is(':checked')) {
         open($('figure'));
       }
@@ -403,13 +381,13 @@ $('#m tr td:nth-child(1)').each(function(){
     } else if (score > 0) {
       // neutral
       $('.end-greeting').text('Hết giờ!');
-      setToastMood('neutral', true);
+      
       renderMissedAnswers();
       $('.status-toggle-answers').show();
     } else {
       // sad
       $('.end-greeting').text('Sao vậy...');
-      setToastMood('sad', true);
+      
       renderMissedAnswers();
       $('.scored-answers').hide();
       $('.missed-answers').show();
@@ -473,7 +451,7 @@ $('#m tr td:nth-child(1)').each(function(){
     $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <i class="fa fa-heart" style="color: #c90a0a;font-size: 25px;"></i> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift3" controls loop><source src="../gift3/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
     
     $('.toggle').text('Xem những từ bro chưa gõ được');
-    setToastMood('neutral', true);
+    
     $('.items input').prop('checked', false);
     return focusr = true;
   }
@@ -694,7 +672,7 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var end = 93;
+var end = 98;
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
     numbers.push(i);

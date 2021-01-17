@@ -60,7 +60,7 @@ for(var i=61; i<=tuan;i++){
      $('#phone').addClass('ani2');
 
      if(thenum == (tuan - 1)){
-        $('.bao').append('<a href="all-words.html"><div class="outer"><div class="document"></div><span id="review">Tổng kết</span></div></a>');
+        $('.bao').append('<a href="Tuan65/all-words.html"><div class="outer"><div class="document"></div><span id="review">Tổng kết</span></div></a>');
      } else {
        for(var j=1; j<=7;j++){
         var mul = 7*thenum+j;

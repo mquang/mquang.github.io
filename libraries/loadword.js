@@ -11,7 +11,7 @@ function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;
 }
 
-var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6, totalDay = (fromWeek-week) * 7;
+var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6, totalDay = 21;
 $(".head b").append(" (Ôn lại những từ thuộc tuần " + week + " đến tuần " + fromWeek + ")");
 var replacementFlag = true;
 $("#loadWords").on("click", function(e){	

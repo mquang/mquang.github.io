@@ -65,7 +65,7 @@ $("#loadWords").on("click", function(e){
 
 	        trows = response.find('#m tbody tr');
 	        end = trows.length;
-	        var tr = "<tr><th scope='row'><a href=\"Tuan" + Math.ceil(day/7) + "/day" + day + ".html\" target=\"_blank\">" + day + "</a></th>";
+	        var tr = "<tr><th scope='row'><a href=\"../Tuan" + Math.ceil(day/7) + "/day" + day + ".html\" target=\"_blank\">" + day + "</a></th>";
 	        var preT, endT;
 	        for (j = 0; j < 12; j++) {
 	        	if(trows[ j ] != undefined){
