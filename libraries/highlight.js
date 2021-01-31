@@ -3,7 +3,7 @@ $(document).ready(function(){
     var re = new RegExp(find, 'g');
     return str.replace(re, '<b style="color:#337ab7">'+find+'</b>');
 }
-$('.panel-body p').each(function(i) {
+$('.panel-body p, .modal-body p').each(function(i) {
         var a = $(this).html();
         if(a.includes(":")){
           var b = a.split(':')[0];

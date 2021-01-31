@@ -8,6 +8,10 @@ var replacementFlag = true;
 $("#table").DataTable();
 var myTable = $("#table").dataTable().api();
 
+$('body').tooltip({
+    selector: '.describe'
+});
+
 $("#loadWords").on("click", function(e){	
 	topbar.config({
     autoRun      : false, 
@@ -85,7 +89,7 @@ $("#loadWords").on("click", function(e){
 		        		}
 	        		}
 	        		if(hasRelatedWord){
-	        			preT = '<td><u style="text-decoration: none; border-bottom: 3px solid #d61010;" title="'+relatedWords+'">';
+	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join("; ")+'">';
 	        			endT = '</u></td>';
 	        		}
 	        		//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 children

@@ -5,6 +5,7 @@ dfn {
     border-bottom: dashed 1px rgba(0,0,0,0.8);
     /*padding: 0 0.4em;*/
     cursor: help;
+    display: inline-block;
     font-style: normal;
     position: relative;
     
@@ -770,7 +771,7 @@ tr{vertical-align: top;}
     width: 15px;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(249,249,249,0.1);
+    background: black;
 }
 ::-webkit-scrollbar-track {
     background: rgba(0,0,0,0.4);
@@ -1412,3 +1413,8 @@ tr{vertical-align: top;}
   color: black;
   font-weight: bold;
 }
+
+ .modal-body{
+    height:350px;
+    overflow-y: scroll;
+  }

@@ -14,6 +14,17 @@ function getPosition(string, subString, index) {
 var week = fromWeek - 2, endWeek = fromWeek + 1; day = week*7-6, totalDay = 21;
 $(".head b").append(" (Ôn lại những từ thuộc tuần " + week + " đến tuần " + fromWeek + ")");
 var replacementFlag = true;
+
+$('.tooltip-inner').css({
+	"word-wrap" : "break-word",
+	"text-align" : "left",
+	"white-space" : "pre-line"
+});
+
+$('body').tooltip({
+    selector: '.describe'
+});
+
 $("#loadWords").on("click", function(e){	
 	topbar.config({
     autoRun      : false, 
@@ -86,7 +97,7 @@ $("#loadWords").on("click", function(e){
 		        		}
 	        		}
 	        		if(hasRelatedWord){
-	        			preT = '<td><u style="text-decoration: none; border-bottom: 3px solid #d61010;" title="'+relatedWords+'">';
+	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join("; ")+'">';
 	        			endT = '</u></td>';
 	        		}
 	        		//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 children
