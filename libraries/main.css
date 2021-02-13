@@ -531,7 +531,7 @@ dfn {
 }
 #m tr td:nth-child(1), #m tr td:nth-child(2){width:17.5%;position: relative;}
 #m tr td:nth-child(1){padding-right: 45px;}
-#m tr td:nth-child(3){width: 30%;}
+#m tr td:nth-child(3){width: 30%;line-height: 25px;}
 #m tr td:nth-child(3) img, #m tr td:nth-child(4) img,label img{
   width:100%;
 }

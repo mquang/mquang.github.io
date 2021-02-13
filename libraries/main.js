@@ -1,3 +1,6 @@
+var currDay = $('.all').find('h1:first').text().match(/\d+/)[0];
+document.title = "Ngày " + currDay;
+
 $('body').append('<i class="fa fa-chevron-circle-up" style="font-size:36px" onclick="topFunction()"></i>')
 $('.layer2').prepend('<a href="../index.html" class="btn btn-default btn-md home"><i class="fa fa-th"></i> Trang chủ</a>')
 

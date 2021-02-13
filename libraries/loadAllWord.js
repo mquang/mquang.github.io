@@ -2,7 +2,7 @@ function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;
 }
 
-var week = 1, endWeek = 65; day = week*7-6, totalDay = endWeek * 7;
+var week = 1, endWeek = 66; day = week*7-6, totalDay = endWeek * 7;
 $(".head b").append("Tổng hợp toàn bộ danh sách từ từ tuần " + week + " đến tuần " + (endWeek-1));
 var replacementFlag = true;
 $("#table").DataTable();
@@ -89,7 +89,7 @@ $("#loadWords").on("click", function(e){
 		        		}
 	        		}
 	        		if(hasRelatedWord){
-	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join("; ")+'">';
+	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join(", ")+'">';
 	        			endT = '</u></td>';
 	        		}
 	        		//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 children

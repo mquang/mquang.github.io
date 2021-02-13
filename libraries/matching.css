@@ -148,7 +148,7 @@
   border-radius: 15px;
 }
 
-.wrapTest .score span i select{
+.wrapTest .score span i select, .wrapTest .score span i dfn{
   color: black;
 }
 

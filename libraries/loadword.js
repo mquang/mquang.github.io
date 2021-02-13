@@ -97,7 +97,7 @@ $("#loadWords").on("click", function(e){
 		        		}
 	        		}
 	        		if(hasRelatedWord){
-	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join("; ")+'">';
+	        			preT = '<td><u class="describe" style="text-decoration: none; border-bottom: 3px solid #d61010;" data-toggle="tooltip" data-placement="bottom" title="'+relatedWords.join(", ")+'">';
 	        			endT = '</u></td>';
 	        		}
 	        		//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 children

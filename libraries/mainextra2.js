@@ -1,3 +1,6 @@
+var currDay = $('.all').find('h1:first').text().match(/\d+/)[0];
+document.title = "Ngày " + currDay;
+
 $('body').append('<i class="fa fa-chevron-circle-up" style="font-size:36px" onclick="topFunction()"></i>')
 $('.layer2').prepend('<a href="../index.html" class="btn btn-default btn-md home"><i class="fa fa-th"></i> Trang chủ</a>')
 
@@ -30,7 +33,7 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-if(getNextWeek() <= 64){
+if(getNextWeek() <= 65){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <i class="fa fa-arrow-circle-o-right"></i></a>');
 }
   
@@ -672,7 +675,7 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var end = 106;
+var end = 119;
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
     numbers.push(i);

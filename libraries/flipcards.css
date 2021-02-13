@@ -49,7 +49,6 @@
    border: 2px solid #000;
 }
 .flip .card .back {
-  padding-top: 10%;
   -webkit-transform: rotatey(-180deg);
           transform: rotatey(-180deg);
   position: absolute;
@@ -57,6 +56,7 @@
 .inner{
   margin:0px !important;
   width: 270px;
+  padding: 0 10px 0 10px;
 }
 .inner h3{
   color: red;
@@ -64,4 +64,8 @@
 .wrapTest button#exitRV{
   display: block;
   left: calc(50% - 60px);
+}
+.flip .card .back span{
+  display: inline-block;
+  text-align: left;
 }
