@@ -1,0 +1,174 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+
+<link rel="stylesheet" href="../libraries\main.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<script type="text/javascript" src="../libraries\throwable.js"></script>
+<script type="text/javascript" src="../libraries\srv.js"></script>
+<link rel="stylesheet" href="../libraries\srv.css">
+<div class="box o-2 element">parcel (ngày 65)</div>
+<div class="box o-3 element">yarn (ngày 63)</div>
+<div class="box o-4 element">corporate (ngày 39)</div>
+<div class="box o-1 element">agent (ngày 17)</div>
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 82</h1>
+    <article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>
+      <tr>       
+        <td>fence</td>
+        <td>/fens/</td>
+        <td>(n) <b>hàng rào</b><br><a href="../images1\63.jpg"><img src="../images1\63.jpg" /></a></td>
+        <td><li>The house <dfn data-inf="được bao bởi">was surrounded by</dfn> a tall, <dfn data-inf="(adj) bằng gỗ">wooden</dfn> fence.</li></td>
+      </tr>
+      <tr>
+        <td>pathway</td>
+        <td>/ˈpæθ.weɪ/</td>
+        <td>(n) <b>đường mòn, con đường</b><br><a href="../images1\65.jpg"><img src="../images1\65.jpg" /></a></td>
+        <td><div class="alert alert-info">= <b>path</b></div><li>New <dfn data-inf="đi bộ">pedestrian</dfn> pathways are being built <dfn data-inf="(preposition) bên cạnh, dọc theo&#13;&#10;next to, or together with">alongside</dfn> the road.</li></td>
+      </tr>
+      <tr>
+        <td>roam</td>
+        <td>UK: /rəʊm/<br>US: /roʊm/</td>
+        <td>(v) <b>to walk or travel, usually for a long time, with no clear purpose or direction</b><br><a href="../images1\64.jpg"><img src="../images1\64.jpg" /></a></td>
+        <td><li>She roamed around America for a year, working in bars and restaurants.<li>Chickens and <dfn data-inf="(n) ngỗng">geese</dfn> roam freely in the <dfn data-inf="(n) sân sau">back yard</dfn>.<li>The dogs are allowed to roam around.<li>I’d like to be a photographer and roam the world with my camera.</li></td>
+      </tr>
+      <tr>
+        <td>impress</td>
+        <td>/ɪmˈpres/</td>
+        <td>(v) <b>gây ấn tượng</b><br><a href="../images1\66.gif"><img src="../images1\66.gif" /></a></td>
+        <td><li>He tried to impress his teachers by using big words in all his essays.<li>He tried to impress me with his <dfn data-inf="(adj) rộng">extensive</dfn> knowledge of wine.<li>He impressed her with his sincerity.<li>Everyone was impressed by the cleverness of the machine.</li><video controls>
+  <source src="../videos\vid82.mp4" type="video/mp4">
+</video><span>YouTube: Julius Dein</span></td>
+      </tr>
+      <tr>
+        <td>habitat</td>
+        <td>/ˈhæbə.tæt/</td>
+        <td>(n) <b>môi trường sống</b> (the natural environment in which an animal or plant usually lives)<br><a href="../images1\67.png"><img src="../images1\67.png" /></a></td>
+        <td><li>The panda's natural habitat is the <dfn data-inf="(n) tre">bamboo</dfn> forest.</li></td>
+      </tr>
+      <tr>
+        <td>lobby</td>
+        <td>/ˈlɑː.bi/</td>
+        <td>(n) <b>sảnh đợi</b> (a large, open space just inside the <dfn data-inf="lối vào chính, cửa chính">main entrance</dfn> of a public building such as a hotel, office building, or theater)<br><a href="../images1\68.jpg"><img src="../images1\68.jpg" /></a></td>
+        <td><li><dfn data-inf="Khi">As</dfn> you enter the lobby, you’ll see the elevators on your right.</li></td>
+      </tr>  
+    </tbody>
+
+  </table>
+</article>
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+<div class="audio panel panel-primary">
+  <div class="panel-heading">Luyện nghe</div>
+  <div class="panel-body">
+    <br><br>
+    <audio controls>
+      <source src="../audio\d82a.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="../audio\d82b.mp3" type="audio/mpeg">
+    </audio>
+      <button type="button" class="btn btn-primary">Hiển thị nội dung</button>
+      <!-- 83-85 -->
+      <p>My name is Ned, and I'll be your <u title="ngày 61">guide</u> on today's zoo tour. The <mark>fenced</mark> <mark>pathways</mark> will <u title="ngày 65">lead</u> us past areas where our animals are <u title="ngày 34">allowed</u> to <mark>roam</mark> free. I'm sure you'll <mark>be impressed</mark> with the natural <mark>habitats</mark> that have been carefully <u title="ngày 69">recreated</u> for our zoo animals to live in. At the end of the tour, we'll visit the gift shop, where I <u title="ngày 38">suggest</u> you pick up a copy of <i>All Our Animals</i>, a guidebook that has beautiful pictures of the animals you'll see today. And please remember, don't make phone calls on your cell phone during the tour.</p>
+      <hr style="display: none;">
+      <!-- 62-64 -->
+      <p>Eileen, I just had a call from Tollberg Industries about the <u title="ngày 59">flower arrangements</u> they ordered for their <u title="ngày 59">banquet</u> tomorrow. They'd like to have four more <u title="ngày 59">centerpieces</u>, <u title="ngày 10">in addition to</u> the ten they <u title="ngày 81">originally</u> <u title="ngày 59">requested</u>.</p>
+      <p>Oh. I think we have enough flowers to do that. We might have to change the time of the <u title="ngày 29">delivery</u>, <u title="ngày 10">though</u>. Right now it's <u title="ngày 65">scheduled</u> for the morning, but we'll need more time to do the extra arrangements.</p>
+      <p>Well, I'm sure the Crawford Apartments wouldn't mind getting the flowers for their <mark>lobby</mark> earlier in the day. Let's move them to the morning and give that delivery time to Tollberg Industries.</p>
+  </div>
+  </div>
+</div>
+
+  <div id="disqus_thread"></div>
+<div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    <div class="btn-contain">
+      <div class="btn-gradient-contain">
+      <a href="../Tuan12/1.REVIEW11.html" class="btn-gradient">
+          <span>Review 11</span>
+      </a>
+      </div>
+    </div>
+   <div class="dropdown-btn" id="w1">
+    <h3>Tuần 11
+      <i class="fa fa-caret-right"></i>
+    </h3>
+    <div class="display dropdown-container">
+      </li><li><a href="../Tuan11/day71.html">Ngày 71</a></li>
+      </li><li><a href="../Tuan11/day72.html">Ngày 72</a></li>
+      </li><li><a href="../Tuan11/day73.html">Ngày 73</a></li>
+      </li><li><a href="../Tuan11/day74.html">Ngày 74</a></li>
+      </li><li><a href="../Tuan11/day75.html">Ngày 75</a></li>
+      </li><li><a href="../Tuan11/day76.html">Ngày 76</a></li>
+      </li><li><a href="../Tuan11/day77.html">Ngày 77</a></li>
+    </div>
+  </div>
+  <div class="current">
+    <h3 class="text-center">Tuần 12</h3>
+    <div class="display">
+      <li><a href="day78.html">Ngày 78</a></li>
+      <li><a href="day79.html">Ngày 79</a></li>
+      <li><a href="day80.html">Ngày 80</a></li>
+      <li><a href="day81.html">Ngày 81</a></li>
+      <li><a href="day83.html">Ngày 83</a></li>
+      <li><a href="day84.html">Ngày 84</a></li>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../libraries\main.js"></script>
