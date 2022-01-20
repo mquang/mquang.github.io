@@ -1,0 +1,254 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+
+<link rel="stylesheet" href="../libraries\main.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<link rel="stylesheet" href="../libraries\matching.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<script type="text/javascript" src="../libraries\highlight.js"></script>
+<div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div>
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 421</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody> 
+      <tr>     
+        <td>cunning</td>
+        <td>/ˈkʌn.ɪŋ/</td>
+        <td>(adj) <b></b> (clever)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>Despite the complex security systems in modern vehicles, cunning thieves still manage to <u title="thoát tội (ngày 123)">get away with</u> thousands of cars and trucks every year.</li></td>
+      </tr>
+      <tr>     
+        <td>from afar</td>
+        <td>/əˈfɑːr/</td>
+        <td><b>từ xa</b> (from a long distance away)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>I saw him from afar.<li>Even from afar the castle was most impressive.</li></td>
+      </tr>  
+      <tr>     
+        <td>come in handy</td>
+        <td></td>
+        <td><b>có ích, hữu dụng</b> (to be useful, often in a particular setting or situation)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>That flashlight comes in handy when I'm trying to find something in my car at night.<li>Those boxes might come in handy, so don't throw them away.</li><video controls>
+        <source src="../vids\vid421.mp4" type="video/mp4">
+      </video></td>
+      </tr>
+      <tr>     
+        <td>pull together</td>
+        <td></td>
+        <td>(phrasal verb) <b>hợp sức, đồng tâm hiệp lực</b> (to work hard <select><option>as a group</option><option>together</option></select> in order to achieve something)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>We don't have much time but if we all pull together we should get the job done.<li>I know we're behind schedule, but if we pull together, we should be able to get this finished on time.</li></td>
+      </tr>
+      <tr>     
+        <td>grip</td>
+        <td>/ɡrɪp/</td>
+        <td>(v)<br><b>1. </b> (when an emotion such as fear grips you, you feel it strongly)<br><br><b>2. nắm chặt, giữ chặt</b> (to hold something tightly)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td>(v1)<br><li>Then he turned towards me, and I was suddenly gripped by fear.<li>Panic suddenly gripped me when it was my turn to speak.</li><br>(v2)<br><li>‘Please don't go,’ he said, gripping her arm.<li>There are many different types of <u title="(n) kìm (ngày 412)">pliers</u>, but they are all used to <dfn data-inf="(syn of GRIP) giữ chặt">clasp</dfn> and grip objects.</li></td>
+      </tr>
+      <tr>     
+        <td>downpour</td>
+        <td>/ˈdaʊn.pɔːr/</td>
+        <td>(n) <b>mưa rào</b> (a lot of rain falling in a short time)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><li>We <dfn data-inf="to become unexpectedly&#10;involved in an unpleasant&#10;or annoying situation">got caught in</dfn> a <dfn data-inf="(adj) xối xả">torrential</dfn> downpour.</li></td>
+      </tr> 
+      <tr>     
+        <td>attach something to something</td>
+        <td></td>
+        <td><b>cho là quan trọng, đáng để để tâm</b> (to <select><option>consider</option><option>believe that</option></select> something is important or worth thinking about)<br><a href="../images5\"><img src="../images5\" /></a></td>
+        <td><div class="alert alert-info"><b>attach <select><option>importance</option><option>significance</option><option>value</option><option>weight</option></select> to something</b></div><li>I don't <b>attach any <select><option>importance</option><option>significance</option></select> to these rumours</b>.<li>I wouldn't <b>attach too much weight to these findings</b>.</li></td>
+      </tr>   
+</tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+<div class="audio panel panel-primary">
+  <div class="panel-heading">Luyện nghe<span style="float: right;">I've Found an Old Treasure Map in the Attic</span></div>
+  <div class="panel-body">
+    <div id="myVideo">
+      <video controls>
+        <source src="../listening\421.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="box">   
+      <button type="button" class="btn btn-danger">Xem phụ đề / Thu nhỏ video</button>
+    </div>
+    <div id="test-text">
+       <p>Hi! My name is Ellie, and I found a real <u title="bản đồ kho báu (ngày 106)">treasure map</u> in the <u title="gác mái (ngày 413)">attic</u> of our house. I had to go through hard <u title="nhiều khó khăn, gian nan, thử thách (ngày 297)">trials</u> to find the treasure. But in order not to <u title="phá hỏng, làm mất hay (ngày 206)">spoil</u> the <u title="sự hấp dẫn, thú vị, kích thích tò mò (ngày 182)">intrigue</u>, I will tell you everything from the beginning.
+
+      </p><p>This story started when my family decided to move into the spacious but old house of my grandfather who had <u title="qua đời (ngày 212)">passed away</u> several years ago. I was happy about this decision since I’ve never liked living in a noisy city. There was one more reason to be <u title="vui mừng (ngày 89)">glad</u> as my best friend Mindy and I were about to become neighbors.
+      
+      </p><p>To be honest, there was one unpleasant <u title="mặt, khía cạnh (ngày 103)">aspect</u> in this move, and it lied in <dfn data-inf="dọn dẹp, sắp xếp&#10;gọn gàng, ngăn nắp">tidying up</dfn> this huge house. I decided to clean the attic because it was possible to find something interesting there. In addition, I called Mindy for help and the cleaning process became much faster. My friend and I were looking through the old books and newspapers, admiring <u title="cổ (ngày 6)">ancient</u> clothes, and cleaning up all the trash, while saving rare things for ourselves. <mark>Sifting through</mark> another <mark>stack</mark> of books, I <u title="bắt gặp (ngày 292)">came across</u> a small leather-bound notebook. I really liked it and <u title="để sang 1 bên (ngày 285)">put it aside</u> together with other things that I wanted to keep.
+      
+      </p><p>After opening my notebook in the evening, I was shocked because it was a real <u title="nhật ký của lữ khách, người đi du lịch, lữ hành (ngày 329)">traveler's diary</u>. Forgetting that I was supposed to sleep, I began to read it page by page. As it turned out, he was born here and traveled all over the world. <dfn data-inf="Lật qua, lướt qua">Flipping through</dfn> the diary to the middle of it, I noticed a map that was between the pages. It was a piece of <mark>parchment</mark> made of thick yellowish paper folded many times. An <mark>intricate</mark> route was drawn on it with a red pencil and it was interrupted in some places. It also included various marks and <mark>inscriptions</mark>.
+      
+      </p><p>After carefully studying the map, I suddenly came across something because of which my heart almost jumped out of my chest. Grandpa's house was marked on the map. It was written next to it that the map would lead to all the treasures that the traveler was able to collect. I was so excited by this idea that all night, I could not close my eyes thinking about the treasure.
+      
+      </p><p>In the morning, I immediately <u title="vội vàng đến chỗ (ngày 209)">rushed to</u> Mindy and showed her the map. I decided to <u title="hoãn lại (ngày 43)">postpone</u> reading the diary for a while so as not to waste time and find the treasure faster. A friend was shocked by what she saw. She immediately agreed to help me in my search.
+      
+      </p><p>The path to the treasure started from an old oak tree, which was not far from my grandfather's house, so we immediately headed towards it. We saw a path next to it, and it seemed to us that it would be easy to find the treasure. But then the map led us to a completely different path. Probably, it was drawn a long time ago, so the route <u title="biểu thị (ngày 37)">indicated</u> on the map was already overgrown with <dfn data-inf="(ns) các bụi cây">bushes</dfn>. While making our way through the branches with difficulty, we approached a large forest lake. The route on the map ran right along it, but we decided to go around.
+      
+      </p><p>At first, we felt very smart and <mark>cunning</mark> because it was not a very difficult task to get around the lake. But when we almost reached the right place, the path was blocked by the landslide stones and a high <dfn data-inf="vách đá">cliff</dfn>. Without losing hope, we decided to go on the other side of the lake, but, as it turned out, there was a <mark>viscous swamp</mark>. Suddenly we had such <mark>despair</mark> that we could hardly hold back our tears. We felt helpless and stupid because we were not able to handle even the first task of the map.
+      
+      </p><p>For over an hour, we’ve been thinking about how we could cross the lake. Only then we <mark>pulled ourselves together</mark> and took a closer look at the map seeing a boat drawn there. I took out the traveler's diary and quickly flipped through the pages until I found the same drawing. In the diary, it was written that we could cross the lake using something that was hidden nearby. It was also mentioned that dead trees would help us move. This sounded creepy, but we decided not to back down.
+      
+      </p><p>While searching the <u title="bờ (hồ, ao , sông, biển) (ngày 306)">shore</u>, Mindy discovered a hidden old <mark>raft</mark> that <u title="1 cách kỳ diệu (ngày 214)">miraculously</u> did not <u title="bị vỡ hỏng, tan nát (ngày 150)">fall apart</u> in so many years. After that, I immediately <u title="giải được câu hỏi, câu đố (ngày 176)">solved the riddle</u> and broke off two long branches from the fallen tree. We <u title="chèo (ngày 154)">sailed</u> on the water <u title="không ngừng (ngày 193)">constantly</u> being afraid that the raft was about to fall apart, but, fortunately, it <u title="-ed of bear<br>chịu được">bore</u> our weight.
+      
+      </p><p>Then the map led Mindy and me through a small field to the place where the forest was cut down a long time ago. Then the route on it was interrupted by the mark of the house. After finding the same mark in the diary, we learned that in the forester's <mark>barn</mark> nearby, there was hidden something that would definitely <mark>come in handy</mark> in our search for treasures. We have been <u title="đi loanh quanh (ngày 245)">wandering around</u> <dfn data-inf="bìa, lề">the edge of</dfn> the forest for several hours, but we could not find any house or barn. This time despair was mixed with anger. All these trials left by the traveler began to <u title="làm chúng tôi phát điên (ngày 147)">drive us crazy</u>. In addition, we started <u title="hoài nghi (ngày 94)">doubt</u>ing that the treasure was actually <mark>buried</mark> in that place.
+      
+      </p><p>We were about to give up, but then Mindy noticed something among the trees. It was a <mark>rickety</mark> barn covered with plants. We hardly made our way to it and found several <u title="cây xẻng rỉ sét (ngày 417 + 259)">rusty shovels</u> there. The end of the route was not far away since our destination was the empty land behind a neighboring hill. The path to the hill ran through a large field. And, when we were already far from the forest, we heard the <u title="tiếng ầm (ngày 399)">rumbling</u> of thunder. A huge thundercloud was moving towards us from behind the forest. We literally had nowhere to hide from the storm. Being <u title="sợ hãi (ngày 232)">terrified</u>, Mindy and I were both <mark>gripped by panic</mark>. We rushed to the hill without looking back, and only at the last moment changed our minds to hide from the storm on the tree at its top.
+      
+      </p><p>As it turned out, it had saved our lives. We sat down at the foot of the hill hoping that the storm would pass quickly. When it covered us, a heavy <mark>downpour</mark> began, and lightning <u title="-ed of strike<br>đánh (ngày 272)">struck</u> right into that tree of the hill, which frightened us very much. The rain has lasted for no more than half an hour, but when it ended, we were <u title="ướt sũng, ướt nhẹp (ngày 45)">soaked</u> <mark>to the bone</mark> together with our map.
+      
+      </p><p>The mark at the end of the route was erased, and we could <u title="không còn (ngày 76)">no longer</u> recognize the hint. The path ended in an empty area behind a hill, but instead of an empty field, at that place, there was a recently built farm. I could not believe my eyes and just <u title="bật khóc, òa khóc">burst into tears</u> because of anger and <mark>resentment</mark>. The diary was my only hope, but it didn't help either. We managed to find only a <u title="manh mối (ngày 217)">clue</u> about a lonely pine tree, but it was not clear where to <u title="tìm (ngày 59)">look for</u> it. The last pages of the diary were just <u title="bị xé mất (ngày 171)">torn out</u>. 
+      
+      </p><p>We decided to go around the farm and it turned out to be the right decision. In the backyard of the farm, there was growing a lonely pine tree, which has been left since those times, probably, for decorative purposes. However, we faced a problem. There were people on the farm, and we could not just enter their <u title="địa phận (ngày 241)">territory</u>. Mindy and I had a serious argument about whether to try to take the treasure or not. I didn't want the path that we had traveled to be <u title="vô ích (ngày 324)">in vain</u>, and Mindy didn't want to take <u title="mạo hiểm (ngày 117)">risks</u> <u title="vì (ngày 308)">for the sake of</u> the treasure that might be <u title="không có (ngày 13)">absent</u> there. I hardly persuaded my friend to help me, but she just agreed to watch the farmers <mark>from afar</mark>.
+      
+      </p><p>It was already the evening, and many farmers were having rest, so I waited for a moment and made my way to the backyard. It was a very risky thing to do, but I had to find the treasure buried under the pine tree. After making sure that no one was around, I started <u title="đào (ngày 193)">digging</u>. I did not know how deeply the treasure was hidden, but after digging quite a deep hole, I realized that I needed to look for it elsewhere. So I have <u title="-ed of dig">dug</u> several holes around the pine tree and spent a whole hour to do it. Finally, the shovel <u title="va chạm (ngày 333)">bumped</u> into something solid, and then my heart sank, and tears of joy came to my eyes. It was a small old <mark>chest</mark>. I had to <u title="bò (ngày 170)">crawl</u> to the fence holding a chest in my hands so that the people who came out onto the <u title="sân hiên (ngày 247)">terrace</u> would not notice me. Because of fear, I was ready to turn into a stone, but I continued crawling and getting dirty in the <u title="vũng bùn (ngày 336)">mud</u>. 
+      
+      </p><p><mark>All in all</mark>, the treasure was in our hands. A key was tied to the chest so we opened it impatiently and with <mark>trepidation</mark>. The <u title="nhịp tim đập nhanh (ngày 187)">rapidly beating heart</u> sank when, instead of diamonds and gold, we saw different kinds of <mark>trinkets</mark> inside the chest. <u title="Ngoài (ngày 108)">Apart from</u> different strange things, there was a very old photograph with smiling children, and among them, I recognized my grandfather. Torn pages of a diary were next to it. From them, I learned that my grandfather, when he was still a child, <u title="nghĩ ra (ngày 128)">came up with</u> this whole story about a traveler. He and his friends drew this map and hid the treasure. To be honest, Mindy and I were terribly upset. Being in despair, we took out all the trinkets from the chest and saw <u title="1 nắm (ngày 179)">a handful of</u> old coins at the bottom. We did not <mark>attach any importance to them</mark>, so we put everything in our backpack and went home in complete silence, without saying a word.
+      
+      </p><p>When I told my parents about the search for the treasure at home and showed the coins, dad almost jumped in his chair in surprise. He examined them carefully, and then said that they were from the limited edition and in our times, they were considered an expensive find for collectors. The price of each of them was <u title="khoảng (ngày 3)">approximately</u> $100,000. However, we decided not to sell them, but to keep them in memory of my grandfather.
+      
+      </p><p>Would you like to participate in a treasure hunt? Give your answers in the comments, click on the ‘thumbs up’ button below the video and share it with your friends.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div id="disqus_thread"></div>
+<div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "trial (ngày 297)"
+      }, {
+        index: 1,
+        text: "miraculously (ngày 214)"
+      }, {
+        index: 2,
+        text: "clue (ngày 217)"
+      }, {
+        index: 3,
+        text: "bear (ngày 362)"
+      }, {
+        index: 4,
+        text: "rumble (ngày 399)"
+      }, {
+        index: 5,
+        text: "in vain (ngày 324)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "khó khăn, gian nan, thử thách<br>VD: <i>the ...s and <dfn data-inf=\"những vấn đề, khó khăn\">tribulations</dfn> of running a business</i>"
+      }, {
+        index: 1,
+        text: "một cách kì diệu<br>VD: <i>They ... survived the plane crash.</i>"
+      }, {
+        index: 2,
+        text: "manh mối, đầu mối<br>VD: <i>Police are still looking for ...s in their search for the missing girl.</i>"
+      }, {
+        index: 3,
+        text: "chịu được<br>VD: <i>The ice wasn't thick enough to ... his weight.</i>"
+      }, {
+        index: 4,
+        text: "(bụng) sôi ùng ục; phát ra tiếng ầm ầm<br>VD: <i>We could hear thunder ...(ing) in the distance.</i>"
+      }, {
+        index: 5,
+        text: "vô ích, không có kết quả<br>VD: <i>We searched ... for the missing earring.</i>"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>
+
+
+
+
+

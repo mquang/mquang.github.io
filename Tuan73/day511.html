@@ -1,0 +1,203 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+
+<link rel="stylesheet" href="../libraries\main.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<link rel="stylesheet" href="../libraries\matching.css">
+<link rel="stylesheet" href="../libraries\flipcards.css">
+<script type="text/javascript" src="../libraries\highlight.js"></script>
+
+<div class="wrapTest">
+<section id="test">
+  <div class="alert alert-info" style="text-align: center"><i class="fa fa-edit" style="font-size: 20px"></i> Review trước khi vào bài mới, click vào từng thẻ để nghe cách đọc</div>
+  <div class="row">
+  
+  </div>
+ <button id="exitRV">Đóng</button>
+</section>
+</div>
+
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 511</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody> 
+        <tr>     
+          <td>acronym</td>
+          <td>/ˈæk.rə.nɪm/</td>
+          <td>(n) <b>từ được cấu tạo bởi chữ cái đầu của những từ khác, từ viết tắt</b> (a word made up from the first letters of the name of something such as an organization)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>NASA is an acronym for National Aeronautics and Space Administration.<li>NATO is an acronym for the North Atlantic Treaty Organization.</li></td>
+        </tr>
+        <tr>     
+          <td>abbreviation</td>
+          <td>/əˌbriː.viˈeɪ.ʃən/</td>
+          <td>(n) <b>dạng viết gọn, viết tắt</b> (a short form of a word or phrase)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>Ad lib is an abbreviation of the Latin phrase ‘ad libitum’.<li>‘Dr’ is the written abbreviation of ‘Doctor’.</li></td>
+        </tr>
+        <tr>     
+          <td>pamper</td>
+          <td>/ˈpæm.pɚ/</td>
+          <td>(v) <b>nuông chiều, chiều chuộng</b> (to give someone special treatment, making that person as comfortable as possible and giving them whatever they want)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li><b>Pamper</b> yourself with our new range of beauty treatments.<li><b>Pamper</b> yourself with a stay in one of our luxury hotels.<li>She really pampers that dog - it's even got its own little bed next to hers.</li></td>
+        </tr>
+        <tr>     
+          <td>fuck off</td>
+          <td></td>
+          <td>(ph.v) <b>biến đi, cút mm đi</b> (used especially as a rude way of telling someone to go away)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>Just fuck off and leave me alone!</li></td>
+        </tr>
+        <tr>     
+          <td>hyped up</td>
+          <td>/ˌhaɪpt ˈʌp/</td>
+          <td>(adj) <b></b> (too excited or nervous and unable to rest or be calm)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>We were both so hyped up about buying the house, we could not wait to get in there.<li>She gets really hyped up about job interviews.</li><video controls>
+        <source src="../vids\vid511.mp4" type="video/mp4">
+      </video></td>
+        </tr>
+        <tr>     
+          <td>nonsense</td>
+          <td>/ˈnɑːn.sens/</td>
+          <td>(n) <b>(điều/lí lẽ/ý tưởng) ngu xuẩn</b><br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>The <u title="(ns) lời buộc tội (ngày 206)">accusations</u> are <select><option>absolute</option><option>complete</option><option>utter</option></select> nonsense.<li>How can you believe such nonsense?</li></td>
+        </tr>
+        <tr>     
+          <td>genre</td>
+          <td>/ˈʒɑːn.rə/</td>
+          <td>(n) <b>thể loại</b> (a particular type or style of literature, art, film or music that you can recognize because of its special features)<br><a href="../images6\202.png"><img src="../images6\202.png" /></a></td>
+          <td><li>What genre does the book fall into - <u title="hài kịch hay bi kịch">comedy or tragedy</u>?<li>He has explored a range of musical genres.</li></td>
+        </tr>
+        <tr>     
+          <td>blockbuster</td>
+          <td>/ˈblɑːkˌbʌs.tɚ/</td>
+          <td>(n) <b>bộ phim, tác phẩm (thành công)</b> (a book or film that is very successful)<br><a href="../images6\"><img src="../images6\" /></a></td>
+          <td><li>In March 2019, Ngo Thanh Van launched 'Hai Phuong' in the US after a month of domestic release, helping film revenue to reach more than 200 billion. Many viewers commented on the film on Reddit social network, compared it to Hollywood blockbusters of the same <b>genre</b> as Taken (2008), John Wick (2014).</li></td>
+        </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+  <div id="disqus_thread"></div>
+<div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script>
+    var vocab_list = {
+    "get lost/piss off": {
+      imgSrc:"biến đi, cút đi", 
+      empl: "",
+      day: "139,138",
+      audiospeak: "get lost/piss off"
+    },
+    "tan làm": {
+      imgSrc:"(ph.v) get off", 
+      empl: "What time do you get off work?",
+      day: "155",
+      audiospeak: "get off"
+    },
+    "tấn công, hành hung": {
+      imgSrc:"(v) assault", 
+      empl: "Two men assaulted him after he left the bar.",
+      day: "340",
+      audiospeak: "assault"
+    },
+    "ra lệnh": {
+      imgSrc:"(v) dictate", 
+      empl: "Because Matt is a controlling man, he tries to dictate his wife’s every move.",
+      day: "440",
+      audiospeak: "dictate"
+    },
+    "chỉ tiêu": {
+      imgSrc:"(n) quota", 
+      empl: "He was worried he might not meet his monthly sales quota.",
+      day: "277",
+      audiospeak: "quota"
+    },
+    "nuông chiều": {
+      imgSrc:"(v) indulge", 
+      empl: "Even if you’re dieting, you can indulge yourself (=eat what you want) once in a while.",
+      day: "230",
+      audiospeak: "indulge"
+    },
+    "vô nghĩa, phi nghĩa": {
+      imgSrc:"(adj) senseless", 
+      empl: "To keep his secretary busy, the boss kept <dfn data-inf=\"phân chia\">doling out</dfn> senseless projects.",
+      day: "338",
+      audiospeak: "senseless"
+    },
+    "theo nghĩ đen": {
+      imgSrc:"(adv) literally", 
+      empl: "I told him to <dfn data-inf=\"nghĩa đen: nhảy xuống vực&#10;nghĩa bóng: biến đi\">go jump off a cliff</dfn>; I hope he didn’t take me literally.",
+      day: "168",
+      audiospeak: "literally"
+    }
+  }
+  </script>
+  <script type="text/javascript" src="../libraries\flipcards.js"></script>
+  
+  
+
+
+
+
