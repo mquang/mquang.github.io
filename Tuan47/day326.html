@@ -1,0 +1,244 @@
+<script type="text/javascript" src="../libraries\jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="../libraries\bootstrap.min.css">
+
+<link rel="stylesheet" href="../libraries\main.css">
+<script src="../libraries\bootstrap.min.js"></script>
+<link rel="stylesheet" href="../libraries\matching.css">
+<!-- <div class="wrapTest">
+<section id="test">
+<div class="alert alert-info"><i class="fa fa-edit" style="font-size: 20px"></i> Để mở bài hôm nay, trước tiên bạn cần chọn từ ở nửa trái sao cho khớp với nghĩa ở nửa phải. Bài sẽ mở khi bạn ghép được hết 6 cặp từ này.</div>
+ <ul id="terms">
+ </ul>
+ <ul id="defs">
+ </ul>
+ <button id="resetRV">RESET</button>
+ <button id="exitRV">Đóng</button>
+</section>
+</div> -->
+<div class="all">
+  <div class="layer2">
+  <div class="butt btn btn-success btn-lg"><i class="fa fa-bars"></i>Xem ngày khác</div>
+  <h1>Ngày 326</h1>
+<article class="copy">
+  <table id="m" cellspacing="6px">
+    <thead>
+      <th>Từ / Cụm từ</th>
+      <th>Phiên âm</th>
+      <th>Nghĩa</th>
+      <th>Ví dụ</th>
+    </thead>
+    <tbody>
+      <tr>     
+        <td>escape</td>
+        <td>/ɪˈskeɪp/</td>
+        <td>(v) <b>trốn thoát, thoát khỏi</b><br><li>to get away from a place where you have been kept as a prisoner or not allowed to leave<li>to get away from a dangerous or bad situation<li>(computing) to leave a particular screen and return to the previous one</li><br><a href="../images3\447.gif"><img src="../images3\447.gif" /></a></td>
+        <td><li>Two prisoners have escaped.<li>She managed to escape from the burning car.<li><b>Escape</b> from this window and return to the main menu.</li></td>
+      </tr>
+      <tr>     
+        <td>dorm</td>
+        <td>/dɔːrm/</td>
+        <td>(n) <b>kí túc xá</b> (a building for university or college students to live in)<br><a href="../images3\448.jpg"><img src="../images3\448.jpg" /></a></td>
+        <td><div class="alert alert-info">also <b>dormitory</b></div><li>Smoking is not permitted in college dorms.<li>My mom and I were buying things for my dorm room.</li></td>
+      </tr>
+      <tr>     
+        <td>spasm</td>
+        <td>/ˈspæzəm/</td>
+        <td>(n) <b>cơn đau co thắt</b> (an occasion when your muscles suddenly become tight, causing you pain)<br><a href="../images3\449.jpg"><img src="../images3\449.jpg" /></a></td>
+        <td><li>He suffered a back spasm while playing football.<li>He left the game because of back spasms.</li></td>
+      </tr>
+      <tr>     
+        <td>heroically</td>
+        <td>/hɪˈroʊ.ɪ.kəl.i/</td>
+        <td>(adv) <b>anh dũng, dũng cảm</b> (​in a way that shows extreme courage and that is admired by many people)<br><a href="../images3\452.gif"><img src="../images3\452.gif" /></a></td>
+        <td><div class="alert alert-info">(syn) <b>courageously</b></div><li>She worked heroically to help others escape.<li>She <dfn data-inf="v-ed of fight">fought</dfn> heroically against the disease.</li></td>
+      </tr>
+      <tr>     
+        <td>all of a sudden</td>
+        <td></td>
+        <td>​(phrase) <b>bất thình lình</b> (very quickly and unexpectedly, suddenly)<br><a href="../images3\"><img src="../images3\" /></a></td>
+        <td><li>It seemed to happen all of a sudden - I felt dizzy and I just collapsed.<li><b>All of a sudden</b> someone grabbed me around the neck.</li></td>
+      </tr>
+      <tr>     
+        <td>pressure</td>
+        <td>/ˈpreʃ.ɚ/</td>
+        <td>(n) <b>áp lực, sức ép</b><br><a href="../images3\451.jpeg"><img src="../images3\451.jpeg" /></a></td>
+        <td><li>They are putting pressure on people to vote yes.<li>The minister was under pressure to resign.<li>I was under pressure from my parents to become a teacher.</li><a href="../images3\450.png"><img src="../images3\450.png" /></a><span>a <b>pressure</b> cooker: nồi áp suất</span></td>
+      </tr>
+      <tr>     
+        <td>come for</td>
+        <td></td>
+        <td>(phrasal verb) <b></b><br><li>to come to a place to collect someone or something<li>to come to a place in order to arrest someone</li><br><a href="../images3\"><img src="../images3\" /></a></td>
+        <td><li>The taxi will come for us at around 8 o’clock.<li>The police <b>came for</b> him in the middle of the night.</li></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="container_q">
+    <div class="option">
+    <label for="voice">Lựa chọn giọng đọc: </label>
+    <select name="voice" id="voice"></select>
+   </div>
+   
+    <div class="container2">
+    <h1>Danh sách gợi ý</h1>
+    <div class="items">
+      <h2 class="done" aria-hidden="true">Đã hoàn thành</h2>
+      <h2 class="undone" aria-hidden="true">Chưa hoàn thành</h2>
+    </div>
+  </div>
+    <div class="entry-main">
+      
+     <div class="startgame">
+      <div class="start button button--hover-2 button--hover-3">Nhấn vào đây để bắt đầu</div>
+      </div>
+      <div class="started">
+        <div class="input-wrapper" data-text="">          
+            <input type="text" placeholder="Type here" class="input" name="q" autocomplete=off>    
+        </div>
+        <div class="status">
+          <div class="status-timer">
+            Thời gian còn lại: <span class="time-remaining"></span>
+          </div>
+          <div class="status-current-score">
+            Đã hoàn thành: <span class="score"></span>
+            trên <span class="total"></span>
+          </div>
+          <div class="status-final-results">
+            <span class="end-greeting"></span>
+            Bro gõ được <span class="score"></span>
+            trên <span class="total"></span>.
+            Tương ứng <span class="percent"></span>%!
+          </div>
+          <div class="status-toggle-answers">
+            (<a href="#" class="toggle">Xem những từ bro chưa gõ được</a>)
+          </div>
+        </div>
+        <ul class="answers scored-answers"></ul>
+        <ul class="answers missed-answers"></ul>
+        <div class="footnote">
+          <button class="reset add-animation">Nhấn vào đây để chơi lại</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+<div class="audio panel panel-primary">
+  <div class="panel-heading">Luyện nghe</div>
+  <div class="panel-body">
+    <div id="myVideo">
+      <video controls>
+        <source src="../listening\326.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="box">   
+      <button type="button" class="btn btn-danger">Xem phụ đề / Thu nhỏ video</button>
+    </div>
+    <div id="test-text">
+      <p>Hey guys! I’m Amy. For many years I <u title="rất (ngày 117)">desperately</u> tried to become an adult <u title="liên quan đến vấn đề gì, về vấn đề gì (ngày 27)">in terms of</u> physical relationships with my boyfriends, but it all ended <mark>in vain</mark>. Honestly, I thought that I <u title="bị dính lời nguyền (ngày 230)">was cursed</u>.</p>
+
+      <p>The first time I began dating was when I was 16. His name was Trey and he was my classmate. It was <u title="được cho là, coi là (ngày 79)">supposed to be</u> the first time for both of us. And when we were already pretty much undressed in my room, Trey got out of bed to get <u title="BCS">“the thing”</u> to make our <u title="(n) công chuyện (ngày 221)">deed</u> safe. Suddenly he <u title="vấp chân (ngày 220)">tripped</u> over his shoes, lost his balance and… fell out of the window! That very next second I heard him <u title="rên rỉ (ngày 270)">moaning</u> in pain. I rushed to the window, and saw him lying on the <dfn data-inf="bụi hoa hồng">rose bush</dfn>. He had broken his arm, so I not only had to call the ambulance, but I also had to explain to my parents, why he was ONLY wearing his <mark>boxers</mark>. That situation was completely embarrassing and we totally stopped seeing each other afterward.</p>
+
+      <p>After a few weeks, another guy from my school – Johnathan – asked me out. His parents were out of town, so he promised me that he would arrange the most romantic date with dinner and candles at his place. Things were going great and I was totally ready to become a woman. But apparently we <mark>got a little carried away</mark>, ‘cause when I took off my shirt and threw it over my head, it hit a few candles and started a fire! Although, Jonathan managed to put it out really fast, after that <u title="(n) sự cố (ngày 195)">incident</u>, he had no <u title="ý định (ngày 13)">intentions</u> of taking our relationship any further.</p>
+
+      <p>Moreover, the next day the whole school was talking about me bringing a CURSE to my boyfriends, and nobody wanted to even dance with me at parties. A year later I was the only one among all my girlfriends who hadn't done it with a guy, and that continued to bug me. That’s why when, once, I noticed how a guy at the mall was staring at me, I decidedly went up to him and asked for his number. After we had a few dates, there was a night when my parents were going to visit their friends and the whole house was <u title="do tôi toàn quyền sử dụng (ngày 130)">at my full disposal</u>. So, I <u title="mời Rodger đến nhà chơi (ngày 282)">invited Rodger over</u>. We had some Chinese food and AGAIN, when that serious moment between us was about to happen, something went wrong with his stomach. He kept using the bathroom, like, every ten minutes, and by the time my parents arrived, he still didn’t feel any better. He never called me again.</p>
+
+      <p>Since then, I developed this feeling that all I could do was to stay out of any physical relationships. That’s why when I got to college, I <u title="chủ định (ngày 189)">deliberately</u> <u title="từ chối (ngày 42)">rejected</u> any <mark>courtship</mark> attempts from guys. I was simply afraid that after another unsuccessful date, I’d face the same situation as I did back in high school. I <u title="tập trung">concentrated</u> <u title="chỉ (only) (ngày 222)">solely</u> on my studies, while my girlfriends were partying, dating, and… even getting married.</p>
+
+      <p>Yep, one day I flew home for a few days for the wedding of one of my <u title="cũ, trước đây (ngày 263)">former</u> classmates – Karen. I was standing in that church, watching her walk down the <u title="(n) lối đi giữa 2 hàng ghế (ngày 297)">aisle</u>, and I just felt <u title="buồn, đau khổ (ngày 115)">miserable</u>. I had this feeling that at 20 years old, I was still a little girl, while she had already met the love of her life.</p>
+
+      <p>Then suddenly, somewhere behind me. I heard the guy saying something about a curse that he had, which <mark>lead Karen to the altar</mark>. I turned my head and saw a really nice-looking guy, who smiled at me. I couldn’t stop thinking about him during <u title="quãng thời gian còn lại (ngày 155)">the rest</u> of the ceremony and I just kept looking at him <u title="thi thoảng (ngày 167)">every now and then</u>. I became really interested in that curse-thing he was talking about. <u title="Có vẻ như (ngày 41)">Apparently</u>, I was not the only person in the world facing this kind of problem.</p> 
+
+      <p>In the evening, during the <u title="tiệc cưới (ngày 139)">reception</u>, I decided to go up to him and find out about all the details. His name was Joe and he was an ex-boyfriend of the bride. But what’s more interesting is that he told me that, for some strange reason, all the girls he used to be in relationships with, either got married or <u title="đính hôn (ngày 138)">engaged</u> soon after he’d broken up with them. That <u title="làm kinh ngạc, làm ngạc nhiên (ngày 12)">amazed</u> me, and we kept talking, and then I told him <u title="ngắn gọn (ngày 101)">briefly</u> about my personal curse, which made him laugh at first. But then, as if jokingly, he wondered aloud whose “super power” would be stronger if we tried to be together. We shared that <u title="tò mò (ngày 182)">intriguing</u> look, and since we were both single at that moment, we agreed to try to break each other's curses.</p> 
+
+      <p>That next day, I had to go back to college, so Joe and I didn’t have a lot of time to properly date. That’s why we <mark>escaped</mark> from the wedding even before the bride threw the <u title="(n) bó hoa cưới (ngày 307)">wedding bouquet</u> and went straight to a hotel. It was really hot outside and the air-conditioner in our room appeared to be broken, but we decided to not pay much attention to it and simply opened the window. I felt awkward. I mean, I always thought that my first time would be with someone who I loved with all of my heart, but, on the second thought, I never <u title="nghĩ rằng (ngày 171)">assumed</u> that I’d be this old when I was doing it for the first time. But when we were already in bed, getting ready for the actual "action", my curse <mark>manifested itself</mark> in the form of a bee, which apparently got into the room through the open window and <u title="-ed of sting<br>đốt, châm, chích (ngày 144)">stung</u> Joe on the back of his neck.</p> 
+
+      <p>Of course, our plan was interrupted. In addition, his body was almost immediately covered with a <mark>rash</mark> and he started to <u title="gãi (ngày 224)">scratch</u> himself <u title="dữ dội (ngày 48)">intensely</u>. It was so bad that we had to go to the hospital! I was waiting for him to leave the doctor, sitting in the hall, and I was pretty sure that this would be the last time I'd see him. But when Joe appeared, he suggested that he walk me home and promised that he wasn’t going to give up on our <mark>pact</mark>. So, we <u title="trao đổi (ngày 34)">exchanged</u> our cell phone numbers and the next day, he even took me to the airport. We agreed that Joe would come to visit me in two weeks. My task was to arrange a place where we could bring our plan into action.</p>
+
+      <p><mark>First and foremost</mark>, I had to <u title="loại bỏ (ngày 116)">get rid of</u> my roommate, so that at the right moment Joe and I would have the room to ourselves. I wasn’t really close with her and, of course, I wasn't going to explain to her about my <mark>futile</mark> attempts to become a grown-up. So, I had to buy two movie tickets, pretend like I couldn't use them, and then try to give them to her. And I also bought some really nice and sexy <mark>lingerie</mark>, and on the Big Day, I put it on to meet my <mark>savior</mark> <mark>fully-armed</mark>. I was so excited and ready for action, and when I heard that knock on my door I opened my <u title="áo choàng tắm (ngày 307)">robe</u> to <mark>expose</mark> my beautiful lingerie. But when I opened the door I saw… my parents! It turned out that they had decided to surprise me with an unannounced visit – surprise <u title="thực sự (ngày 110)">indeed</u>. I was completely embarrassed that they saw me half-naked, so I pretended that I was <u title="diện quần áo (ngày 158)">dressing up</u>, immediately put on some clothes, and took my parents to grab a lunch.</p> 
+
+      <p>Of course, I called Joe and told him that our mission this weekend was a fail, which actually meant that he had spent money to travel here for nothing. I thought that this would <u title="mãi mãi (ngày 9)">permanently</u> drive him away from me, but all these failures only <u title="kích thích (ngày 35)">provoked</u> him. He <u title="thuê (ngày 25)">rented</u> a car and later that night he <u title="thuyết phục (ngày 229)">persuaded</u> me to <mark>escape</mark> from my <mark>dorm</mark>. And although any specially bought lingerie, or candles, or anything else romantic <u title="là điều không thể (ngày 304)">was out of the question</u>, we FINALLY did it, right there, in a rented Ford. Afterward, Joe <u title="thú nhận (ngày 151)">confessed</u> to me that at the most <u title="quan trọng (ngày 288)">crucial</u> moment, he had a <mark>muscle spasm</mark> in his foot, but he <mark>heroically</mark> passed that test.</p> 
+
+      <p>While he was driving me back, both of us stayed silent, but I believe we were probably thinking about the same thing. Now that my curse had been broken, we had to wait until Joe’s super power <u title="có hiệu lực (ngày 4)">came into effect</u> and see if I would get married. <u title="Mặc dù">Despite the fact that</u> Joe and I <u title="từ ban đầu (ngày 105)">initially</u> agreed that there would be no relationship between us, and he wasn’t really my type, I felt a <u title="nào đó (khó diễn tả) (ngày 152)">certain</u> emotional affection for this guy.</p>
+
+      <p>So when he returned home, we texted each other <u title="thi thoảng (ngày 167)">every now and then</u>. Very soon I found out that one of his ex-girlfriends had gotten back together with him, and I strangely felt <u title="ghen tuông (ngày 154)">jealous</u>. I decided that I had to find somebody for myself to also, you know, <u title="vượt qua (ngày 193)">overcome</u> that feeling, and I finally agreed to go on a date with one guy from college. His name was Steve and even though he wasn’t really the guy of my dreams, I decided to have a relationship with him for a while. But strangely, whenever he touched me, Joe came to my mind, and when, after another date, we were watching the sunset, all I could think about was that I wished Joe was seeing this beautiful sunset too.</p>
+
+      <p>Even though my curse had already been broken, for some strange reason I didn’t want to have anything physical with Steve, I mean, anything more serious than kissing. That’s why I decided to tell him a little lie, saying that I was still <u title="trong trắng (ngày 216)">pure</u>, you know, just to make him wait longer. But I couldn’t even imagine that that information <u title="làm ấn tượng (ngày 82)">impressed</u> him so much, that after being in a relationship for three months, he’d <u title="cầu hôn (ngày 74)">propose</u> to me!</p> 
+
+      <p>It happened <mark>all of a sudden</mark>. I was getting ready to go to another <u title="tiết học (ngày 153)">lecture</u>, and when I opened the door of my room, there he was, standing on one knee with a ring in his hand, surrounded by a crowd of other college guys – some of them were taking videos of the whole process. There was too much <mark>pressure</mark>, so that I had nothing else to do but to say “yes.” He hugged me, and he seemed to be so happy at that moment, but I could only think about one thing – that was it, Joe’s super power. I had so many <u title="nghi hoặc (ngày 94)">doubts</u> deep inside, and for some strange reason, I felt that I had to go see Joe and tell him the news <u title="trực tiếp gặp mặt (ngày 154)">in person</u>. Of course, I couldn’t tell Steve about this, and after another little lie that my mom wasn’t feeling well, I bought tickets and flew home.</p> 
+
+      <p>Joe picked me up at the airport, and when I saw him waving to me, I understood that he was the guy I’d be happy to marry. I couldn’t find the right words to start the conversation, so he <u title="bắt đầu trước (ngày 230)">got ahead</u> of me. He was totally <u title="phấn khích (ngày 241)">thrilled</u>, he said that his girlfriend was <u title="có thai (ngày 141)">pregnant</u>, and that he was going to marry her in two months. I felt like I was about to cry, so I decided to laugh instead, you know, to hide my <u title="những giọt nước mắt (ngày 171)">tears</u>. I <u title="giả bộ (ngày 143)">pretended</u> that it was a funny <u title="sự trùng hợp (ngày 297)">coincidence</u> that both of us were engaged and so on, and then we hugged each other as a sort of congratulations. Both of us were completely silent all the way home. That was the last time I saw Joe.</p>
+
+      <p>When I returned to college, I gave the ring back to Steve. I thought that he <u title="xứng đáng (ngày 16)">deserved</u> to marry someone who will deeply love him, and I didn’t. So, I guess, I also broke the curse.</p>
+
+    </div>
+  </div>
+</div>
+</div>
+
+  <div id="disqus_thread"></div>
+<div class="overlay layer3"></div>
+  <div class="wrap_menu layer4 moveleft">
+    
+  </div>
+<script type="text/javascript" src="../libraries\generate_navigation.js"></script>
+<script type="text/javascript" src="../libraries\mainextra2.js"></script>
+<script type="text/javascript" src="../libraries\subtitle.js"></script>
+<script type="text/javascript">
+  var data = {
+    terms: [{
+        index: 0,
+        text: "terrific (ngày 260)"
+      }, {
+        index: 1,
+        text: "terrified (ngày 232)"
+      }, {
+        index: 2,
+        text: "horrible (ngày 113)"
+      }, {
+        index: 3,
+        text: "suspect (ngày 276)"
+      }, {
+        index: 4,
+        text: "mystery (ngày 124)"
+      }, {
+        index: 5,
+        text: "give it a shot (ngày 152)"
+      },
+
+    ],
+    definitions: [{
+        index: 0,
+        text: "tuyệt vời<br>VD: <i>That’s a ... idea!</i>"
+      }, {
+        index: 1,
+        text: "rất sợ, sợ hãi<br>VD: <i>She's absolutely ... of snakes/spiders.</i>"
+      }, {
+        index: 2,
+        text: "kinh tởm, kinh khủng<br>VD: <i>What's that ... smell?</i>"
+      }, {
+        index: 3,
+        text: "đối tượng bị tình nghi<br>VD: <i>Five ...s have been arrested for questioning.</i>"
+      }, {
+        index: 4,
+        text: "điều bí ẩn, ẩn số<br>VD: <i>Twenty years after the event, his death remains a ... .</i>"
+      }, {
+        index: 5,
+        text: "give it a try, to try to do it<br>VD: <i>Are you having trouble fixing the printer? Let me ... .</i>"
+      },
+
+    ],
+    pairs: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+    }
+  };
+</script>
+<script type="text/javascript" src="../libraries\matching.js"></script>
