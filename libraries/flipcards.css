@@ -1,0 +1,74 @@
+.row {
+  padding-right: 20px;
+  max-width: 1230px;
+  margin: 20px auto;
+}
+.row .col-sm-3 {
+  margin-bottom: 3%;
+}
+.flip {
+  -webkit-perspective: 800;   
+          perspective: 800;
+        position: relative;
+        text-align: center;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+          transform: rotatey(-180deg);
+}
+.flip .card {
+    width: 270px;
+    height: 178px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    background-color: #fff;
+   
+}
+.flip .card .face {
+  -webkit-backface-visibility: hidden ;
+    backface-visibility: hidden ;
+   z-index: 2;
+}
+.flip .card .front {
+   position: absolute;
+   width: 270px;
+   height:178px;
+   z-index: 1;
+}
+.flip .card .front img{
+  max-width: none;
+  height: 100%;
+}
+.flip .card .img {
+   position: relative;
+   width: 270px;
+   height: 178px;
+   z-index: 1;
+   border: 2px solid #000;
+}
+
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+          transform: rotatey(-180deg);
+  position: absolute;
+}
+.inner{
+  margin:0px !important;
+  width: 270px;
+}
+.back .inner{
+  padding: 0 10px 0 10px;
+}
+.inner h3{
+  color: red;
+}
+.wrapTest button#exitRV{
+  display: block;
+  left: calc(50% - 60px);
+}
+.flip .card .back span{
+  display: inline-block;
+  text-align: left;
+}

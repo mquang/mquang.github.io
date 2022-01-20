@@ -1,0 +1,44 @@
+html,body{
+	background:black;
+	font: 15px Roboto, sans-serif;
+}
+
+output {
+  border-radius: 1em;
+  background-position: center;
+  display: block; 
+  overflow: auto;
+  font-family: monospace;
+  color: rgba(128, 255, 128, 0.8);
+  position: relative;
+  font-size: 20px;
+}
+
+output q {
+  border-right: 0 solid currentColor;
+  animation: blink 500ms linear 0s infinite;
+  text-shadow: 0 0 1ex #3f3, 0 0 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 1em;
+  line-height: 150%;
+}
+output q::before {
+  content: "> ";
+}
+output q:last-child {
+  border-right-width: 1ch;
+}
+output q:nth-of-type(9) ~ q {margin-left:40px;}
+audio{display: none;}
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(249,249,249,0.1);
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4);
+}
