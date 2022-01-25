@@ -9,10 +9,18 @@ dayHasAudio = dayHasAudio.concat([...Array(141-114)].map((_, i) => 114 + i * 1))
 nonConsecutiveArr = [142,143,145,146,147,149,150];
 dayHasAudio = dayHasAudio.concat(nonConsecutiveArr);
 dayHasAudio = dayHasAudio.concat([...Array(164-152)].map((_, i) => 152 + i * 1));
-if(dayHasAudio.includes(parseInt(currDay))){
+nonConsecutiveArr = [165,167,168,169,173,177,179,181,182,183,184,186,187,189,191,
+193,194,196,198,200,201,204,206,207,209,210,212,215,218,221,223,224,226,228,230,232,234,
+236,239,240,241,243,246,247,248,250,251,253,256,261,262,263,264,265,267,268,278,284,286,
+289,291,292,300];
+dayHasAudio = dayHasAudio.concat(nonConsecutiveArr);
+nonConsecutiveArr = [300,301,306,308,310,312,315,319,322,326,329,333,336,337,339,341,344,
+354,356,367,368,374,375,381,382,383,387,388,390,395,397,421,535,542];
+dayHasAudio = dayHasAudio.concat(nonConsecutiveArr);
+if(dayHasAudio.includes(parseInt(currDay))) {
   $("<div>", {class: "alert alert-info alert-dismissible hasAudio"}).append(
     $("<a>", {
-      class: "close",
+      class: "close", 
       "data-dismiss": "alert",
       "aria-label": "close"
     }).html('&times;')
@@ -25,13 +33,26 @@ if(dayHasAudio.includes(parseInt(currDay))){
     ).prependTo(".copy");
 }
 
-
 $('body').append('<img id="backToTop" src="../images/back_to_top.png" style="width:36px" onclick="topFunction()" />')
 $('.layer2').prepend('<a href="../index.html" class="btn btn-default btn-md home"><span class="glyphicon glyphicon-th"></span> Trang chủ</a>')
 
-$('.container_q').append('<div class="qbo" id="limit"><input type="checkbox" id="lm"><label for="lm">Thêm tính năng "vui chơi có thưởng + tạo động lực" dành riêng cho các bạn nam (Cảnh báo 16+)</label></div>');
+$('.container_q').append('<div class="qbo" id="limit"><input type="checkbox" id="lm"><label for="lm">Thêm tính năng vui chơi có thưởng, tiếp thêm động lực học dành riêng cho các bạn nam (Cảnh báo 16+)</label></div>');
 
-$("video").each(function(){
+$(document).ready(function(){
+  $('dfn.ol, u').attr('data-placement', 'bottom');
+  $('dfn.ol, u').attr('data-html', 'true');
+  $('dfn.ol').attr('data-toggle', 'oltooltip');
+  $('u').attr('data-toggle', 'utooltip');
+  $('[data-toggle="oltooltip"]').tooltip();
+  $('[data-toggle="utooltip"]').tooltip();
+
+  $('img').each(function(index, obj) {
+      if(obj.src.endsWith("/")){
+        $(this).remove();
+      }
+  });
+
+  $("video").each(function(){
     var vidSrc = $(this).find("source").attr("src");
     var newSrc = "";
     if(vidSrc.includes("listeningvideo")){
@@ -53,6 +74,47 @@ $("video").each(function(){
     }
     $(this).load();
   });
+
+  function getNextWeek(){
+    return parseInt($('h3.text-center').text().match(/\d+/)[0]) + 1;
+  }
+
+  function getFirstDayInNextWeek(){
+    return getNextWeek()*7 - 6;
+  }
+if(getNextWeek() <= 85){
+  $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <span class="glyphicon glyphicon-log-in"></span></a>');
+}
+  
+  $(".dropdown-btn").on('click',function(){
+  var a = this.id;
+  (this.firstClk = !this.firstClk) ? a1(): a2();
+   function a1(){
+    $('.dropdown-btn#' + a + ' i.fa-caret-right').replaceWith( '<i class="fa fa-caret-down"></i>' );
+    $('.dropdown-btn#' + a).addClass('visible');
+    $('.dropdown-btn#' + a).on('animationend webkitAnimationEnd oAnimationEnd', function () {
+        $('.dropdown-btn#' + a +'.visible .dropdown-container li').each(function(index){
+            $(this).css({
+              'animation-delay':index*0.1+0.7+'s',
+              'visibility':'visible'
+            });
+        });
+    });
+
+ 
+    
+   }
+   function a2(){
+    $('.dropdown-btn#' + a + ' i.fa-caret-down').replaceWith( '<i class="fa fa-caret-right"></i>' );
+
+    $('.dropdown-btn#' + a).removeClass('visible');
+   }
+});
+
+$('.butt,.display a').addClass('rainbow');
+
+})
+
 
 $('#m a, .container2 a, #m td:nth-child(4) a').attr('target','_blank');
 if($("dfn.ol").closest('div').length >= 1){
@@ -92,7 +154,6 @@ var ar = [
   });
   ////console.log(QUIZ_ANSWERS);
  var sulist = [];
-
  function removeA(arr) {
     var what, a = arguments, L = a.length, ax;
     while (L > 1 && arr.length) {
@@ -115,7 +176,7 @@ function split_at_index(value, index1, index2)
   var word = $(this).find('dfn.ol').text();
   //var meaning = oristr.replace(word,""); //truong hop title (cach doc) trung voi word se loi
   var meaning = split_at_index(oristr, oristr.indexOf('">') + 2, oristr.indexOf('</dfn'));
-  
+
   $('#qbo').bind('change', function(){        
     if($(this).is(':checked') == true){
       QUIZ_ANSWERS.push(word);
@@ -141,8 +202,10 @@ function split_at_index(value, index1, index2)
 
 $('td:nth-child(3)', '#m').each(function(i) {
       id1 ++;
+      if($(this).find('img').attr("src") != undefined && $(this).find('img').attr("src").endsWith("\\")) {
+        $(this).find('a').remove();
+      }
       var b = $(this).html();
-      //console.log(b);
       if(b !== ''){
         sulist.push(b); 
       }
@@ -163,11 +226,7 @@ $('td:nth-child(3)', '#m').each(function(i) {
   for(var id1 = 0; id1 < sulist.length; id1 ++){
    $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
   }
-  var HAPPY_TIME = 1000; // how long to stay happy, in ms
-  var NEUTRAL_TIME = 20000; // how long to stay neutral, in ms
 
-  // timers
-  var toastMoodTimeout;
   var timeInterval;
 
   // other global variables
@@ -190,18 +249,18 @@ $('#m tr td:nth-child(1)').each(function(){
       numOfLongVocab++;
   }
 }); 
-
 // the time limit, in minutes
  QUIZ_TIME_LIMIT = roundHalf(rows*10/60) + 20/60;  
+
   function startQuiz() {
     // init some variables
     initAnswers();
     timeRemaining = Math.round(QUIZ_TIME_LIMIT * 60);
-
+    
     if(numOfLongVocab > 0){
       timeRemaining += numOfLongVocab*15; //bonus 15 sec each long vocab
     }
-           
+
     if($('#qbo').is(':checked') == true){
       timeRemaining = Math.round(roundHalf(QUIZ_ANSWERS.length*10/60) * 60 + 20);
     }
@@ -219,7 +278,7 @@ $('#m tr td:nth-child(1)').each(function(){
     // start the clock
           
     timeInterval = setInterval(reduceTime, 1000);
-    setToastMood('neutral');
+    
   }
 
 
@@ -231,23 +290,6 @@ $('#m tr td:nth-child(1)').each(function(){
       var answer = item.trim().toLowerCase()
       answers[answer] = false;
     });
-  }
-
-  function setToastMood(mood, isPermanent) {
-    $('.toast')
-      .removeClass('neutral-toast happy-toast sad-toast')
-      .addClass(mood + '-toast');
-
-    clearTimeout(toastMoodTimeout);
-    if (!isPermanent) {
-      if (mood === 'happy') {
-        // happy toast becomes neutral toast
-        toastMoodTimeout = setTimeout(setToastMood.bind(undefined, 'neutral'), HAPPY_TIME);
-      } else if (mood === 'neutral') {
-        // neutral toast becomes sad toast
-        toastMoodTimeout = setTimeout(setToastMood.bind(undefined, 'sad'), NEUTRAL_TIME);
-      }
-    }
   }
 
   function reduceTime() {
@@ -318,7 +360,7 @@ $('#m tr td:nth-child(1)').each(function(){
             var b = $(this).html();
             var type2 = b.substring(b.indexOf("("), b.indexOf(")") + 1);
             b = type2 + b.substring(b.indexOf(":"));
-            
+
             if(meaning == b){
              var alm = $(this).attr('for');
              var fini = $(this).parent().find($("input[id='"+alm+"']"));
@@ -371,7 +413,7 @@ $('#m tr td:nth-child(1)').each(function(){
       $('#backToTop').animate({bottom:'75px'});
 
       $('.end-greeting').text('Giỏi đấy, còn hẳn ' + getTimeString() + ' thời gian!');
-      setToastMood('happy', true);
+      
       if($('#limit').find('input').is(':checked')) {
         open($('figure'));
       }
@@ -384,13 +426,13 @@ $('#m tr td:nth-child(1)').each(function(){
     } else if (score > 0) {
       // neutral
       $('.end-greeting').text('Hết giờ!');
-      setToastMood('neutral', true);
+      
       renderMissedAnswers();
       $('.status-toggle-answers').show();
     } else {
       // sad
       $('.end-greeting').text('Sao vậy...');
-      setToastMood('sad', true);
+      
       renderMissedAnswers();
       $('.scored-answers').hide();
       $('.missed-answers').show();
@@ -431,6 +473,7 @@ $('#m tr td:nth-child(1)').each(function(){
       return '0:00';
     } else {
       var minutes = Math.floor(timeRemaining / 60);
+
       var seconds = timeRemaining % 60;
       if (seconds < 10) {
         seconds = '0' + seconds;
@@ -438,11 +481,6 @@ $('#m tr td:nth-child(1)').each(function(){
       return minutes + ':' + seconds;
     }
   }
-
-  var imgGifts = [9,11,12,17,23,24,35,42,45,47,49,
-  52,54,58,59,74,76,77,78,81,83,88,92,93,94,
-  111,114,116,135,136,138,155,157,163,
-  165,169,173,174,176,183,184,186,191,194,195,199];
 
   function reset() {
     // put everything back the way it was
@@ -453,18 +491,12 @@ $('#m tr td:nth-child(1)').each(function(){
 
     numbers.shuffle();
     var grand = numbers.pop();
-    
-     var grand2 = grand + '.jpg';
-    if(grand == 3){
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift" controls loop><source src="../gift/100.mp4" type="video/mp4"></video></figure></div>');
-    }else if(imgGifts.includes(grand)) {
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../gift/'+grand2+'"/></figure></div>');
-    }else{
-      $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift" controls loop><source src="../gift/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
-    }
+    var giftVids = [];
+   
+    $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="'+folder+'" controls loop><source src="https://github.com/mquang/static-content-2/blob/master/' + folder + '/' + grand+'.mp4?raw=true" type="video/mp4"></video></figure></div>');
     
     $('.toggle').text('Xem những từ bro chưa gõ được');
-    setToastMood('neutral', true);
+    
     $('.items input').prop('checked', false);
     return focusr = true;
   }
@@ -489,16 +521,11 @@ $('#m tr td:nth-child(1)').each(function(){
     $('.toggle').on('click', toggleAnswers);
     $('.reset').on('click', function(){
      $('.items').find('*').not('h2').remove();
-     sulist = shuffle(sulist);
-     for(var id1 = 0; id1 < sulist.length; id1 ++){
-        $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
-     }
-     $('img').each(function(index, obj) {
-        if(obj.src.endsWith("/")){
-          $(this).remove();
-        }
-     });
-     reset();
+      sulist = shuffle(sulist);
+      for(var id1 = 0; id1 < sulist.length; id1 ++){
+       $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
+      }
+      reset();
     });
 
   });
@@ -510,7 +537,7 @@ $(document).on("keypress", "form", function(event) {
 $('#m tbody tr td:nth-child(1)').each(function(){
   $(this).append('<span class="glyphicon glyphicon-volume-up"></span>');
 })
-$('#m tbody tr td:nth-child(1) .glyphicon').each(function(){  
+$('#m tbody tr td:nth-child(1) .glyphicon').each(function(){ 
   $(this).click(function(){
      var z = $(this).parent().text();
      var msg = new SpeechSynthesisUtterance(z);
@@ -564,37 +591,11 @@ function topFunction() {
     return false;
 }
 
-$(".dropdown-btn").on('click',function(){
-  var a = this.id;
-  (this.firstClk = !this.firstClk) ? a1(): a2();
-   function a1(){
-    $('.dropdown-btn#' + a + ' i.fa-caret-right').replaceWith( '<i class="fa fa-caret-down"></i>' );
-    $('.dropdown-btn#' + a).addClass('visible');
-    $('.dropdown-btn#' + a).on('animationend webkitAnimationEnd oAnimationEnd', function () {
-        $('.dropdown-btn#' + a +'.visible .dropdown-container li').each(function(index){
-            $(this).css({
-              'animation-delay':index*0.1+0.7+'s',
-              'visibility':'visible'
-            });
-        });
-    });
 
- 
-    
-   }
-   function a2(){
-    $('.dropdown-btn#' + a + ' i.fa-caret-down').replaceWith( '<i class="fa fa-caret-right"></i>' );
-
-    $('.dropdown-btn#' + a).removeClass('visible');
-   }
-});
-
-$('.butt,.display a').addClass('rainbow');
 
 var iDiv = document.createElement('div');
 iDiv.id = 'relax';
 document.getElementsByTagName('body')[0].appendChild(iDiv);
-
 
 $('#relax').append('<div id="pli"><span class="glyphicon glyphicon-triangle-right" id="collapse"></span></div><div class="marquee"><div></div></div><div class="love"><p>Made with <img src="../images/love.png" /> by <a href="https://www.facebook.com/nmquang.hust" target="_blank"> Minh Quang </a></p></div>');
 $("#relax .marquee div").append('<span>Các ví dụ trên trang đều được mình chọn lọc từ các nguồn uy tín như dictionary.cambridge.org, oxfordlearnersdictionaries.com, longmandictionary (ldoceonline.com), macmillandictionary.com, idioms.thefreedictionary.com, wordsinasentence.com, urbandictionary.com</span>');
@@ -617,6 +618,7 @@ function boldString(str, find){
 function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
+
 $('tr td:nth-child(4)', '#m').each(function(i) {
   if($(this).parent().find($('td:nth-child(1)')).text() != 'pubes'){
       var b = $(this).html();
@@ -641,15 +643,14 @@ for(var i = 0; i < divs.length; i++){
   }  
 });
 
-
-  $('dfn').click(function(){
+$('dfn').click(function(){
      var a = $(this).text();
      var msg = new SpeechSynthesisUtterance(a);
      if (voiceSelect.value) {
       msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
      }     
      window.speechSynthesis.speak(msg);    
-  });
+});
 
 $('div.note li').addClass('exc');
 $('#m tbody tr td:nth-child(4) li:not(.exc)').each(function(){
@@ -683,22 +684,30 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var end = 205;
+var folder = GLB_FOLDER, end;
+switch(GLB_FOLDER) {
+  case 'gift':    
+    end = 160;
+    break;
+  case 'gift2':
+    end = 135;
+    break;
+  case 'gift4':
+    end = 70;
+    break;
+  default:
+    folder = 'gift3';
+    end = 200;
+}
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
     numbers.push(i);
 }
 numbers.shuffle();
 var grand = numbers.pop();
-var grand2 = grand + '.jpg';
-var praise = "I'm impressed";
-$('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift3" controls loop><source src="../gift3/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
+var praise = "I'm impressed"; 
+$('body').append('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="'+folder+'" controls loop><source src="https://github.com/mquang/static-content-2/blob/master/' + folder + '/' + grand+'.mp4?raw=true" type="video/mp4"></video></figure></div>');
 
-if(imgGifts.includes(grand)) {
-  $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><img id="gImg" src="../gift/'+grand2+'"/></figure></div>');
-}else{
-  $('div.gallery').replaceWith('<div class="gallery" style="display:none"><figure><figcaption>'+praise+' <span class="glyphicon glyphicon-heart" style="color: #c90a0a;font-size: 25px;"></span> <small>Stay patient and keep up the good work.</small></figcaption><video id="gift" controls loop><source src="../gift/'+grand+'.mp4" type="video/mp4"></video></figure></div>');
-}
 
     $(document).on('click', '.popup img', function(){
       return false;
@@ -721,16 +730,7 @@ if(imgGifts.includes(grand)) {
     $shadow.css({backgroundImage: 'url(' + src + ')'});
     $bg.css({backgroundImage: 'url(' + src + ')'});
     $('.gallery').find("*").removeAttr("id");
-    var vid = document.getElementById("gift");
-    var wImg = document.getElementById("gImg");
-    if(wImg != null){
-      var mImage = (600 - wImg.clientWidth)/2; 
-      var tImage = (450 - wImg.clientHeight)/2; 
-      $('.popup figure').css({
-        'margin-left':mImage,
-        'margin-top': tImage
-      });
-    }
+    var vid = document.getElementById(folder);
 
     if(vid != null){
       
@@ -752,7 +752,7 @@ if(imgGifts.includes(grand)) {
     setTimeout(function(){
       $('.popup').remove();
     }, 100);
-    var vid = document.getElementById("gift");
+    var vid = document.getElementById(folder);
     if(vid != null){
       vid.autoplay = false;
       vid.load();
@@ -768,141 +768,89 @@ if(imgGifts.includes(grand)) {
       fl = false;
     }
       
-     $('.panel-body p, .panel-body hr').toggle();
+    $('.panel-body p, .panel-body hr').toggle();
   });
 var iWidth = $('#m td:nth-child(4) iframe').width();
 $('#m td:nth-child(4) iframe').css({'margin-bottom':'20px','height':iWidth*9/16});
 
-
-$(".panel-body p, .panel-body hr").wrapAll("<div id='test-text2'></div>");
-var editBlock =  '<div class="wrapPen"><div id="editpen"><span class="tooltiptext">Tích vào ô để bật tính năng chỉnh sửa:<br>- Chuột trái bôi đen những chỗ có nối âm, flap T (âm T đọc là Đ), âm cuối... để luyện nói:<br>+ Bôi đen 1 lần để highlight.<br>+ Bôi đen lần 2 vào phần đã bôi để bỏ highlight phần đó.</span><input id="editcheck" type="checkbox" /><span>Editable</span><img id="editpen" src="../images1/editpen.png"></div></div>';
- if($(".panel-body video").length > 0){
+if($('.box button').hasClass("btn2")){
+  $('.tab-pane#tab1 p').wrapAll("<div id='test-text2'></div>");
+  var editBlock =  '<div class="wrapPen"><div id="editpen"><span class="tooltiptext">Tích vào ô để bật tính năng chỉnh sửa:<br>- Chuột trái bôi đen những chỗ có nối âm, flap T (âm T đọc là Đ), âm cuối... để luyện nói:<br>+ Bôi đen 1 lần để highlight.<br>+ Bôi đen lần 2 vào phần đã bôi để bỏ highlight phần đó.</span><input id="editcheck" type="checkbox" /><span>Editable</span><img id="editpen" src="../images1/editpen.png"></div></div>';
+  $('.tab-pane#tab1 .box').append(editBlock);
+  $('.tab-pane#tab2 p').wrapAll("<div id='test-text3'></div>");
+  var editBlock2 =  '<div class="wrapPen"><div id="editpen2"><span class="tooltiptext">Tích vào ô để bật tính năng chỉnh sửa:<br>- Chuột trái bôi đen những chỗ có nối âm, flap T (âm T đọc là Đ), âm cuối... để luyện nói:<br>+ Bôi đen 1 lần để highlight.<br>+ Bôi đen lần 2 vào phần đã bôi để bỏ highlight phần đó.</span><input id="editcheck2" type="checkbox" /><span>Editable</span><img id="editpen" src="../images1/editpen.png"></div></div>';
+  $('.tab-pane#tab2 .box').append(editBlock2);
+} else{
+  $(".panel-body p, .panel-body hr").wrapAll("<div id='test-text2'></div>");
+  var editBlock =  '<div class="wrapPen"><div id="editpen"><span class="tooltiptext">Tích vào ô để bật tính năng chỉnh sửa:<br>- Chuột trái bôi đen những chỗ có nối âm, flap T (âm T đọc là Đ), âm cuối... để luyện nói:<br>+ Bôi đen 1 lần để highlight.<br>+ Bôi đen lần 2 vào phần đã bôi để bỏ highlight phần đó.</span><input id="editcheck" type="checkbox" /><span>Editable</span><img id="editpen" src="../images1/editpen.png"></div></div>';
+  if($(".panel-body video").length > 0){
     $('.box').append(editBlock);
   }else{
     if(!$('.panel-body').hasClass("noEdit")){
-      $('.panel-body').prepend(editBlock);
-    }
+    $('.panel-body').prepend(editBlock);
+    }    
   }
-if($(".panel-body .cover").length > 0){
-  $('.audio .panel-body').css('overflow', 'hidden');
 }
 
+  
+  
+
+
 mouseXPosition = 0;
+mouseXPositionPen2 = 0;
   $(document).ready(function () {
-      $('dfn.ol, u').attr('data-placement', 'bottom');
-      $('dfn.ol, u').attr('data-html', 'true');
-      $('dfn.ol').attr('data-toggle', 'oltooltip');
-      $('u').attr('data-toggle', 'utooltip');
-      $('[data-toggle="oltooltip"]').tooltip();
-      $('[data-toggle="utooltip"]').tooltip();
-
-      $('img').each(function(index, obj) {
-          if(obj.src.endsWith("/")){
-            $(this).remove();
-          }
-      });
-
-      function getNextWeek(){
-        return parseInt($('h3.text-center').text().match(/\d+/)[0]) + 1;
-      }
-
-      function getFirstDayInNextWeek(){
-        return getNextWeek()*7 - 6;
-      }
-
-      $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <span class="glyphicon glyphicon-log-in"></span></a>');
 
       $('#editpen').on('click',function(){
         if($('#editcheck').is(':checked') == true){
           $('.exa').addClass('highlight');
           $('.exa').removeClass('exa');
-          $('mark, .panel-body p u, .panel-body p i, .panel-body p b').contents().unwrap();
-          $("#test-text2").mousedown(function (e1) {
-          mouseXPosition = e1.pageX;//register the mouse down position
-      });
-$("#test-text2").mouseup(function (e2) {
-          var highlighted = false;
-          var selection = window.getSelection();
-          var selectedText = selection.toString();
-          var startPoint = window.getSelection().getRangeAt(0).startOffset;
-          var endPoint = window.getSelection().getRangeAt(0).endOffset;
-          var anchorTag = selection.anchorNode.parentNode;
-          var focusTag = selection.focusNode.parentNode;
-          if ((e2.pageX - mouseXPosition) < 0) {
-              focusTag = selection.anchorNode.parentNode;
-              anchorTag = selection.focusNode.parentNode;
-          }
-          if (selectedText.length === (endPoint - startPoint)) {
-              highlighted = true;
-
-              if (anchorTag.className !== "highlight") {
-                  highlightSelection();
-              } else {
-                  var afterText = selectedText + "<span class = 'highlight'>" + anchorTag.innerHTML.substr(endPoint) + "</span>";
-                  anchorTag.innerHTML = anchorTag.innerHTML.substr(0, startPoint);
-                  anchorTag.insertAdjacentHTML('afterend', afterText);
-              }
-
-          }else{
-              if(anchorTag.className !== "highlight" && focusTag.className !== "highlight"){
-                  highlightSelection();  
-                  highlighted = true;
-              }
-              
-          }
-
-
-          if (anchorTag.className === "highlight" && focusTag.className === 'highlight' && !highlighted) {
-              highlighted = true;
-
-              var afterHtml = anchorTag.innerHTML.substr(startPoint);
-              var outerHtml = selectedText.substr(afterHtml.length, selectedText.length - endPoint - afterHtml.length);
-              var anchorInnerhtml = anchorTag.innerHTML.substr(0, startPoint);
-              var focusInnerHtml = focusTag.innerHTML.substr(endPoint);
-              var focusBeforeHtml = focusTag.innerHTML.substr(0, endPoint);
-              selection.deleteFromDocument();
-              anchorTag.innerHTML = anchorInnerhtml;
-              focusTag.innerHTml = focusInnerHtml;
-              var anchorafterHtml = afterHtml + outerHtml + focusBeforeHtml;
-              anchorTag.insertAdjacentHTML('afterend', anchorafterHtml);
-
-
-          }
-
-          if (anchorTag.className === "highlight" && !highlighted) {
-              highlighted = true;
-  var Innerhtml = anchorTag.innerHTML.substr(0, startPoint);
-              var afterHtml = anchorTag.innerHTML.substr(startPoint);
-              var outerHtml = selectedText.substr(afterHtml.length, selectedText.length);
-              selection.deleteFromDocument();
-              anchorTag.innerHTML = Innerhtml;
-              anchorTag.insertAdjacentHTML('afterend', afterHtml + outerHtml);
-           }
           
-          if (focusTag.className === 'highlight' && !highlighted) {
-              highlighted = true;
-  var beforeHtml = focusTag.innerHTML.substr(0, endPoint);
-              var outerHtml = selectedText.substr(0, selectedText.length - beforeHtml.length);
-              selection.deleteFromDocument();
-              focusTag.innerHTml = focusTag.innerHTML.substr(endPoint);
-              outerHtml += beforeHtml;
-              focusTag.insertAdjacentHTML('beforebegin', outerHtml );
-
-
-          }
-          if (!highlighted) {
-              highlightSelection();
-          }
-          $('.highlight').each(function(){
-              if($(this).html() == ''){
-                  $(this).remove();
-              }
+          $('#test-text2 mark, #test-text2 p u').contents().unwrap();
+          
+          $("#test-text2").mousedown(function (e1) {
+              mouseXPosition = e1.pageX;//register the mouse down position
           });
-          selection.removeAllRanges();
-      });
+          $("#test-text2").mouseup(function(e2){
+            releaseMouse(e2, mouseXPosition);
+          });
+
         }
         else{return false;}
 
+        });   
+
+      $('#editpen2').on('click',function(){
+        if($('#editcheck2').is(':checked') == true){
+          $('.exa').addClass('highlight');
+          $('.exa').removeClass('exa');
+          
+          $('#test-text3 mark, #test-text3 p u').contents().unwrap();
+          
+          $("#test-text3").mousedown(function (e1) {
+              mouseXPositionPen2 = e1.pageX;//register the mouse down position
+          });
+          $("#test-text3").mouseup(function(e2){
+            releaseMouse(e2, mouseXPositionPen2);
+          });
+
+        }
+        else{return false;}
+
+        });   
+    
+      //change select option in pair (e.g day568)
+      $("#pair-head").on("change", function() {
+          var selected = $(this).find(":selected").text();
+          $("#pair-tail").find("option[data-match='"+ selected +"']").prop("selected","selected");
+      });
+
+      $("#pair-tail").on("change", function() {
+          var selected = $(this).find(":selected").attr("data-match");
+         $("#pair-head option:contains('" + selected + "')")
+          .filter(function(i){
+              return $(this).text() === selected;
+          })
+          .prop("selected", true);
       });
 
       $("body").on("contextmenu", "u", function(e) {
@@ -937,6 +885,88 @@ $("#test-text2").mouseup(function (e2) {
           }
       });
   });
+  
+  function releaseMouse(e2, mouseXPosition){
+    var highlighted = false;
+    var selection = window.getSelection();
+    var selectedText = selection.toString();
+    var startPoint = window.getSelection().getRangeAt(0).startOffset;
+    var endPoint = window.getSelection().getRangeAt(0).endOffset;
+    var anchorTag = selection.anchorNode.parentNode;
+    var focusTag = selection.focusNode.parentNode;
+    if ((e2.pageX - mouseXPosition) < 0) {
+        focusTag = selection.anchorNode.parentNode;
+        anchorTag = selection.focusNode.parentNode;
+    }
+    if (selectedText.length === (endPoint - startPoint)) {
+        highlighted = true;
+
+        if (anchorTag.className !== "highlight") {
+            highlightSelection();
+        } else {
+            var afterText = selectedText + "<span class = 'highlight'>" + anchorTag.innerHTML.substr(endPoint) + "</span>";
+            anchorTag.innerHTML = anchorTag.innerHTML.substr(0, startPoint);
+            anchorTag.insertAdjacentHTML('afterend', afterText);
+        }
+
+    } else{
+        if(anchorTag.className !== "highlight" && focusTag.className !== "highlight"){
+            highlightSelection();  
+            highlighted = true;
+        }
+        
+    }
+
+
+    if (anchorTag.className === "highlight" && focusTag.className === 'highlight' && !highlighted) {
+        highlighted = true;
+
+        var afterHtml = anchorTag.innerHTML.substr(startPoint);
+        var outerHtml = selectedText.substr(afterHtml.length, selectedText.length - endPoint - afterHtml.length);
+        var anchorInnerhtml = anchorTag.innerHTML.substr(0, startPoint);
+        var focusInnerHtml = focusTag.innerHTML.substr(endPoint);
+        var focusBeforeHtml = focusTag.innerHTML.substr(0, endPoint);
+        selection.deleteFromDocument();
+        anchorTag.innerHTML = anchorInnerhtml;
+        focusTag.innerHTml = focusInnerHtml;
+        var anchorafterHtml = afterHtml + outerHtml + focusBeforeHtml;
+        anchorTag.insertAdjacentHTML('afterend', anchorafterHtml);
+
+
+    }
+
+    if (anchorTag.className === "highlight" && !highlighted) {
+        highlighted = true;
+        var Innerhtml = anchorTag.innerHTML.substr(0, startPoint);
+        var afterHtml = anchorTag.innerHTML.substr(startPoint);
+        var outerHtml = selectedText.substr(afterHtml.length, selectedText.length);
+        selection.deleteFromDocument();
+        anchorTag.innerHTML = Innerhtml;
+        anchorTag.insertAdjacentHTML('afterend', afterHtml + outerHtml);
+     }
+    
+    if (focusTag.className === 'highlight' && !highlighted) {
+        highlighted = true;
+        var beforeHtml = focusTag.innerHTML.substr(0, endPoint);
+        var outerHtml = selectedText.substr(0, selectedText.length - beforeHtml.length);
+        selection.deleteFromDocument();
+        focusTag.innerHTml = focusTag.innerHTML.substr(endPoint);
+        outerHtml += beforeHtml;
+        focusTag.insertAdjacentHTML('beforebegin', outerHtml );
+
+
+    }
+    if (!highlighted) {
+        highlightSelection();
+    }
+    $('.highlight').each(function(){
+        if($(this).html() == ''){
+            $(this).remove();
+        }
+    });
+    selection.removeAllRanges();
+  };
+
 
   function highlightSelection() {
       var selection;
@@ -969,4 +999,6 @@ $("#test-text2").mouseup(function (e2) {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
+
+
 
