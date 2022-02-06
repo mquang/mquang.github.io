@@ -684,20 +684,26 @@ function arrayShuffle () {
 Array.prototype.shuffle =arrayShuffle;
     
 var start = 1;
-var folder = GLB_FOLDER, end;
-switch(GLB_FOLDER) {
-  case 'gift':    
-    end = 160;
-    break;
-  case 'gift2':
-    end = 135;
-    break;
-  case 'gift4':
-    end = 70;
-    break;
-  default:
-    folder = 'gift3';
-    end = 200;
+var folder, end;
+if(typeof GLB_FOLDER !== 'undefined') {
+  folder = GLB_FOLDER;
+  switch(GLB_FOLDER) {
+    case 'gift':   
+      end = 160;
+      break;
+    case 'gift2': 
+      end = 135;
+      break;
+    case 'gift4':
+      end = 80;
+      break;
+    default:
+      folder = 'gift3';
+      end = 200;
+  }
+} else {
+  folder = 'gift3';
+  end = 200;
 }
 var numbers = new Array(); 
 for (var i = start; i <= end; i++) {
@@ -856,10 +862,11 @@ mouseXPositionPen2 = 0;
       $("body").on("contextmenu", "u", function(e) {
           var title = $(this).attr('data-original-title');
           if(title.includes("ngày")) {
+              $(this).closest('.flip').addClass('hasOpenedContextMenu');
               var extractedDays = title.match(/[+\d+]/g).join('').split('+').map(item => item.trim());
               console.log(extractedDays, extractedDays.length);
 
-              var contextMenu = $('<div>', {id: 'context-menu', class: 'list-group', css: {position: 'absolute', left: e.pageX, top: e.pageY}});
+              var contextMenu = $('<div>', {id: 'context-menu', class: 'list-group', css: {position: 'absolute', left: e.pageX, top: e.pageY, 'z-index': '20'}});
               for(let i = 0; i < extractedDays.length; i++) {
                  let href = "../Tuan" + Math.ceil(extractedDays[i]/7) + "/day" + extractedDays[i] + ".html?review=true";
                  contextMenu.append($('<a>', { class: 'list-group-item', html: '<span class="glyphicon glyphicon-log-in"></span> Ngày ' + extractedDays[i], href: href, target: '_blank', css: {'margin-top': '0px'} }));
@@ -882,6 +889,7 @@ mouseXPositionPen2 = 0;
           if (!container.is(e.target) && container.has(e.target).length === 0) 
           {
               container.remove();
+              $('.flip').removeClass('hasOpenedContextMenu');
           }
       });
   });

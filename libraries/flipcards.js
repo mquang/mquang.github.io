@@ -68,20 +68,22 @@ $("#exitRV").click(function(){
 });
 
 $('.flip').hover(function(){
-  $(this).find('.card').addClass('flipped'); 
+    $(this).find('.card').addClass('flipped'); 
 }, function(){
-  $(this).find('.card').removeClass('flipped');
+  if(!$(this).hasClass('hasOpenedContextMenu')) {
+    $(this).find('.card').removeClass('flipped');
+  }
 });
 
 $('.flip').on('click', function (e) {
-  if($(this).find('.card').hasClass('flipped') && e.target.nodeName != 'SELECT' && e.target.nodeName != 'A') {
+    if($(this).find('.card').hasClass('flipped') && e.target.nodeName != 'SELECT' && e.target.nodeName != 'A') {
     var val = $(this).find('input').val();
     if(val) {
-      var msg = new SpeechSynthesisUtterance(val);
-      if (voiceSelect.value) {
-          msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
+        var msg = new SpeechSynthesisUtterance(val);
+        if (voiceSelect.value) {
+            msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
+        }
+        window.speechSynthesis.speak(msg);
       }
-      window.speechSynthesis.speak(msg);
-    }
- }
-})
+   }
+});
