@@ -180,16 +180,18 @@ function split_at_index(value, index1, index2)
   $('#qbo').bind('change', function(){        
     if($(this).is(':checked') == true){
       QUIZ_ANSWERS.push(word);
-      sulist.push(meaning);
+      sulist.push({'word': word, 'meaning': meaning});
     } else {
       removeA(QUIZ_ANSWERS, word);
-      removeA(sulist, meaning);
+      sulist = sulist.filter(function( obj ) {
+          return obj.word !== word;
+      });
     }
     
     $('.items').find('*').not('h2').remove();
-    sulist = shuffle(sulist);
+    sulist = deepShuffle(sulist);
     for(var id1 = 0; id1 < sulist.length; id1 ++){
-     $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
+     $('.items').prepend('<input id="item'+ id1 +'" data-word="'+sulist[id1].word+'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1].meaning + '</label>');
     }
     clearInterval(timeInterval);
     reset();
@@ -199,17 +201,51 @@ function split_at_index(value, index1, index2)
 
 //END Bonus
 
-
 $('td:nth-child(3)', '#m').each(function(i) {
       id1 ++;
+      var b = $(this).html();
       if($(this).find('img').attr("src") != undefined && $(this).find('img').attr("src").endsWith("\\")) {
         $(this).find('a').remove();
+        b = b.substring(b, b.lastIndexOf("<br>"));
       }
-      var b = $(this).html();
+      
+      var word = $(this).parent().find($('td:nth-child(1)')).text();
+      
       if(b !== ''){
-        sulist.push(b); 
+        sulist.push({'word': word, 'meaning': b}); 
       }
 });
+ 
+function deepShuffle(arr) {
+  var newArr = [];
+  for(var i = 0; i < arr.length; i++) {
+    var meanings = arr[i].meaning;
+    if(meanings.includes("<hr>")) {
+      multiTypeMeanings = shuffle(meanings.split("<hr>"));
+      var temp = [];
+      for(let j = 0; j < multiTypeMeanings.length; j++) {
+          temp.push(shuffleMeaning(multiTypeMeanings[j]));
+      }
+      meanings = temp.join("<hr>");
+    } else {
+      meanings = shuffleMeaning(meanings);
+    }
+    
+    newArr.push({'word': arr[i].word, 'meaning': meanings});
+  }
+  return shuffle(newArr);
+}
+
+function shuffleMeaning(meanings) {
+  if(/\d/.test(meanings) && meanings.includes("<br><br>")) {
+        var wordType = meanings.substring(meanings, meanings.indexOf("<br>") + 4);
+        var meaningExtractWordType = meanings.substring(meanings.indexOf("<br>") + 4);
+        var shuffleInside = shuffle(meaningExtractWordType.split("<br><br>")).join("<br><br>");
+        return wordType + shuffleInside;
+  }  
+  return meanings;
+}
+
   function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -222,9 +258,9 @@ $('td:nth-child(3)', '#m').each(function(i) {
 
     return array;
   }
-  sulist = shuffle(sulist);
+  sulist = deepShuffle(sulist);
   for(var id1 = 0; id1 < sulist.length; id1 ++){
-   $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
+   $('.items').prepend('<input id="item'+ id1 +'" data-word="'+sulist[id1].word+'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1].meaning + '</label>');
   }
 
   var timeInterval;
@@ -323,71 +359,43 @@ $('#m tr td:nth-child(1)').each(function(){
     loadVoices();
   };
 
+ function search(nameKey, array){
+    for (var i=0; i < array.length; i++) {
+        if (array[i].word === nameKey) {
+            return array[i].meaning;
+        }
+    }
+}
+
 
   function checkInput(event) {
     var input = event.currentTarget.value.trim().toLowerCase();
 
-    $('tr td:nth-child(1)', '#m').each(function(i) {
-        var a = $(this).text().toLowerCase();
-        if(input == a){                 
-           var temp = $(this).parent().find($('td:nth-child(3)')).text();
-           
-          $('label','.items').each(function(i) {
-            var b = $(this).text();
-            
-            if(temp == b){
-             var alm = $(this).attr('for');
-             var fini = $(this).parent().find($("input[id='"+alm+"']"));
-             fini.prop('checked', true);
+    for(var i=0; i < sulist.length; i++) {
+       if(input == sulist[i].word.toLowerCase()){                 
+          $('input','.items').each(function(i) {
+            var wordAttr = $(this).attr("data-word");
+            if(input == wordAttr.toLowerCase()){
+             $(this).prop('checked', true);
             }
           });
-        }            
-      });
-
-    //Bonus:
-    $("dfn.ol").closest('div').each(function(){
-        var oristr = $(this).html();
-        var word = $(this).find('dfn.ol').text();
-
-        if(input == word.toLowerCase()){ 
-
-          var meaning = oristr.replace(word, "");          
-          var type = meaning.substring(meaning.indexOf("("), meaning.indexOf(")") + 1);
-          meaning =  type + meaning.substring(meaning.indexOf(":"));
-
-          $('label','.items').each(function(i) {
-
-            var b = $(this).html();
-            var type2 = b.substring(b.indexOf("("), b.indexOf(")") + 1);
-            b = type2 + b.substring(b.indexOf(":"));
-
-            if(meaning == b){
-             var alm = $(this).attr('for');
-             var fini = $(this).parent().find($("input[id='"+alm+"']"));
-             fini.prop('checked', true);
-            }
-        });
-      }     
-    });  
-    //END Bonus
-
+        }           
+    }
 
     if (answers.hasOwnProperty(input) && !answers[input]) {
       answers[input] = true;
-   var msg = new SpeechSynthesisUtterance(input);
+      var msg = new SpeechSynthesisUtterance(input);
 
-   
-
-   if (voiceSelect.value) {
-    msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
-   }
-   window.speechSynthesis.speak(msg);
-      score++;
-      $('.score').text(score);
-      $('.scored-answers').prepend(createAnswerItem(input));
-      $('.input').val('');
-      if (score === QUIZ_ANSWERS.length) {
-        endQuiz();
+      if (voiceSelect.value) {
+        msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
+      }
+      window.speechSynthesis.speak(msg);
+          score++;
+          $('.score').text(score);
+          $('.scored-answers').prepend(createAnswerItem(input));
+          $('.input').val('');
+          if (score === QUIZ_ANSWERS.length) {
+            endQuiz();
       }
     }
   }
@@ -521,9 +529,10 @@ $('#m tr td:nth-child(1)').each(function(){
     $('.toggle').on('click', toggleAnswers);
     $('.reset').on('click', function(){
      $('.items').find('*').not('h2').remove();
-      sulist = shuffle(sulist);
+      //sulist = shuffle(sulist);
+      sulist = deepShuffle(sulist);
       for(var id1 = 0; id1 < sulist.length; id1 ++){
-       $('.items').prepend('<input id="item'+ id1 +'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1] + '</label>');
+       $('.items').prepend('<input id="item'+ id1 +'" data-word="'+sulist[id1].word+'" type="checkbox" onclick="return false" onkeydown="return false"><label for="item' + id1 +'">' + sulist[id1].meaning + '</label>');
       }
       reset();
     });
@@ -695,7 +704,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 135;
       break;
     case 'gift4':
-      end = 80;
+      end = 130;
       break;
     default:
       folder = 'gift3';

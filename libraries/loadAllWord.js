@@ -14,7 +14,7 @@ var oTable = $("#table").DataTable({
     // 'r' - pRocessing
 	dom: 'tp',   //just want to show 't', 'p' (discard 'f' which is showed by default)
 	"language": {
-		"emptyTable": "Chưa có dữ liệu - <button id=\"loadWords\" class=\"btn btn-info btn-sm\">Tải dữ liệu</button>",
+		"emptyTable": "Đang tải dữ liệu...",
 		"zeroRecords": "Không có kết quả nào khớp với từ tìm kiếm",
 	    "paginate": {
 	      "previous": "Trang trước",
@@ -143,8 +143,8 @@ $(window).keydown(function(event){
 $('body').tooltip({
     selector: '.describe'
 });
-
-$("#loadWords").on("click", function(e){	
+	
+function loadAllWords() {
 	topbar.config({
     autoRun      : false, 
     barThickness : 5,
@@ -190,7 +190,7 @@ $("#loadWords").on("click", function(e){
 				week++;
 			}   
 			if(week == (endWeek + 1)){
-				$("#loadWords").hide();
+				$(".overlay").hide();
 				topbar.hide();
 				return;
 			}   		
@@ -255,14 +255,18 @@ $("#loadWords").on("click", function(e){
 		        var prog = 1/totalDay;
 		        topbar.progress('+'+prog);
 		        if(i == totalDay){
-					$("#loadWords").hide();
+					$(".overlay").hide();
 					topbar.hide();
 				}
 			},
 			error: function(request, errorType, errorMsg){
-				$("#loadWords").hide();
+				$(".overlay").hide();
 				topbar.hide();
 			}	
 		}));
     }
+};
+
+$(document).ready(function() {
+    loadAllWords();
 });
