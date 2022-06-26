@@ -1,4 +1,4 @@
-var tuan = 85;
+var tuan = 86;
 
 !function(t){function e(e,n,i,r){var a=e.text(),c=a.split(n),s="";c.length&&(t(c).each(function(t,e){s+='<span class="'+i+(t+1)+'" aria-hidden="true">'+e+"</span>"+r}),e.attr("aria-label",a).empty().append(s))}var n={init:function(){return this.each(function(){e(t(this),"","char","")})},words:function(){return this.each(function(){e(t(this)," ","word"," ")})},lines:function(){return this.each(function(){var n="eefec303079ad17405c889e092e105b0";e(t(this).children("br").replaceWith(n).end(),n,"line","")})}};t.fn.lettering=function(e){return e&&n[e]?n[e].apply(this,[].slice.call(arguments,1)):"letters"!==e&&e?(t.error("Method "+e+" does not exist on jQuery.lettering"),this):n.init.apply(this,[].slice.call(arguments,0))}}(jQuery);  
   $(document).ready(function() {
@@ -59,7 +59,7 @@ for(var i=76; i<=tuan;i++){
      }  
        
       if(thenum == (tuan - 1)){
-          $('.bao').append('<a href="Tuan'+tuan+'/all-words.html"><div class="outer"><div class="document"></div><span id="review">Tổng kết</span></div></a>');
+          $('.bao').append('<a href="all-words.html"><div class="outer"><div class="document"></div><span id="review">Tổng kết</span></div></a>');
       } else {
          $('.bao').append('<a href="Tuan'+(week+1)+'/1.REVIEW'+week+'.html"><div class="outer"><div class="document"></div><span id="review">Review tuần '+ week +'</span></div></a>');
       }    

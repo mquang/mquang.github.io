@@ -82,7 +82,7 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-if(getNextWeek() <= 85){
+if(getNextWeek() <= 86){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <span class="glyphicon glyphicon-log-in"></span></a>');
 }
   
@@ -704,7 +704,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 135;
       break;
     case 'gift4':
-      end = 130;
+      end = 159;
       break;
     default:
       folder = 'gift3';

@@ -213,7 +213,7 @@ function loadAllWords() {
 
 		        trows = response.find('#m tbody tr');
 		        end = trows.length;
-		        var tr = "<tr><th scope='row'><a href=\"../Tuan" + Math.ceil(i/7) + "/day" + i + ".html\" target=\"_blank\">" + i + "</a></th>";
+		        var tr = "<tr><th scope='row'><a href=\"Tuan" + Math.ceil(i/7) + "/day" + i + ".html\" target=\"_blank\">" + i + "</a></th>";
 		        var preT, endT;
 		        for (j = 0; j < 12; j++) {
 		        	//trows[j] tuong duong 1 line tr new word, moi trows[j] gom 4 cot (4 children)

@@ -1,3 +1,13 @@
+const niceColorScheme = [
+  {background: '#FFD154', foreground: '#002795'},
+  {background: '#D9D9D9', foreground: '#C20000'},
+  {background: '#D4B5FF', foreground: '#002795'},
+  {background: '#C20000', foreground: '#D9D9D9'},
+  {background: '#3D3D3D', foreground: '#FFD154'},
+  {background: '#68D69D', foreground: '#401D83'}
+];
+var randomColorScheme = niceColorScheme[Math.floor(Math.random() * niceColorScheme.length)];
+
 var wrapperTest = $('.wrapTest .row'), container, content, days;
 for (var key in vocab_list){
   if(vocab_list[key] && vocab_list[key].imgSrc && vocab_list[key].day) {
@@ -21,7 +31,7 @@ for (var key in vocab_list){
               $('<div/>', {'class' : 'inner text-center'}).append(
                 '<h3>' + key + '</h3>'
               ).append(
-                '<h5>' + vocab_list[key].empl + '</h5>'
+                '<h5 style="text-align:left">' + vocab_list[key].empl + '</h5>'
               )
           )
        )
@@ -45,10 +55,12 @@ for (var key in vocab_list){
         'justify-content': 'center',
         'align-items': 'center',
         'height':'178px',
-        'background': '#88C6ED'
+        'background': randomColorScheme.background
       });
       $(".flip .card .front .inner h3").css({
-        'color': 'black'
+        'font-family': 'Open Sans',
+        'font-weight': 'bold',
+        'color': randomColorScheme.foreground
       });
     }
     }
