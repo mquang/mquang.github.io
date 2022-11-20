@@ -560,7 +560,7 @@ u{
 }
 a img{cursor: zoom-in;}
 .list-group a{color:black;}
-#relax{
+#fixed-footer{
     position: fixed;
     bottom: 0;
     padding: 15px 0;
@@ -571,9 +571,6 @@ a img{cursor: zoom-in;}
     transition: .7s;
 }
 
-/*#relax:hover{
-  left:0;
-}*/
 .display li{margin: -10px 0;list-style-type: none;
     margin: 10px;}
 .display a{
@@ -585,7 +582,7 @@ a img{cursor: zoom-in;}
     text-decoration: none;
     display: inline-block;
 }
-#relax select{position: absolute;height:32px;color:black;}
+
 #pli{
   position: absolute;
   left:30px;
@@ -727,12 +724,13 @@ h1{color:white;}
   left: -100%;
   position: relative; 
 }
-.love{position: absolute;
+#author{position: absolute;
     right: 30px;
     color: #f1f3f4;
     font-weight: bold;
     line-height:32px;
-    height: 32px;}
+    height: 32px;
+}
 .dropdown-btn.visible .dropdown-container li{
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -1431,12 +1429,7 @@ tr{vertical-align: top;}
     font-size:18px;
   }
 
-  #disqus_thread {
-    padding: 50px;
-    background: white;
-  }
-
-  .marquee {
+  #marquee {
     width: calc(100% - 300px);
     height: 20px;
     margin-left: 60px;
@@ -1448,7 +1441,7 @@ tr{vertical-align: top;}
     position: relative;
 }
 
-.marquee div {
+#marquee div {
   display: block;
   text-align: left;
   width: 1680px; /* length of running text */
@@ -1457,11 +1450,11 @@ tr{vertical-align: top;}
   animation: marquee 20s linear infinite;
   }
 
-  .marquee div:hover{
+  #marquee div:hover{
     animation-play-state: paused;
   }
 
-.marquee span {
+  #marquee span {
   float: left;
   width: auto;
 }

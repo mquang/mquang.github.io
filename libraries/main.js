@@ -75,6 +75,8 @@ $(document).ready(function(){
     $(this).load();
   });
 
+  $('#disqus_thread').load('../common.html'); //project needs to be launched under a (development) server to bypass CORS policy error
+
   function getNextWeek(){
     return parseInt($('h3.text-center').text().match(/\d+/)[0]) + 1;
   }
@@ -82,7 +84,7 @@ $(document).ready(function(){
   function getFirstDayInNextWeek(){
     return getNextWeek()*7 - 6;
   }
-if(getNextWeek() <= 86){
+if(getNextWeek() <= 87){
   $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <span class="glyphicon glyphicon-log-in"></span></a>');
 }
   
@@ -603,23 +605,23 @@ function topFunction() {
 
 
 var iDiv = document.createElement('div');
-iDiv.id = 'relax';
+iDiv.id = 'fixed-footer';
 document.getElementsByTagName('body')[0].appendChild(iDiv);
 
-$('#relax').append('<div id="pli"><span class="glyphicon glyphicon-triangle-right" id="collapse"></span></div><div class="marquee"><div></div></div><div class="love"><p>Made with <img src="../images/love.png" /> by <a href="https://www.facebook.com/nmquang.hust" target="_blank"> Minh Quang </a></p></div>');
-$("#relax .marquee div").append('<span>Các ví dụ trên trang đều được mình chọn lọc từ các nguồn uy tín như dictionary.cambridge.org, oxfordlearnersdictionaries.com, longmandictionary (ldoceonline.com), macmillandictionary.com, idioms.thefreedictionary.com, wordsinasentence.com, urbandictionary.com</span>');
+$('#fixed-footer').append('<div id="pli"><span class="glyphicon glyphicon-triangle-right" id="collapse"></span></div><div id="marquee"><div></div></div><div id="author"><p>Made with <img src="../images/love.png" /> by <a href="https://www.facebook.com/nmquang.hust" target="_blank"> Minh Quang </a></p></div>');
+$("#fixed-footer #marquee div").append('<span>Các ví dụ trên trang đều được mình chọn lọc từ các nguồn uy tín như dictionary.cambridge.org, oxfordlearnersdictionaries.com, longmandictionary (ldoceonline.com), macmillandictionary.com, idioms.thefreedictionary.com, wordsinasentence.com, urbandictionary.com</span>');
 
 $(document).on('click','#collapse',function(){
-  $('#relax').css({'left':'calc(100% - 50px)'});
+  $('#fixed-footer').css({'left':'calc(100% - 50px)'});
   $(this).replaceWith('<span class="glyphicon glyphicon-triangle-left" id="expand"></span>');
   
 });
 $(document).on('click','#expand',function(){
-     $('#relax').css('left','0');
+     $('#fixed-footer').css('left','0');
      $(this).replaceWith('<span class="glyphicon glyphicon-triangle-right" id="collapse"></span>');
 });
 
-$('#pli,.love').css('top',$('#relax').height()/2);
+$('#pli, #author').css('top',$('#fixed-footer').height()/2);
 function boldString(str, find){
     var re = new RegExp(escapeRegExp(find), 'g');
     return str.replace(re, '<b>'+find+'</b>');
@@ -705,6 +707,9 @@ if(typeof GLB_FOLDER !== 'undefined') {
       break;
     case 'gift4':
       end = 159;
+      break;
+    case 'gift5':
+      end = 20;
       break;
     default:
       folder = 'gift3';
@@ -1010,12 +1015,6 @@ mouseXPositionPen2 = 0;
       }
   }
 
-(function() { 
-    var d = document, s = d.createElement('script');
-    s.src = 'https://mquang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-})();
 
 
 
