@@ -609,7 +609,7 @@ iDiv.id = 'fixed-footer';
 document.getElementsByTagName('body')[0].appendChild(iDiv);
 
 $('#fixed-footer').append('<div id="pli"><span class="glyphicon glyphicon-triangle-right" id="collapse"></span></div><div id="marquee"><div></div></div><div id="author"><p>Made with <img src="../images/love.png" /> by <a href="https://www.facebook.com/nmquang.hust" target="_blank"> Minh Quang </a></p></div>');
-$("#fixed-footer #marquee div").append('<span>Các ví dụ trên trang đều được mình chọn lọc từ các nguồn uy tín như dictionary.cambridge.org, oxfordlearnersdictionaries.com, longmandictionary (ldoceonline.com), macmillandictionary.com, idioms.thefreedictionary.com, wordsinasentence.com, urbandictionary.com</span>');
+$("#fixed-footer #marquee div").append('<span>Các ví dụ trên trang đều được mình chọn lọc từ các nguồn uy tín như dictionary.cambridge.org, oxfordlearnersdictionaries.com, longmandictionary (ldoceonline.com), macmillandictionary.com, idioms.thefreedictionary.com, wordsinasentence.com</span>');
 
 $(document).on('click','#collapse',function(){
   $('#fixed-footer').css({'left':'calc(100% - 50px)'});
@@ -709,7 +709,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 159;
       break;
     case 'gift5':
-      end = 20;
+      end = 35;
       break;
     default:
       folder = 'gift3';
