@@ -709,7 +709,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 159;
       break;
     case 'gift5':
-      end = 35;
+      end = 40;
       break;
     default:
       folder = 'gift3';
