@@ -2,7 +2,6 @@ const niceColorScheme = [
   {background: '#FFD154', foreground: '#002795'},
   {background: '#D9D9D9', foreground: '#C20000'},
   {background: '#D4B5FF', foreground: '#002795'},
-  {background: '#C20000', foreground: '#D9D9D9'},
   {background: '#3D3D3D', foreground: '#FFD154'},
   {background: '#68D69D', foreground: '#401D83'}
 ];

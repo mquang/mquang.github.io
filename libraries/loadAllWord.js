@@ -2,7 +2,7 @@ function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;
 }
 
-var week = 1, endWeek = 86; day = week*7-6, totalDay = endWeek * 7;
+var week = 1, endWeek = 87; day = week*7-6, totalDay = endWeek * 7;
 $(".head b").append("Tổng hợp toàn bộ danh sách các từ vựng từ tuần " + week + " đến tuần " + endWeek);
 var replacementFlag = true;
 var oTable = $("#table").DataTable({
