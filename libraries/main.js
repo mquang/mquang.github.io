@@ -75,18 +75,7 @@ $(document).ready(function(){
     $(this).load();
   });
 
-  $('#disqus_thread').load('../common.html'); //project needs to be launched under a (development) server to bypass CORS policy error
-
-  function getNextWeek(){
-    return parseInt($('h3.text-center').text().match(/\d+/)[0]) + 1;
-  }
-
-  function getFirstDayInNextWeek(){
-    return getNextWeek()*7 - 6;
-  }
-if(getNextWeek() <= 87){
-  $('.layer4').append('<a href="../Tuan' + getNextWeek() + '/day' + getFirstDayInNextWeek() + '.html" class="btn btn-warning next-week">Tuần kế tiếp <span class="glyphicon glyphicon-log-in"></span></a>');
-}
+  //$('#disqus_thread').load('../common.html'); //project needs to be launched under a (development) server to bypass CORS policy error
   
   $(".dropdown-btn").on('click',function(){
   var a = this.id;
@@ -709,7 +698,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 159;
       break;
     case 'gift5':
-      end = 90;
+      end = 110;
       break;
     default:
       folder = 'gift3';

@@ -924,7 +924,7 @@ h2 {
   $(".list-group-item").on("click", function(e){
     var day = $(this).text().match(/\d+/);
     if(day !== null){
-      var href = "../Tuan" + Math.ceil(day[0]/7) + "/day" + day[0] + ".html";
+      var href = "Tuan" + Math.ceil(day[0]/7) + "/day" + day[0] + ".html";
       $(this).attr("href", href);
     } else {
       return false;
@@ -934,7 +934,7 @@ h2 {
   $("h2").on("dblclick", function(e){
     var day = $(this).text().match(/\d+/);
     if(day !== null){
-      window.location.href = "../Tuan" + Math.ceil(day[0]/7) + "/day" + day[0] + ".html";
+      window.location.href = "Tuan" + Math.ceil(day[0]/7) + "/day" + day[0] + ".html";
     } 
   });
 </script>

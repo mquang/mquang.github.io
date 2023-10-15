@@ -3,7 +3,9 @@ const niceColorScheme = [
   {background: '#D9D9D9', foreground: '#C20000'},
   {background: '#D4B5FF', foreground: '#002795'},
   {background: '#3D3D3D', foreground: '#FFD154'},
-  {background: '#68D69D', foreground: '#401D83'}
+  {background: '#68D69D', foreground: '#401D83'},
+  {background: '#F7C8B6', foreground: '#0B3266'},
+  {background: '#FBE8BD', foreground: 'rgb(44 113 197)'}
 ];
 var randomColorScheme = niceColorScheme[Math.floor(Math.random() * niceColorScheme.length)];
 

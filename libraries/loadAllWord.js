@@ -2,7 +2,7 @@ function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;
 }
 
-var week = 1, endWeek = 87; day = week*7-6, totalDay = endWeek * 7;
+var week = 1, endWeek = 87; day = week*7-6, totalDay = endWeek * 7, nbrOfPages = Math.ceil(totalDay/10);
 $(".head b").append("Tổng hợp toàn bộ danh sách các từ vựng từ tuần " + week + " đến tuần " + endWeek);
 var replacementFlag = true;
 var oTable = $("#table").DataTable({
@@ -17,6 +17,8 @@ var oTable = $("#table").DataTable({
 		"emptyTable": "Đang tải dữ liệu...",
 		"zeroRecords": "Không có kết quả nào khớp với từ tìm kiếm",
 	    "paginate": {
+	      "first": "Trang đầu",
+	      "last": "Trang cuối",
 	      "previous": "Trang trước",
 	      "next": "Trang sau"
 	    }
@@ -25,7 +27,8 @@ var oTable = $("#table").DataTable({
     columnDefs: [{
       orderable: false,
       targets: "no-sort"
-    }]
+    }],
+    pagingType: "input" //dataTable-input.js
 });
 
 var oSettings = oTable.settings();
@@ -40,8 +43,10 @@ $("#custom-search").on("keyup", function() {
         oTable.search("", true, false).draw();
         $("#btn-exp-more").show();
         $('#explainSearch').hide();
+        $('#dice').show();
         return;
     }
+    $('#dice').hide();
     var searchableTexts = [];
     var explainSearch = [];
     
@@ -269,4 +274,34 @@ function loadAllWords() {
 
 $(document).ready(function() {
     loadAllWords();
+
+    var elDice = document.getElementById('dice');
+
+    elDice.onclick   = function () {rollDice();};
+    
+    let lastRandomSide = 0;
+    let lastRandomPage = 1;
+    function rollDice() {
+      let randomSide;
+      let randomPage;
+      do {
+        randomSide = Math.floor((Math.random() * 6) + 1);
+      } while (randomSide === lastRandomSide);
+      lastRandomSide = randomSide;
+
+      do {
+        randomPage = Math.floor((Math.random() * nbrOfPages) + 1);
+      } while (randomPage === lastRandomPage);
+      lastRandomPage = randomPage;
+
+      for (let i = 1; i <= 6; i++) {
+        elDice.classList.remove('show-' + i);
+        if (randomSide === i) {
+          elDice.classList.add('show-' + i);
+          document.getElementById('side-' + i).innerText = randomPage;
+          oTable.page(randomPage-1).draw('page');
+        }
+      }
+    }
+
 });

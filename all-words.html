@@ -8,6 +8,7 @@
   <script src="libraries\topbar.js"></script>
   <script src="libraries\bootstrap.min.js"></script>
   <script src="libraries\jquery.highlight.js"></script>
+  <script src="libraries\dataTable-input.js"></script>
   <link rel="stylesheet" href="libraries\datatables.min.css">
   <link rel="stylesheet" href="libraries\bootstrap.min.css">
   <link rel="shortcut icon" href="images/favicon.ico" >
@@ -127,6 +128,66 @@
     transform: rotate(360deg);
   }
 }
+
+
+.dice {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transition: transform 1s; 
+  float:right;
+  margin: 10px 285px 0 0;
+  cursor: pointer;
+}
+.side {
+  position: absolute;
+  background-color: #ffF;
+  border-radius:5px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side:nth-child(1) {
+  transform: translateZ(1.5em); }
+
+.side:nth-child(6) {
+  transform: rotateY(90deg) translateZ(1.5em); }
+
+.side:nth-child(3) {
+  transform: rotateY(-90deg) translateZ(1.5em); }
+
+.side:nth-child(4) {
+  transform: rotateX(90deg) translateZ(1.5em); }
+
+.side:nth-child(5) {
+  transform: rotateX(-90deg) translateZ(1.5em); }
+
+.side:nth-child(2) {
+  transform: rotateY(-180deg) translateZ(1.5em); }
+
+.show-1 {
+  transform: rotateX(720deg) rotateZ(-720deg); }
+
+.show-2 {
+  transform: rotateX(-900deg) rotateZ(900deg); }
+
+.show-6 {
+  transform: rotateY(-450deg) rotateZ(-1440deg); }
+
+.show-3 {
+  transform: rotateY(810deg) rotateZ(720deg); }
+
+.show-4 {
+  transform: rotateX(-810deg) rotateZ(-1080deg); }
+
+.show-5 {
+  transform: rotateX(90deg) rotateZ(-720deg); }
+
   </style>
 
 </head>
@@ -190,11 +251,22 @@
 		        
 		      </tbody>
 		</table>
+
+    <div id='dice' class="dice describe" data-toggle="tooltip" data-placement="bottom" title="Tung xúc xắc để di chuyển đến một trang bất kì">
+      <div id="side-1" class='side'>1</div>
+      <div id="side-2" class='side'>2</div>
+      <div id="side-3" class='side'>3</div>
+      <div id="side-4" class='side'>4</div>
+      <div id="side-5" class='side'>5</div>
+      <div id="side-6" class='side'>6</div>
+    </div>
+
+
 	</div>
 </div>
 </body>
 <script type="text/javascript">
-	var version = "20230519";
+	const version = "20231015";
 </script>
 <script src="libraries\loadAllWord.js"></script>
 </html>

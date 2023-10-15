@@ -1411,10 +1411,11 @@ tr{vertical-align: top;}
 }
 
 .next-week{
-  margin: 50px auto;
+  margin: 0 auto;
   display: table;
   color: black;
   font-weight: bold;
+  position: relative;
 }
 
  .modal-body{
