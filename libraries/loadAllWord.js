@@ -275,6 +275,8 @@ function loadAllWords() {
 $(document).ready(function() {
     loadAllWords();
 
+    $('#custom-search').focus();
+
     var elDice = document.getElementById('dice');
 
     elDice.onclick   = function () {rollDice();};

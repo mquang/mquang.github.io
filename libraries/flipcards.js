@@ -10,6 +10,7 @@ const niceColorScheme = [
 var randomColorScheme = niceColorScheme[Math.floor(Math.random() * niceColorScheme.length)];
 
 var wrapperTest = $('.wrapTest .row'), container, content, days;
+if(typeof vocab_list !== 'undefined') {
 for (var key in vocab_list){
   if(vocab_list[key] && vocab_list[key].imgSrc && vocab_list[key].day) {
     container = $('<div class="col-sm-3"></div>');
@@ -73,8 +74,33 @@ if(Object.keys(vocab_list).length > 8) {
     });
     $(".row .col-sm-3").css("margin-bottom", "1%");
 }
+} else if(typeof video_list !== 'undefined') {
 
+   let content = $('<div/>', {'class' : 'video-grid'});
+   for(let i = 0; i < video_list.length; i++) {
+      let vidItem = $('<div/>', {'class' : 'video-item'});
+      vidItem.append(
+            $('<video controls/>').append(
+                $('<source/>', {'src' : video_list[i].vidSrc})
+            )
+      );
 
+      let wrapWords = $('<div/>', {'class': 'wrap-word'});
+      for (let j = 0; j < video_list[i].words.length; j++) {
+        let word = video_list[i].words[j];
+        wrapWords.append(
+           '<u title="ngày ' + word.day + '">' + word.word + '</u>'
+        )
+      }
+      vidItem.append(wrapWords);
+      content.append(vidItem);
+   }
+   wrapperTest.append(content);
+}
+
+$('.video-item video').on('ended',function(){
+   $(this).next('.wrap-word').show();
+});
 
 $("#exitRV").click(function(){
     $('.wrapTest').hide();
@@ -99,4 +125,15 @@ $('.flip').on('click', function (e) {
         window.speechSynthesis.speak(msg);
       }
    }
+});
+
+$('.wrap-word u').on('click', function (e) { 
+    var val = $(this).text();
+    if(val) {
+      var msg = new SpeechSynthesisUtterance(val);
+      if (voiceSelect.value) {
+          msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
+      }
+      window.speechSynthesis.speak(msg);
+    }
 });

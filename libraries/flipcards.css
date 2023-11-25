@@ -72,3 +72,46 @@
   display: inline-block;
   text-align: left;
 }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.video-item {
+  width: 100%;
+}
+
+.video-item video {
+  width: 100%;
+  height: 330px;
+}
+
+.wrap-word {
+  display: none;
+  height:80px;
+  overflow: auto;
+}
+
+.wrap-word::-webkit-scrollbar{
+  width:10px;
+}
+
+.wrap-word::-webkit-scrollbar-thumb {
+    background: white;
+}
+.wrap-word::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.4);
+}
+
+.wrap-word u {
+  display: inline-flex;
+  color: white;
+  margin: 0.3rem 0.5rem;
+  width: fit-content;
+  background-color: #334155;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-bottom: none;
+}

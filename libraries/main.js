@@ -71,6 +71,10 @@ $(document).ready(function(){
       newSrc = vidSrc.replace("../vids", "https://github.com/mquang/static-content-2/blob/master/vids");
       newSrc = newSrc.concat("?raw=true");  
       $(this).find("source").attr('src', newSrc);
+    } else if(vidSrc.includes("listening")) {  
+      newSrc = vidSrc.replace("../listening", "https://github.com/mquang/static-content-2/blob/master/listening");
+      newSrc = newSrc.concat("?raw=true");  
+      $(this).find("source").attr('src', newSrc);
     }
     $(this).load();
   });
@@ -698,7 +702,7 @@ if(typeof GLB_FOLDER !== 'undefined') {
       end = 159;
       break;
     case 'gift5':
-      end = 110;
+      end = 120;
       break;
     default:
       folder = 'gift3';
